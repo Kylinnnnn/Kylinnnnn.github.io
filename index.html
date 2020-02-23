@@ -197,93 +197,6 @@ var _hmt = _hmt || [];
             
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/02/23/hello-world/" target="_blank">Hello World</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/02/23/hello-world/" class="archive-article-date">
-        <time datetime="2020-02-23T11:38:06.649Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-23</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/02/23/hello-world/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Windows上MySQL安装及Navicat连接数据库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -313,10 +226,65 @@ var _hmt = _hmt || [];
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>[TOC]</p>
-    
-    <a class="article-more-a" href="/2020/02/21/Windows%E4%B8%8AMySQL%E5%AE%89%E8%A3%85%E5%8F%8ANavicat%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93/#more">more >></a>
-    
+    <a id="more"></a>
+
+<p>此次需要在自己电脑上安装MySQL服务，虽说网上有许多教程，但实际操作起来还是一步一坑，需要自己另寻解决问题的方法。所以在安装完成之后就打算写篇博客记录一下过程，并将期间遇到的问题和解决办法汇总一下。</p>
+<h2 id="一、MySQL与Navicat的下载"><a href="#一、MySQL与Navicat的下载" class="headerlink" title="一、MySQL与Navicat的下载"></a>一、MySQL与Navicat的下载</h2><p>这一部分不用详述,自行寻找下载地址下载对应版本即可，此处放上MySQL的<a href="<https://dev.mysql.com/downloads/mysql/>,">下载连接</a>。稍加注意的一点是，我采用的是免安装版的MySQL，因此本博客中内容都是以此为前提。</p>
+<h2 id="二、MySQL的配置"><a href="#二、MySQL的配置" class="headerlink" title="二、MySQL的配置"></a>二、MySQL的配置</h2><p>1、解压压缩包</p>
+<p>解压压缩包中的文件夹到任意位置。压缩包中文件结构如下：</p>
+<p><img src="https://kylinnnnn.github.io/img/MySQL01.png" alt=""></p>
+<p>这里有一点，MySQL的免安装版的压缩包中自5.7版本之后就不再含有data文件夹了。但是</p>
+<p><strong>千万不要自己手动添加data文件夹</strong>，</p>
+<p>自己手动添加的文件夹会对后面程序自动生成文件夹造成影响。即使是自己后面又删除了似乎也是不行的。</p>
+<p>2、打开控制面板</p>
+<p>注意要以管理员权限打开控制面板。然后进入MySQL文件目录下的bin文件夹下。</p>
+<p><img src="https://kylinnnnn.github.io/img/MySQL02.png" alt=""></p>
+<p>3、初始化配置</p>
+<p>用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld --initialize-insecure</span><br></pre></td></tr></table></figure>
+
+<p>来使程序自动对文件夹完成初始化配置，完成之后，即可在bin文件夹上一级目录下看到data文件夹。</p>
+<p><img src="https://kylinnnnn.github.io/img/MySQL03.png" alt=""></p>
+<p><img src="https://kylinnnnn.github.io/img/MySQL04.png" alt=""></p>
+<p>4、安装及启用MySQL服务</p>
+<p>分别使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld install</span><br></pre></td></tr></table></figure>
+
+<p>和</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net start mysql</span><br></pre></td></tr></table></figure>
+
+<p>来安装和启用MySQL服务。</p>
+<p><img src="https://kylinnnnn.github.io/img/MySQL05.png" alt=""></p>
+<p>5、使用MySQL</p>
+<p>然后输入命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+
+<p>进入MySQL服务。</p>
+<p>此处要注意的一点是，第一次登入是不需要密码的，直接回车即可。</p>
+<p>错误演示如下:</p>
+<p><img src="https://kylinnnnn.github.io/img/MySQL06.png" alt=""></p>
+<p>通过使用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;PASSWORD&#39;;  #注意冒号</span><br></pre></td></tr></table></figure>
+
+<p>可以设置用户的密码，PASSWORD是代替密码的占位符，自行替换。</p>
+<h2 id="三、Navicat连接"><a href="#三、Navicat连接" class="headerlink" title="三、Navicat连接"></a>三、Navicat连接</h2><p>打开Navicat后点击左上角的连接输入对应的用户名与密码即可连接，然后就可以通过Navicat来管理数据库了。</p>
+<h2 id="四、问题汇总"><a href="#四、问题汇总" class="headerlink" title="四、问题汇总"></a>四、问题汇总</h2><p>1、如果在初始化之前手动添加了data文件夹，或者为进行初始化配置就<code>mysqld install</code>，然后<code>net start mysql</code>。此时会无法启动服务，并且控制台上会显示，服务没有报告任何错误，如下：</p>
+<p><img src="https://kylinnnnn.github.io/img/MySQL08.png" alt=""></p>
+<p>2、输入了初始化指令但是并没有生成data文件夹。</p>
+<p><strong>解</strong>：这个问题我没有搞懂，但是按照网上的一种说法试了之后发现有用。根据搜索来的资料来看，可能是MySQL文件夹名里含有非法字符，因此改下文件名就行，我是改成<code>MySQL</code>之后发现就可以进行初始化配置了。</p>
+<p>3、Navicat连接MySQL时出现2059错误。</p>
+<p><strong>解</strong>：这个原因是在MySQL 8之前的加密规则为<code>mysql_native_password</code>，而在MySQL 8之后的加密规则为<code>caching_sha2_password</code>。根据查阅来的资料来看，有两种方法可以解决，一是更新Navicat的驱动，二是修改用户登录的加密规则。此处就第二种方法进行演示：</p>
+<p>输入命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;password&#39; PASSWORD EXPIRE NEVER; #修改加密规则</span><br></pre></td></tr></table></figure>
+
+<p>然后输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;password&#39;;  #更新一下用户的密码</span><br></pre></td></tr></table></figure>
+
+<p>最后用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FLUSH PRIVILEGES;#刷新权限</span><br></pre></td></tr></table></figure>
+
+<p>按此操作后再次使用Navicat连接即可正常连接上MySQL。另外，这里的<code>root</code>、<code>locahost</code>、<code>password</code>同样为用户名、IP、密码的占位符，注意自行替换。</p>
+
     
 
     
@@ -1084,6 +1052,94 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-排序算法（一）冒泡排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/09/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" target="_blank">排序算法（一）冒泡排序</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/09/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" class="archive-article-date">
+        <time datetime="2019-09-09T01:03:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-09</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="一、一些基本概念"><a href="#一、一些基本概念" class="headerlink" title="一、一些基本概念"></a>一、一些基本概念</h1>
+    
+    <a class="article-more-a" href="/2019/09/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/09/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1254,15 +1310,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">软件可靠性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">软件可靠性</a>
               </li>
              
               <li class="article-tag-list-item">
