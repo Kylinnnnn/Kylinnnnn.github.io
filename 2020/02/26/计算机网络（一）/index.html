@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork12.png">
 <meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork13.png">
 <meta property="article:published_time" content="2020-02-26T14:39:05.000Z">
-<meta property="article:modified_time" content="2020-02-29T12:57:32.976Z">
+<meta property="article:modified_time" content="2020-02-29T13:00:28.323Z">
 <meta property="article:author" content="Kylin">
 <meta property="article:tag" content="计算机网络">
 <meta property="article:tag" content="笔记">
@@ -351,257 +351,25 @@ var _hmt = _hmt || [];
 <td>相比电路交换并发度高；相比报文交换更加灵活，对中间结点的储存能力要求较低。</td>
 <td>排队时延；首部的添加增加了空间开销</td>
 </tr>
-<tr>
-<td>—–</td>
-<td>—–</td>
-<td>—–</td>
-</tr>
-<tr>
-<td>## （四）网络的分类</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><img src="https://Kylinnnnn.github.io/img/ComputerNetwork08.png" alt=""></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>## （五）计算机网络的性能指标</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>计算机网络的性能指标有7个：速率（rate）、带宽（bandwidth）、吞吐量（throughput）、时延（delay）、时延带宽积（bandwidth-delay product）、往返时间（RTT）、利用率。</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>### 1.速率（rate）</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>速率是指数据的传送速率，也称数据率或比特率。单位为<code>bit/s</code>、<code>kbit/s</code>等。</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>进制如下</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>$$1 Gbit/s = 10^3 Mbit/s = 10^6 kbit/s = 10^9 bit/s$$</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>PS:$$1 bit/s = 1bps$$</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>### 2.带宽（bandwidth）</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>带宽有两个含义。一个含义是指信号的频带宽度，单位为Hz。</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>但在计算机网络中为另一个含义：单位时间内某信道通过的“最高数据率”，单位为<code>bit/s</code>。因此，更宽的链路意味着每秒有更多比特从计算机注入到链路。</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>在时间轴上，信号的宽度随着带宽的增大而变窄。</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><img src="https://Kylinnnnn.github.io/img/ComputerNetwork09.png" alt=""></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>### 3.吞吐量</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>吞吐量表示的是单位时间内通过某个网络（接口或者信道）的数据量。</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>### 4.时延</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>时延是指数据从网络的一段传输到另一端所需要的时间。</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>时延共分为四类：</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><img src="https://Kylinnnnn.github.io/img/ComputerNetwork10.png" alt=""></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>其中，排队时延与处理时延通常来说时间最长。</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>另外，四种时延产生的地方也不同</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><img src="https://Kylinnnnn.github.io/img/ComputerNetwork11.png" alt=""></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>计算：</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>$$发送时延 = \frac{数据长度（bit）}{发送速率（bit/s），即带宽}$$</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>$$传播时延 = \frac{信道长度（m）}{在信道中的传播速率（m/s）}$$</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>### 5.时延带宽积</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>时延带宽积又称为以比特为单位的链路长度。</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>$$时延带宽积 = 传播时延 \times 带宽$$</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>### 6.往返时间</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>往返时间表示从发送方发送数据开始，到发送方收到来自接受饭的确认信息为止的用时。</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>### 7.利用率</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>利用率分为<strong>信道利用率</strong>和<strong>网络利用率</strong>。</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>信道利用率指出某条信道有百分之几的时间是被利用的。完全空闲的信道利用率是零。</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>网络利用率是全网络的信道利用率的加权平均值。</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>PS：信道的利用率并非越高越好。信道的利用率越高，其中的时延就越大，因此某些专用信道并不需要太高的利用率。</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><img src="https://Kylinnnnn.github.io/img/ComputerNetwork12.png" alt=""></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>## （六）计算机网络的体系结构</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>本小节只概括性的谈谈一点基础概念以及网络分层的意义与实质。详细部分可以看我另一篇笔记向博文“TCP/IP：OSI参考模型与TCP/IP参考模型”。</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>网络协议的三要素：语法、语义、时序。</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><img src="https://Kylinnnnn.github.io/img/ComputerNetwork13.png" alt=""></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>网络分层的优点：</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>* 各层独立</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>* 灵活性好</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>* 易于维护</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>* 结构上可分割</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>* 促进标准化</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>缺点：</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>* 部分功能在各层有不必要的重复</td>
-<td></td>
-<td></td>
-</tr>
 </tbody></table>
+<h2 id="（四）网络的分类"><a href="#（四）网络的分类" class="headerlink" title="（四）网络的分类"></a>（四）网络的分类</h2><p><img src="https://Kylinnnnn.github.io/img/ComputerNetwork08.png" alt=""></p>
+<h2 id="（五）计算机网络的性能指标"><a href="#（五）计算机网络的性能指标" class="headerlink" title="（五）计算机网络的性能指标"></a>（五）计算机网络的性能指标</h2><p>计算机网络的性能指标有7个：速率（rate）、带宽（bandwidth）、吞吐量（throughput）、时延（delay）、时延带宽积（bandwidth-delay product）、往返时间（RTT）、利用率。</p>
+<h3 id="1-速率（rate）"><a href="#1-速率（rate）" class="headerlink" title="1.速率（rate）"></a>1.速率（rate）</h3><p>速率是指数据的传送速率，也称数据率或比特率。单位为<code>bit/s</code>、<code>kbit/s</code>等。<br>进制如下<br>$$1 Gbit/s = 10^3 Mbit/s = 10^6 kbit/s = 10^9 bit/s$$<br>PS:$$1 bit/s = 1bps$$</p>
+<h3 id="2-带宽（bandwidth）"><a href="#2-带宽（bandwidth）" class="headerlink" title="2.带宽（bandwidth）"></a>2.带宽（bandwidth）</h3><p>带宽有两个含义。一个含义是指信号的频带宽度，单位为Hz。<br>但在计算机网络中为另一个含义：单位时间内某信道通过的“最高数据率”，单位为<code>bit/s</code>。因此，更宽的链路意味着每秒有更多比特从计算机注入到链路。<br>在时间轴上，信号的宽度随着带宽的增大而变窄。<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork09.png" alt=""></p>
+<h3 id="3-吞吐量"><a href="#3-吞吐量" class="headerlink" title="3.吞吐量"></a>3.吞吐量</h3><p>吞吐量表示的是单位时间内通过某个网络（接口或者信道）的数据量。</p>
+<h3 id="4-时延"><a href="#4-时延" class="headerlink" title="4.时延"></a>4.时延</h3><p>时延是指数据从网络的一段传输到另一端所需要的时间。<br>时延共分为四类：<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork10.png" alt=""><br>其中，排队时延与处理时延通常来说时间最长。<br>另外，四种时延产生的地方也不同<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork11.png" alt=""><br>计算：<br>$$发送时延 = \frac{数据长度（bit）}{发送速率（bit/s），即带宽}$$<br>$$传播时延 = \frac{信道长度（m）}{在信道中的传播速率（m/s）}$$</p>
+<h3 id="5-时延带宽积"><a href="#5-时延带宽积" class="headerlink" title="5.时延带宽积"></a>5.时延带宽积</h3><p>时延带宽积又称为以比特为单位的链路长度。<br>$$时延带宽积 = 传播时延 \times 带宽$$</p>
+<h3 id="6-往返时间"><a href="#6-往返时间" class="headerlink" title="6.往返时间"></a>6.往返时间</h3><p>往返时间表示从发送方发送数据开始，到发送方收到来自接受饭的确认信息为止的用时。</p>
+<h3 id="7-利用率"><a href="#7-利用率" class="headerlink" title="7.利用率"></a>7.利用率</h3><p>利用率分为<strong>信道利用率</strong>和<strong>网络利用率</strong>。<br>信道利用率指出某条信道有百分之几的时间是被利用的。完全空闲的信道利用率是零。<br>网络利用率是全网络的信道利用率的加权平均值。<br>PS：信道的利用率并非越高越好。信道的利用率越高，其中的时延就越大，因此某些专用信道并不需要太高的利用率。<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork12.png" alt=""></p>
+<h2 id="（六）计算机网络的体系结构"><a href="#（六）计算机网络的体系结构" class="headerlink" title="（六）计算机网络的体系结构"></a>（六）计算机网络的体系结构</h2><p>本小节只概括性的谈谈一点基础概念以及网络分层的意义与实质。详细部分可以看我另一篇笔记向博文“TCP/IP：OSI参考模型与TCP/IP参考模型”。<br>网络协议的三要素：语法、语义、时序。<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork13.png" alt=""><br>网络分层的优点：</p>
+<ul>
+<li>各层独立</li>
+<li>灵活性好</li>
+<li>易于维护</li>
+<li>结构上可分割</li>
+<li>促进标准化<br>缺点：</li>
+<li>部分功能在各层有不必要的重复</li>
+</ul>
 <p>通信虚电路：通信是在双方的对等层之间进行，第N层只能与对方的第N层通信。<br>通信实电路：网络体系结构的每一层将数据和控制信息传递给下层直至最底层，通过物理介质进行传输。<br>因此，<strong>多层通信的实质</strong>是：<br>①.对等层之间进行虚拟通信<br>②.上层向下层传递数据和控制信息，或者说上层调用下层所提供的服务。<br>③.实际通信在双方的最底层之间进行。</p>
 
     
@@ -743,7 +511,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、前言"><span class="toc-number">1.</span> <span class="toc-text">一、前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、第一章-概述"><span class="toc-number">2.</span> <span class="toc-text">二、第一章 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）简介"><span class="toc-number">2.1.</span> <span class="toc-text">（一）简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-计算机网络与互联网"><span class="toc-number">2.1.1.</span> <span class="toc-text">1.计算机网络与互联网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-互联网的发展历史"><span class="toc-number">2.1.2.</span> <span class="toc-text">2.互联网的发展历史</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）互联网的组成"><span class="toc-number">2.2.</span> <span class="toc-text">（二）互联网的组成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-边缘部分"><span class="toc-number">2.2.1.</span> <span class="toc-text">1.边缘部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-核心部分"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.核心部分</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（三）数据交换技术"><span class="toc-number">2.3.</span> <span class="toc-text">（三）数据交换技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-电路交换"><span class="toc-number">2.3.1.</span> <span class="toc-text">1.电路交换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-报文交换"><span class="toc-number">2.3.2.</span> <span class="toc-text">2.报文交换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-分组交换"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.分组交换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-总结"><span class="toc-number">2.3.4.</span> <span class="toc-text">4.总结</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、前言"><span class="toc-number">1.</span> <span class="toc-text">一、前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、第一章-概述"><span class="toc-number">2.</span> <span class="toc-text">二、第一章 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）简介"><span class="toc-number">2.1.</span> <span class="toc-text">（一）简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-计算机网络与互联网"><span class="toc-number">2.1.1.</span> <span class="toc-text">1.计算机网络与互联网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-互联网的发展历史"><span class="toc-number">2.1.2.</span> <span class="toc-text">2.互联网的发展历史</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）互联网的组成"><span class="toc-number">2.2.</span> <span class="toc-text">（二）互联网的组成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-边缘部分"><span class="toc-number">2.2.1.</span> <span class="toc-text">1.边缘部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-核心部分"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.核心部分</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（三）数据交换技术"><span class="toc-number">2.3.</span> <span class="toc-text">（三）数据交换技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-电路交换"><span class="toc-number">2.3.1.</span> <span class="toc-text">1.电路交换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-报文交换"><span class="toc-number">2.3.2.</span> <span class="toc-text">2.报文交换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-分组交换"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.分组交换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-总结"><span class="toc-number">2.3.4.</span> <span class="toc-text">4.总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（四）网络的分类"><span class="toc-number">2.4.</span> <span class="toc-text">（四）网络的分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（五）计算机网络的性能指标"><span class="toc-number">2.5.</span> <span class="toc-text">（五）计算机网络的性能指标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-速率（rate）"><span class="toc-number">2.5.1.</span> <span class="toc-text">1.速率（rate）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-带宽（bandwidth）"><span class="toc-number">2.5.2.</span> <span class="toc-text">2.带宽（bandwidth）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-吞吐量"><span class="toc-number">2.5.3.</span> <span class="toc-text">3.吞吐量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-时延"><span class="toc-number">2.5.4.</span> <span class="toc-text">4.时延</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-时延带宽积"><span class="toc-number">2.5.5.</span> <span class="toc-text">5.时延带宽积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-往返时间"><span class="toc-number">2.5.6.</span> <span class="toc-text">6.往返时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-利用率"><span class="toc-number">2.5.7.</span> <span class="toc-text">7.利用率</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（六）计算机网络的体系结构"><span class="toc-number">2.6.</span> <span class="toc-text">（六）计算机网络的体系结构</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
