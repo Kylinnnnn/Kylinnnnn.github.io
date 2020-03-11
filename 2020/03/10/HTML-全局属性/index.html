@@ -10,16 +10,16 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="HTML的全局属性是可以用于所有元素的属性。加粗的是HTML新增的属性。|全局属性|功能描述||—|—||accesskey|规定激活（使元素获得焦点）元素的快捷键||class|规定一个或多个元素的类名（便于引用层叠样式表中的元素）||contenteditable|规定元素内容是否可编辑||contextmenu|规定元素的上下文菜单，上下文菜单在用户点击元素时显示| contextmenu属">
+  <meta name="description" content="HTML的全局属性是可以用于所有元素的属性。加粗的是HTML新增的属性。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTML 全局属性">
 <meta property="og:url" content="http://kylinnnnn.github.io/2020/03/10/HTML-%E5%85%A8%E5%B1%80%E5%B1%9E%E6%80%A7/index.html">
 <meta property="og:site_name" content="Kylin&#39;s Collection Box">
-<meta property="og:description" content="HTML的全局属性是可以用于所有元素的属性。加粗的是HTML新增的属性。|全局属性|功能描述||—|—||accesskey|规定激活（使元素获得焦点）元素的快捷键||class|规定一个或多个元素的类名（便于引用层叠样式表中的元素）||contenteditable|规定元素内容是否可编辑||contextmenu|规定元素的上下文菜单，上下文菜单在用户点击元素时显示| contextmenu属">
+<meta property="og:description" content="HTML的全局属性是可以用于所有元素的属性。加粗的是HTML新增的属性。">
 <meta property="og:image" content="https://kylinnnnn.github.io/img/HTML02.png">
 <meta property="og:image" content="https://kylinnnnn.github.io/img/HTML02.png">
 <meta property="article:published_time" content="2020-03-10T03:19:51.000Z">
-<meta property="article:modified_time" content="2020-03-10T05:14:55.951Z">
+<meta property="article:modified_time" content="2020-03-11T01:56:11.806Z">
 <meta property="article:author" content="Kylin">
 <meta property="article:tag" content="HTML">
 <meta property="article:tag" content="前端">
@@ -249,7 +249,32 @@ var _hmt = _hmt || [];
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>HTML的全局属性是可以用于所有元素的属性。<br><strong>加粗的是HTML新增的属性。</strong><br>|全局属性|功能描述|<br>|—|—|<br>|accesskey|规定激活（使元素获得焦点）元素的快捷键|<br>|class|规定一个或多个元素的类名（便于引用层叠样式表中的元素）|<br>|<strong>contenteditable</strong>|规定元素内容是否可编辑|<br>|<strong>contextmenu</strong>|规定元素的上下文菜单，上下文菜单在用户点击元素时显示|</p>
+    <p>HTML的全局属性是可以用于所有元素的属性。<br><strong>加粗的是HTML新增的属性。</strong></p>
+<a id="more"></a>
+<table>
+<thead>
+<tr>
+<th>全局属性</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>accesskey</td>
+<td>规定激活（使元素获得焦点）元素的快捷键</td>
+</tr>
+<tr>
+<td>class</td>
+<td>规定一个或多个元素的类名（便于引用层叠样式表中的元素）</td>
+</tr>
+<tr>
+<td><strong>contenteditable</strong></td>
+<td>规定元素内容是否可编辑</td>
+</tr>
+<tr>
+<td><strong>contextmenu</strong></td>
+<td>规定元素的上下文菜单，上下文菜单在用户点击元素时显示</td>
+</tr>
+</tbody></table>
 <p>contextmenu属性目前还只有Firefox支持，我这还没有，所以也不知道实际效果是怎么样的。<br><img src="https://kylinnnnn.github.io/img/HTML02.png" alt=""><br>再贴一段w3schools的样例代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;p contextmenu&#x3D;&quot;supermenu&quot;&gt;本段落拥有一个名为 &quot;supermenu&quot; 的上下文菜单。这个菜单会在用户右键单击该段落时出现。&lt;&#x2F;p&gt;  </span><br><span class="line"></span><br><span class="line">&lt;menu id&#x3D;&quot;supermenu&quot;&gt;</span><br><span class="line">  &lt;command label&#x3D;&quot;Step 1: Write Tutorial&quot; onclick&#x3D;&quot;doSomething()&quot;&gt;</span><br><span class="line">  &lt;command label&#x3D;&quot;Step 2: Edit Tutorial&quot; onclick&#x3D;&quot;doSomethingElse()&quot;&gt;</span><br><span class="line">&lt;&#x2F;menu&gt;</span><br><span class="line"></span><br><span class="line">&lt;p&gt;&lt;b&gt;注释：&lt;&#x2F;b&gt;目前只有 Firefox 支持 contextmenu 属性。&lt;&#x2F;p&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
 <table>
