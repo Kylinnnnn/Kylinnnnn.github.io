@@ -227,7 +227,7 @@ var _hmt = _hmt || [];
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">814字</span>
+      <span class="post-count">824字</span>
     </span>
   </span>
 
@@ -247,18 +247,10 @@ var _hmt = _hmt || [];
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="基础数据类型和复合数据类型"><a href="#基础数据类型和复合数据类型" class="headerlink" title="基础数据类型和复合数据类型"></a>基础数据类型和复合数据类型</h2><p>Javascript的数据类型主要分为基础数据类型和符合数据类型两种。</p>
-<h3 id="基础数据类型"><a href="#基础数据类型" class="headerlink" title="基础数据类型"></a>基础数据类型</h3><p>基础数据类型，又称为值类型。包括字符串<code>(String)</code>、数字<code>(Number)</code>、布尔<code>(Boolean)</code>、空<code>(NULL)</code>、未定义<code>(undefined)</code>、Symbol。</p>
-<h3 id="复合数据类型"><a href="#复合数据类型" class="headerlink" title="复合数据类型"></a>复合数据类型</h3><p>复合数据类型，又称为引用数据类型。包括对象<code>(Object)</code>、数组<code>(Array)</code>、函数<code>(Function)</code>。<br>之所以称为引用数据类型是有原因的。先看如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; 1;</span><br><span class="line">var numberChange &#x3D; function(a)&#123;</span><br><span class="line">    a &#x3D; 5;</span><br><span class="line">    console.log(a); &#x2F;&#x2F; 5</span><br><span class="line">&#125;</span><br><span class="line">console.log(a); &#x2F;&#x2F; 1</span><br><span class="line">numberChange(a);</span><br><span class="line">console.log(a); &#x2F;&#x2F; 1</span><br></pre></td></tr></table></figure>
-<p><img src="https://Kylinnnnn.github.io/img/Javascript01.png" alt=""><br>很显然我们可以看到，对于形参的改变，并不会影响到实参。因为形参的作用域仅限在函数之中，当函数执行结束时，形参的空间便会一起被销毁。而函数中的输出之所以为5，是因为在访问参数是会自动访问作用域最近的参数的内存空间。<br>然后我们再来看下面这另一段代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1,2,3,4];</span><br><span class="line">var changeNum &#x3D; function(arr)&#123;</span><br><span class="line">    console.log(arr); &#x2F;&#x2F;1,2,3,4</span><br><span class="line">    arr1.push(5);</span><br><span class="line">    console.log(arr);&#x2F;&#x2F;1,2,3,4,5</span><br><span class="line">&#125;</span><br><span class="line">console.log(arr); &#x2F;&#x2F;1,2,3,4</span><br><span class="line">changeNum(arr);</span><br><span class="line">console.log(arr);&#x2F;&#x2F;1,2,3,4,5</span><br></pre></td></tr></table></figure>
-<p><img src="https://Kylinnnnn.github.io/img/Javascript02.png" alt=""><br>当传入函数的参数变成复合数据类型之后，情况就有点不一样。可以看到，函数内对数组的改动影响到了实参。<br>为了解释这个问题，我们首先要了解两点：</p>
-<ul>
-<li>函数运行的内存空间是预先分配好的，并且分配好之后就无法再进行改动。</li>
-<li>由于数组等复合数据类型的灵活性，需要动态分配内存。<br>由此我们可以得出，复合数据类型的存储并不会放在函数分配的内存（栈内存）中，而是放在可以动态调整内存大小的堆内存中。<br>接着开始解释上面的情况。<br><img src="https://Kylinnnnn.github.io/img/Javascript03.jpg" alt=""><br>首先，如图所示。数组的具体内容储存在堆内存中，也就是图中下面的<code>Heap</code>区域。然后我们在全局作用域创建的<code>arr</code>储存在栈内存中。而这个<code>arr</code>中储存的是数组内容所在的内存地址，准确的讲，储存的是首地址。也就是说，这个<code>arr</code>其实是一个指向数组具体内容的指针。然后，在进行传参的时候，在函数所分配的内存空间中，也有一个<code>arr</code>参数。而实参<code>arr</code>在向形参<code>arr</code>传递参数的时候，传递的值即是数组内容所在的地址值，所以形参<code>arr</code>也是一个指向数组所在地址的指针，因此由形参进行的操作也会对数组内容产生影响。<br>另外，像这种新开辟一块内存区域并指向与实参相同的地址的传递方式，在<code>C++</code>称为引用传参,<code>C++</code>将引用传参和指针传参（两者都是传址但两者有不同）区分开来了，Js中没有指针这种数据类型，所以传参大概就分成传值和传址两种方式了。</li>
-</ul>
-
+    <p>老是忘了整缩略分割线……</p>
+    
+    <a class="article-more-a" href="/2020/03/14/Javascript-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/#more">more >></a>
+    
     
 
     
@@ -368,7 +360,8 @@ var _hmt = _hmt || [];
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h3 id="Windows对象"><a href="#Windows对象" class="headerlink" title="Windows对象"></a>Windows对象</h3><p>Window 对象表示浏览器中打开的窗口。<br>如果文档包含框架（frame 或 iframe 标签），浏览器会为 HTML 文档创建一个 window 对象，并为每个框架创建一个额外的 window 对象。</p>
+    <a id="more"></a>
+<h3 id="Windows对象"><a href="#Windows对象" class="headerlink" title="Windows对象"></a>Windows对象</h3><p>Window 对象表示浏览器中打开的窗口。<br>如果文档包含框架（frame 或 iframe 标签），浏览器会为 HTML 文档创建一个 window 对象，并为每个框架创建一个额外的 window 对象。</p>
 <p>Window 对象表示一个浏览器窗口或一个框架。在客户端 <code>JavaScript</code>中，<code>Window</code>对象是全局对象，所有的表达式都在当前的环境中计算。也就是说，要引用当前窗口根本不需要特殊的语法，可以把那个窗口的属性作为全局变量来使用。例如，可以只写<code>document</code>，而不必写<code>window.document</code>。</p>
 <h3 id="Navigator对象"><a href="#Navigator对象" class="headerlink" title="Navigator对象"></a>Navigator对象</h3><p><code>Navigator</code>对象包含有关浏览器的信息。<br>Navigator 对象包含的属性描述了正在使用的浏览器。可以使用这些属性进行平台专用的配置。</p>
 <p><code>Navigator</code>对象的实例是唯一的，可以用<code>Window</code>对象的<code>navigator</code>属性来引用它。</p>
