@@ -21,8 +21,13 @@
 <meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork18.png">
 <meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork19.png">
 <meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork20.png">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork21.png">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork22.png">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork23.png">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork24.png">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork25.png">
 <meta property="article:published_time" content="2020-03-04T00:19:58.000Z">
-<meta property="article:modified_time" content="2020-03-11T01:56:56.399Z">
+<meta property="article:modified_time" content="2020-03-16T07:52:12.591Z">
 <meta property="article:author" content="Kylin">
 <meta property="article:tag" content="计算机网络">
 <meta property="article:tag" content="物理层">
@@ -233,7 +238,7 @@ var _hmt = _hmt || [];
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.3k字</span>
+      <span class="post-count">4.5k字</span>
     </span>
   </span>
 
@@ -242,7 +247,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">4分</span>
+      <span class="post-count">15分</span>
     </span>
   </span>
 </div>
@@ -300,6 +305,137 @@ var _hmt = _hmt || [];
 <p>归零制与不归零制的区别在于，归零制接受一次信号之后会先归零。这也是在不归零制称为电平，而在归零制中称为脉冲的原因。</p>
 </blockquote>
 <p><strong>曼彻斯特编码</strong>：曼彻斯特编码是用<strong>电平的变化来表示信号</strong>，从正点平变化为负电平表示1，从负电平变化为正点平表示0。<br><strong>差分曼彻斯特编码</strong>：差分曼彻斯特编码是用<strong>电平的变化来表示信号的变化</strong>。当电平的变化方向发生变化时代表1，当电平的变化方向不变时代表0。以上图中的差分曼彻斯特编码为例，最初是从高电平变为第电平，第二次是还是从高电平变为低电平，与第一次一致，所以第二次的编码为0。</p>
+<p><strong>总结：</strong><br>1.相比于曼彻斯特编码和差分曼彻斯特编码，归零制和不归零制编码产生信号的频率更低。<br>2.但是，使用曼彻斯特和差分曼彻斯特编码的机器间可以进行自同步，而使用归零制和不归零制的机器双方不能进行自同步。<br>####（3）基本的带通调制方法<br>基带信号往往含有较多低频成分甚至是直流成分，而大多数信道并不能传输这种成分，所以需要对基带信号进行<strong>调制</strong>。</p>
+<ul>
+<li>调幅（AM）：载波的振幅随基带信号变化。</li>
+<li>调频（FM）：载波的频率随基带信号变化。</li>
+<li>调相（PM）：载波的初始相位随基带信号变化。<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork21.png" alt=""><h4 id="（4）复杂的调制方法"><a href="#（4）复杂的调制方法" class="headerlink" title="（4）复杂的调制方法"></a>（4）复杂的调制方法</h4>正交振幅调制（QAM）<br>由不同的相位和振幅相互组合形成的搭配种类数。在星座图上（极坐标）上的表现是点的个数。例如，有<code>n</code>个相位、<code>m</code>个振幅；则<br>$$点数M=m\times n$$<br>在此情况下，每个码元可以发送的比特位数<br>$$b = log_2^M$$<h3 id="4-信道的极限容量"><a href="#4-信道的极限容量" class="headerlink" title="4.信道的极限容量"></a>4.信道的极限容量</h3><h4 id="（1）奈氏准则"><a href="#（1）奈氏准则" class="headerlink" title="（1）奈氏准则"></a>（1）奈氏准则</h4>在任何信道中，码元传输速率是有上限的，否则会出现码间串扰的情况。<h5 id="①-低通信道"><a href="#①-低通信道" class="headerlink" title="①.低通信道"></a>①.低通信道</h5>低通信道：<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>可通过</td>
+<td>不可通过</td>
+</tr>
+<tr>
+<td>理想低通信道的最高传输速率为2W（Baud）。</td>
+<td></td>
+</tr>
+<tr>
+<td>低通信道的数据率$B=2Wlog_2^M$</td>
+<td></td>
+</tr>
+<tr>
+<td>##### ②.带通信道</td>
+<td></td>
+</tr>
+<tr>
+<td>带通信道：</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>不可通过</td>
+<td>可通过</td>
+</tr>
+<tr>
+<td>理想带通信道的传输速率为W（Baud）</td>
+<td></td>
+</tr>
+<tr>
+<td>带通信道的数据率为$B=Wlog_2^M$</td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>W：理想低通信道的带宽<br>Baud：码元的传输单位</p>
+<h4 id="（2）信噪比"><a href="#（2）信噪比" class="headerlink" title="（2）信噪比"></a>（2）信噪比</h4><p><strong>香农公式</strong><br>信道的极限信息传输速率C：<br>$$C=Wlog_2^{(1+\frac{S}{N})}$$<br>W:信道的带宽<br>S:信道内所传信号的平均功率<br>N：信道内部的高斯噪声攻率</p>
+<p>香农公式的意义：<br>信道的带宽或信道中的信噪比越大，信道的极限传输速率越高。</p>
+<p>对于频带宽度已确定的信道，如果信噪比不能再提高了，并且码元传输速率已经达到上限，则进一步提高信息传输速率的方法是用编码的方法让每一个码元能够携带更多比特的信息量。</p>
+<h2 id="（四）物理层下面的传输媒体"><a href="#（四）物理层下面的传输媒体" class="headerlink" title="（四）物理层下面的传输媒体"></a>（四）物理层下面的传输媒体</h2><p>传输媒体可分为两大类：</p>
+<ul>
+<li>导向型传输媒体：双绞线、同轴电缆、光纤</li>
+<li>非导向型传输媒体：无线局域网使用的ISM频段、地面微波接力、地球同步卫星、无线电、红外线。</li>
+</ul>
+<p>主要说下导向型传输媒体。</p>
+<h3 id="1-双绞线"><a href="#1-双绞线" class="headerlink" title="1.双绞线"></a>1.双绞线</h3><p>数字信号和模拟信号都可以传输，通信距离一搬为几到几十公里。</p>
+<ul>
+<li>屏蔽双绞线STP</li>
+<li>无屏蔽双绞线UTP</li>
+</ul>
+<p>UTP有5类标准，从一类线<code>（CAT1）</code>到五类线<code>（CAT5）</code>。<br>对于传输数据来说，现在最常用的UTP是五类线。</p>
+<p>型号识别：例如100BASE-T<br>100：带宽100Mb<br>BASE：基带部分<br>T：双绞线</p>
+<h3 id="2-同轴电缆"><a href="#2-同轴电缆" class="headerlink" title="2.同轴电缆"></a>2.同轴电缆</h3><p>同轴电缆有很好的抗干扰性，被广泛运用于传输速率较高的数据。</p>
+<ul>
+<li>50欧姆同轴电缆——LAN/数字传输常用</li>
+<li>75欧姆同轴电缆——有线电视/模拟传输常用<h3 id="3-光纤"><a href="#3-光纤" class="headerlink" title="3.光纤"></a>3.光纤</h3>光纤传输系统的组成部分：光纤、光源、检测器。<br>一根光纤只能单向传输，双向传输需要两根。<br>光纤分为两种</li>
+<li>多模光纤：可以存在多条不同入射角度的光线在一条光纤中传输。这种光纤就称为多模光纤。</li>
+<li>单模光纤：若光纤的直径减小到只有一个光的波长，则光纤就像一根波导那样，可以使光线一直向前传播，而不发生多次反射。</li>
+</ul>
+<p>光纤的优点：</p>
+<ul>
+<li>通信容量非常大</li>
+<li>传输损耗小、中继距离长</li>
+<li>抗雷电和电磁干扰性能好</li>
+<li>无串音干扰、保密性好</li>
+<li>体积小、重量轻<h2 id="五、信道复用技术"><a href="#五、信道复用技术" class="headerlink" title="五、信道复用技术"></a>五、信道复用技术</h2><h3 id="1-频分复用（FDM）"><a href="#1-频分复用（FDM）" class="headerlink" title="1.频分复用（FDM）"></a>1.频分复用（FDM）</h3>用户使用同一信道的不同频带进行数据传输的技术。<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork22.png" alt=""><h3 id="2-时分复用（TDM）"><a href="#2-时分复用（TDM）" class="headerlink" title="2.时分复用（TDM）"></a>2.时分复用（TDM）</h3>将时间划分成一段段等长的时分复用帧，每个用户在每一个时分复用帧中使用固定序号的一段时间间隙进行数据传输。<br>时分复用的所有用户在不同时间占用同样的频带宽度。</li>
+</ul>
+<p>时分复用的问题：<br>由于计算机数据的突发性，时分复用会造成线路资源浪费。<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork23.png" alt=""></p>
+<h3 id="3-统计时分复用"><a href="#3-统计时分复用" class="headerlink" title="3.统计时分复用"></a>3.统计时分复用</h3><p>统计时分复用是在时分复用的基础之上，动态的为用户分配时间帧中使用的时隙，从而提高线路利用率的技术。<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork24.png" alt=""></p>
+<h3 id="4-波分复用"><a href="#4-波分复用" class="headerlink" title="4.波分复用"></a>4.波分复用</h3><p>波分复用就是光的频分复用。<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork25.png" alt=""></p>
+<h3 id="5-码分复用"><a href="#5-码分复用" class="headerlink" title="5.码分复用"></a>5.码分复用</h3><p>码分复用也称为<strong>码分多址（CDMA）</strong>。</p>
+<p>码片序列：每一个比特时间被划分为m个短的间隔，称为码片。每个站被指派一个唯一的<code>mbit</code>大小的码片序列。<br>当该站需要发送比特1时，发送自己的码片序列。<br>当该站需要发送比特0时，发送自己码片序列的二进制反码。</p>
+<p>为每个站分配的码片序列是<strong>相互正交</strong>的，因此<strong>不同站点的码片序列的规格化内积为0</strong>，并且<strong>同一站点的码片序列与自己码片序列的反码的规格化内积为-1</strong>，而<strong>同一站点的码片序列与自身的规格化内积为1</strong>。</p>
+<p><strong>CDMA工作原理</strong>：<br>因此接受端将接受到的比特流与想要接收的站点的码片序列进行规格化内积，即可得到该站发送的的信息并还原出来。</p>
+<p>下面的了解下就可。</p>
+<h2 id="（六）数字传输技术"><a href="#（六）数字传输技术" class="headerlink" title="（六）数字传输技术"></a>（六）数字传输技术</h2><h3 id="1-时分复用PCM"><a href="#1-时分复用PCM" class="headerlink" title="1.时分复用PCM"></a>1.时分复用PCM</h3><p>与模拟通信相比,数字通信无论是在传输质量上还是经济上都有明显的优势.目前,长途干线大都采用时分复用PCM的数字传输方式.</p>
+<p>脉码调制PCM技术将模拟信号转变为数字信号,PCM先对模拟信号进行采样,这里存在一个采样定理:要不失真的还原原始信号,采样频率不能低于信号最高频率的2倍.</p>
+<p>电话信号的例子:最高频率为3.4kHz,采样频率要大于6.8kHz,采样的标准定为8kHz,即采样周期为125µs, 每次采样,获得8bit,PCM信号的基本速率为64kbps.</p>
+<p>PCM有两个互不相容的国际标准:北美的24路PCM(简称为T1),欧洲的30路PCM(简称为E1).我国采用的是欧洲的E1标准.</p>
+<p>E1时分复用帧的构成:每时隙8bit,32路共用256bit,每秒传送8000个帧,PCM E1一次群的数据率就是2.048Mbps,可再次复用,支持传输更高的数据率.北美使用的T1系统共有24路,速率1.544Mbps.</p>
+<h3 id="2-同步光纤网SONET与SDH"><a href="#2-同步光纤网SONET与SDH" class="headerlink" title="2.同步光纤网SONET与SDH"></a>2.同步光纤网SONET与SDH</h3><p>旧的数字传输系统的缺点,速率标准不统一,不是同步传输.</p>
+<p>同步光纤网SONET的各级时钟都来自于一个非常精准的主时钟.SONET为光纤传输系统定义了同步传输的线路速率等级结构.对电信号称为第1级同步传送信号STS-1,其传输速率是51.84Mbit/s.对光信号则称为第1级光载波OC-1.现已定义了从51.84Mbit/s(即OC-1)一直到9953.280Mbit/s(即OC-192/STS-192)的标准.</p>
+<p>ITU-T以美国标准SONET为基础,制订出国际标准同步数字系列SDH,可认为SDH与SONET是同义词.</p>
+<p>主要不同:SDH基本速率为155.52Mbit/s,称为第1级同步传递模块STM-1,相当于SONET体系中的OC-3速率.</p>
+<p>SONET/SDH标准的意义:使不同的数字传输体制在STM-1等级上获得了统一,第一次真正实现了数字传输体制上的世界性标准,已成为公认的新一代理想的传输网体制,SDH标准也适合千微波和卫星传输的技术体制.</p>
+<h2 id="（七）宽带接入技术"><a href="#（七）宽带接入技术" class="headerlink" title="（七）宽带接入技术"></a>（七）宽带接入技术</h2><p>用户要连接到互联网,必须先连接到某个ISP,在互联网的发展初期,用户都是利用电话的用户线通过调制解调器连接到ISP的,电话用户线接入到互联网的速率最高仅达到56 kbit/s.</p>
+<p>美国联邦通信委员会FCC原来认为只要双向速率之和超过200kbit/s就是宽带,但2015年重新定义为:宽带下行速率要达到25Mbit/s,上行速率要达到3Mbit/s.</p>
+<p>从宽带接入的媒体来看,可以划分为两大类:有线宽带接入,无线宽带接入.</p>
+<h3 id="1-非对称用户数据线ADSL"><a href="#1-非对称用户数据线ADSL" class="headerlink" title="1.非对称用户数据线ADSL"></a>1.非对称用户数据线ADSL</h3><p>非对称数字用户线ADSL技术就是用数字技术对现有的模拟电话用户线进行改造,使它能够承载宽带业务.</p>
+<p>标准模拟电话信号的频带被限制在300-3400Hz的范围内,但用户线本身实际可通过的信号频率仍然超过1MHz.</p>
+<p>ADSL技术把0-4kHz低端频谱留给传统电话使用,而把原来没有被利用的高端频谱留给用户上网使用.</p>
+<p>DSL的类型:ADSL非对称数字用户线,HDSL高速数字用户线,SDSL一对线的数字用户线,VDSL甚高速数字用户线,DSL数字用户线,RADSL速率自适应数字用户线,是ADSL的一个子集,可自动调节线路速率.</p>
+<ul>
+<li>ADSL的传输距离取决于数据率和用户线的线径(用户线越细,信号传输时的衰减就越大).</li>
+<li>ADSL所能得到的最高数据传输速率与实际的用户线上的信噪比密切相关.<br>ADSL的特点：</li>
+<li>上行和下行带宽是不对称的,上行指从用户到ISP,下行指从ISP到用户.</li>
+<li>ADSL在用户线的两端各安装一个ADSL调制解调器.<br>我国目前采用的方案是离散多音调(多子信道)DMT调制技术。<br>DMT调制技术采用频分复用的方法把,40kHz以上一直到1.1MHz的高端频谱划分为许多子信道,其中25个子信道用于上行信道,249个子信道用于下行信道.</li>
+</ul>
+<p>每个子信道占据4kHz带宽(4.3125kHz)并使用不同的载波进行数字调制.这种做法相当于在一对用户线上使用许多小的调制解调器并行地传送数据.</p>
+<p>包括ADSL2(G.992.3和G.992.4)和ADSL2+(G.992.5),通过提高调制效率得到更高的数据率.</p>
+<p>ADSL2要求至少支持下行8Mbit/s,上行800kbit/s的速率.ADSL2+则将频谱范围从1.1MHz扩展至2.2MHz,下行速率可达16Mbit/s(最大传输速率可达25Mbit/s),而上行速率可达800kbit/s.</p>
+<p>采用无缝速率自适应技术SRA可在运营中不中断通信和不产生误码的情况下,自适应调整数据率.改善了线路质量评测和故障定位功能,这对提高网络的运行维护水平具有非常重要的意义.</p>
+<h3 id="2-光纤同轴混合网HFC"><a href="#2-光纤同轴混合网HFC" class="headerlink" title="2.光纤同轴混合网HFC"></a>2.光纤同轴混合网HFC</h3><p>光纤同轴混合网HFC网是在目前覆盖面很广的有线电视网CATV的基础上开发的一种居民宽带接入网.HFC网除可传送CATV外,还提供电话,数据和其他宽带交互型业务.</p>
+<p>现有的CATV网是树形拓扑结构的同轴电缆网络,它采用模拟技术的频分复用对电视节目进行单向传输,HFC网对CATV网进行了双向通信的改造.</p>
+<p>HFC网将原CATV网中的同轴电缆主干部分改换为光纤并使用模拟光纤技术,在模拟光纤中采用光的振幅调制AM,比使用数字光纤更为经济.</p>
+<h3 id="3-用户接口盒"><a href="#3-用户接口盒" class="headerlink" title="3.用户接口盒"></a>3.用户接口盒</h3><p>用户接口盒UIB提供三种连接.</p>
+<ul>
+<li>使用同轴电缆连接到机顶盒,然后再连接到用户的电视机.</li>
+<li>使用双绞线连接到用户的电话机.</li>
+<li>使用电缆调制解调器连接到用户的计算机.</li>
+</ul>
+<p>电缆调制解调器是为HFC网而使用的调制解调器,电缆调制解调器最大的特点就是传输速率高.电缆调制解调器比在普通电话线上使用的调制解调器要复杂得多,并且只安装在用户端。</p>
 
     
 
@@ -453,7 +589,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、第二章-物理层"><span class="toc-number">1.</span> <span class="toc-text">一、第二章 物理层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-简介"><span class="toc-number">1.1.</span> <span class="toc-text">(一)简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）物理层的基本概念"><span class="toc-number">1.2.</span> <span class="toc-text">（二）物理层的基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（三）数据通信的基础知识"><span class="toc-number">1.3.</span> <span class="toc-text">（三）数据通信的基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数据通信系统的模型"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.数据通信系统的模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-码元"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.码元</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-有关信道的几个基本概念"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.有关信道的几个基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#（2）常用的编码方式"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">（2）常用的编码方式</span></a></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、第二章-物理层"><span class="toc-number">1.</span> <span class="toc-text">一、第二章 物理层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-简介"><span class="toc-number">1.1.</span> <span class="toc-text">(一)简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）物理层的基本概念"><span class="toc-number">1.2.</span> <span class="toc-text">（二）物理层的基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（三）数据通信的基础知识"><span class="toc-number">1.3.</span> <span class="toc-text">（三）数据通信的基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数据通信系统的模型"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.数据通信系统的模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-码元"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.码元</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-有关信道的几个基本概念"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.有关信道的几个基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#（2）常用的编码方式"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">（2）常用的编码方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（4）复杂的调制方法"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">（4）复杂的调制方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-信道的极限容量"><span class="toc-number">1.3.4.</span> <span class="toc-text">4.信道的极限容量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#（1）奈氏准则"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">（1）奈氏准则</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#①-低通信道"><span class="toc-number">1.3.4.1.1.</span> <span class="toc-text">①.低通信道</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（2）信噪比"><span class="toc-number">1.3.4.2.</span> <span class="toc-text">（2）信噪比</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（四）物理层下面的传输媒体"><span class="toc-number">1.4.</span> <span class="toc-text">（四）物理层下面的传输媒体</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-双绞线"><span class="toc-number">1.4.1.</span> <span class="toc-text">1.双绞线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-同轴电缆"><span class="toc-number">1.4.2.</span> <span class="toc-text">2.同轴电缆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-光纤"><span class="toc-number">1.4.3.</span> <span class="toc-text">3.光纤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、信道复用技术"><span class="toc-number">1.5.</span> <span class="toc-text">五、信道复用技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-频分复用（FDM）"><span class="toc-number">1.5.1.</span> <span class="toc-text">1.频分复用（FDM）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-时分复用（TDM）"><span class="toc-number">1.5.2.</span> <span class="toc-text">2.时分复用（TDM）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-统计时分复用"><span class="toc-number">1.5.3.</span> <span class="toc-text">3.统计时分复用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-波分复用"><span class="toc-number">1.5.4.</span> <span class="toc-text">4.波分复用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-码分复用"><span class="toc-number">1.5.5.</span> <span class="toc-text">5.码分复用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（六）数字传输技术"><span class="toc-number">1.6.</span> <span class="toc-text">（六）数字传输技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-时分复用PCM"><span class="toc-number">1.6.1.</span> <span class="toc-text">1.时分复用PCM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-同步光纤网SONET与SDH"><span class="toc-number">1.6.2.</span> <span class="toc-text">2.同步光纤网SONET与SDH</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（七）宽带接入技术"><span class="toc-number">1.7.</span> <span class="toc-text">（七）宽带接入技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-非对称用户数据线ADSL"><span class="toc-number">1.7.1.</span> <span class="toc-text">1.非对称用户数据线ADSL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-光纤同轴混合网HFC"><span class="toc-number">1.7.2.</span> <span class="toc-text">2.光纤同轴混合网HFC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-用户接口盒"><span class="toc-number">1.7.3.</span> <span class="toc-text">3.用户接口盒</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
