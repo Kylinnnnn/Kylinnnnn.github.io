@@ -6,22 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://kylinnnnn.github.io">
-  <title>DOM访问属性节点的两种方法对比 | Kylin&#39;s Collection Box</title>
+  <title>Javascript 事件流 | Kylin&#39;s Collection Box</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="在Javascript DOM中，有两种方法可以访问属性节点，一种是通过.进行访问，另一种则是通过getAttribute()\setAttribute()去访问，但两者并不是完全相等的。在功能上还是稍有区别。">
+  <meta name="description" content="事件流感觉是Javascript中一个非常重要的内容，毕竟事件函数在Javascript中比重也比较大。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DOM访问属性节点的两种方法对比">
-<meta property="og:url" content="http://kylinnnnn.github.io/2020/03/17/DOM%E8%AE%BF%E9%97%AE%E5%B1%9E%E6%80%A7%E8%8A%82%E7%82%B9%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95%E5%AF%B9%E6%AF%94/index.html">
+<meta property="og:title" content="Javascript 事件流">
+<meta property="og:url" content="http://kylinnnnn.github.io/2020/03/17/Javascript-%E4%BA%8B%E4%BB%B6%E6%B5%81/index.html">
 <meta property="og:site_name" content="Kylin&#39;s Collection Box">
-<meta property="og:description" content="在Javascript DOM中，有两种方法可以访问属性节点，一种是通过.进行访问，另一种则是通过getAttribute()\setAttribute()去访问，但两者并不是完全相等的。在功能上还是稍有区别。">
-<meta property="article:published_time" content="2020-03-17T02:01:27.000Z">
-<meta property="article:modified_time" content="2020-03-17T02:52:25.354Z">
+<meta property="og:description" content="事件流感觉是Javascript中一个非常重要的内容，毕竟事件函数在Javascript中比重也比较大。">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/Javascript03.png">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/Javascript04.png">
+<meta property="article:published_time" content="2020-03-17T09:22:18.000Z">
+<meta property="article:modified_time" content="2020-03-22T05:05:27.329Z">
 <meta property="article:author" content="Kylin">
 <meta property="article:tag" content="Javascript">
-<meta property="article:tag" content="DOM">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kylinnnnn.github.io/img/Javascript03.png">
   
   
     <link rel="icon" href="/img/favicon.jfif">
@@ -193,14 +195,14 @@ var _hmt = _hmt || [];
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-DOM访问属性节点的两种方法对比" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Javascript-事件流" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      DOM访问属性节点的两种方法对比
+      Javascript 事件流
     </h1>
   
 
@@ -212,8 +214,8 @@ var _hmt = _hmt || [];
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/03/17/DOM%E8%AE%BF%E9%97%AE%E5%B1%9E%E6%80%A7%E8%8A%82%E7%82%B9%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95%E5%AF%B9%E6%AF%94/" class="archive-article-date">
-        <time datetime="2020-03-17T02:01:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-17</time>
+<a href="/2020/03/17/Javascript-%E4%BA%8B%E4%BB%B6%E6%B5%81/" class="archive-article-date">
+        <time datetime="2020-03-17T09:22:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-17</time>
 </a>
 
   
@@ -226,7 +228,7 @@ var _hmt = _hmt || [];
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">331字</span>
+      <span class="post-count">1.1k字</span>
     </span>
   </span>
 
@@ -235,7 +237,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">5分</span>
     </span>
   </span>
 </div>
@@ -246,11 +248,20 @@ var _hmt = _hmt || [];
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>在<code>Javascript DOM</code>中，有两种方法可以访问属性节点，一种是通过<code>.</code>进行访问，另一种则是通过<code>getAttribute()\setAttribute()</code>去访问，但两者并不是完全相等的。在功能上还是稍有区别。</p>
+    <p>事件流感觉是Javascript中一个非常重要的内容，毕竟事件函数在Javascript中比重也比较大。</p>
 <a id="more"></a>
-<p>先说结论，通过<code>.</code>能够访问到的属性，都能通过<code>getAttribute()\setAttribute()</code>访问到，但反之不行。<br>然后来看一段代码。<br>假设有一个<code>div</code>标签,<code>id</code>为<code>myDiv</code>,<code>class</code>为<code>myDivs</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var oDiv &#x3D; document.getElementById(&quot;myDiv&quot;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;访问已有属性</span><br><span class="line">console.log(oDiv.class); &#x2F;&#x2F; myDivs</span><br><span class="line">console.log(oDiv.getAttribute(&quot;class&quot;)); &#x2F;&#x2F; myDivs</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;访问未创建的自定义属性</span><br><span class="line">console.log(oDiv.xxx); &#x2F;&#x2F; undefined</span><br><span class="line">console.log(oDiv.getAttribute(&quot;xxx&quot;)); &#x2F;&#x2F; null</span><br><span class="line"></span><br><span class="line">oDiv.setAttribute(&quot;xxx&quot;,&quot;yyy&quot;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;访问已创建的自定义属性</span><br><span class="line">console.log(oDiv.xxx); &#x2F;&#x2F; undefined</span><br><span class="line">console.log(oDiv.getAttribute(&quot;xxx&quot;)); &#x2F;&#x2F;yyy</span><br></pre></td></tr></table></figure>
-<p>看完上面这段代码应该就懂得，<code>getAttribute()\setAttribute()</code>方法对比<code>.</code>方法胜在对于自定义属性的权限上。另外，<code>.</code>方法无法删除属性，最多只能置为空串，但是<code>removeAttribute()</code>方法能够删除属性节点。<br>再提一点，<code>setAttribute()\removeAttribute()</code>都没有返回值，如果想要返回值，则需要用<code>setAttributeNode()\removeAttributeNode()</code>。<code>setAttributeNod()</code>会返回被替换的节点对象，如果没有，则为<code>null</code>。<code>removeAttributeNode()</code>会返回被移除的节点对象，没有则返回<code>null</code>。</p>
+<p>事件流分为三个过程：捕获、目标、冒泡。通过对这三个过程的规定，描述了事件函数的执行顺序。</p>
+<h3 id="捕获阶段"><a href="#捕获阶段" class="headerlink" title="捕获阶段"></a>捕获阶段</h3><p>在捕获过程中，事件触发的顺序是，由最不具体的目标到最具体的目标。在DOM树上的体现就是从最外层的元素到最内层的元素。<br>例如在下面这段代码中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;myDiv&quot;&gt;Click me!&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html</span><br></pre></td></tr></table></figure>
+<p>点击<code>div</code>标签内的内容之后：<br><img src="https://Kylinnnnn.github.io/img/Javascript03.png" alt=""></p>
+<h3 id="冒泡阶段"><a href="#冒泡阶段" class="headerlink" title="冒泡阶段"></a>冒泡阶段</h3><p>冒泡事件传播的顺序与捕获事件的传播顺序相反，是由最具体的目标传递至最不具体的目标。在DOM树上的体现就是由点击的最内层的元素传递至最外层的元素。例如在上面的例子中，如果是冒泡事件：<br><img src="https://Kylinnnnn.github.io/img/Javascript04.png" alt=""></p>
+<p>另外，在事件流中，捕获过程是先于冒泡过程执行的。</p>
+<h3 id="目标阶段"><a href="#目标阶段" class="headerlink" title="目标阶段"></a>目标阶段</h3><p>目标阶段的执行顺序介于捕获过程和冒泡过程之间。并且目标阶段中事件执行的顺序取决于绑定事件时的书写顺序。</p>
+<h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3><p>事件委托是事件流的应用之一。更具体一点来讲，是冒泡机制的应用。在编写代码的过程中，经常会出现需要新增元素节点的情况，例如列表标签。但是给之前的元素节点绑定的事件在新增的元素节点上无法触发。例如下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;style&gt;</span><br><span class="line">            li&#123;</span><br><span class="line">                background-color: red;</span><br><span class="line">                margin: 10px;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;&#x2F;style&gt;</span><br><span class="line">    &lt;&#x2F;head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li&gt;1&lt;&#x2F;li&gt;</span><br><span class="line">            &lt;li&gt;2&lt;&#x2F;li&gt;</span><br><span class="line">            &lt;li&gt;3&lt;&#x2F;li&gt;</span><br><span class="line">            &lt;li&gt;4&lt;&#x2F;li&gt;</span><br><span class="line">            &lt;li&gt;5&lt;&#x2F;li&gt;</span><br><span class="line">        &lt;&#x2F;ul&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;添加&quot;&gt;</span><br><span class="line">        &lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;</span><br><span class="line">            var i &#x3D; 0;</span><br><span class="line">            oUL &#x3D; document.getElementsByTagName(&quot;ul&quot;)[0];</span><br><span class="line">            oLI &#x3D; document.getElementsByTagName(&quot;li&quot;);</span><br><span class="line">            btn &#x3D; document.getElementsByTagName(&quot;input&quot;)[0];</span><br><span class="line">            btn.onclick &#x3D; function(e)&#123;</span><br><span class="line">                var newLI &#x3D; document.createElement(&quot;li&quot;);</span><br><span class="line">                newLI.innerHTML &#x3D; i;</span><br><span class="line">                oUL.appendChild(newLI);</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            oLI.onclick &#x3D; function(e)&#123;</span><br><span class="line">                if(e.target.nodeName.toUpperCase() &#x3D;&#x3D; &quot;LI&quot;)&#123;</span><br><span class="line">                    console.log(e.target.innerHTML);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;&#x2F;script&gt;</span><br><span class="line">    &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>对于最开始得5个<code>li</code>标签，我们在<code>js</code>代码中实现了点击事件输出内容。但是在点击按钮添加几个<code>li</code>标签之后再点击就会发现，新添加的标签并不会触发点击事件。<br>这时就要用到事件委托，事件委托是指当绑定在子元素上的事件不能很好地满足需求时，将原本绑定在子元素上的事件绑定到父元素上。在点击后通过冒泡机制触发在父元素上的事件，再由父元素通过<code>event.target</code>判断原本应该是哪个子元素的事件，从而完成对应动作。<br>修改后的代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;style&gt;</span><br><span class="line">            li&#123;</span><br><span class="line">                background-color: red;</span><br><span class="line">                margin: 10px;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;&#x2F;style&gt;</span><br><span class="line">    &lt;&#x2F;head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li&gt;&lt;span&gt;1&lt;&#x2F;span&gt;&lt;&#x2F;li&gt;</span><br><span class="line">            &lt;li&gt;2&lt;&#x2F;li&gt;</span><br><span class="line">            &lt;li&gt;3&lt;&#x2F;li&gt;</span><br><span class="line">            &lt;li&gt;4&lt;&#x2F;li&gt;</span><br><span class="line">            &lt;li&gt;5&lt;&#x2F;li&gt;</span><br><span class="line">        &lt;&#x2F;ul&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;添加&quot;&gt;</span><br><span class="line">        &lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;</span><br><span class="line">            var i &#x3D; 0;</span><br><span class="line">            oUL &#x3D; document.getElementsByTagName(&quot;ul&quot;)[0];</span><br><span class="line">            oLI &#x3D; document.getElementsByTagName(&quot;li&quot;);</span><br><span class="line">            btn &#x3D; document.getElementsByTagName(&quot;input&quot;)[0];</span><br><span class="line">            btn.onclick &#x3D; function(e)&#123;</span><br><span class="line">                var newLI &#x3D; document.createElement(&quot;li&quot;);</span><br><span class="line">                newLI.innerHTML &#x3D; i;</span><br><span class="line">                oUL.appendChild(newLI);</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            oUL.onclick &#x3D; function(e)&#123;</span><br><span class="line">                console.log(e.target.nodeName);</span><br><span class="line">                if(e.target.nodeName.toUpperCase() &#x3D;&#x3D; &quot;LI&quot;)&#123;</span><br><span class="line">                    console.log(e.target.innerHTML);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;&#x2F;script&gt;</span><br><span class="line">    &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>有时候情况还会更复杂一点，例如需要被代理的子元素并不是最内层元素，比上面代码中列表的第一行<code>&lt;li&gt;&lt;span&gt;1&lt;/span&gt;&lt;/li&gt;</code>。出现这种情况时就需要用<code>parentNode</code>属性来对父对象进行遍历。</p>
 
     
 
@@ -265,7 +276,7 @@ var _hmt = _hmt || [];
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://kylinnnnn.github.io/2020/03/17/DOM访问属性节点的两种方法对比/" title="DOM访问属性节点的两种方法对比" target="_blank">http://kylinnnnn.github.io/2020/03/17/DOM访问属性节点的两种方法对比/</a>
+          <a href="http://kylinnnnn.github.io/2020/03/17/Javascript-事件流/" title="Javascript 事件流" target="_blank">http://kylinnnnn.github.io/2020/03/17/Javascript-事件流/</a>
         </li>
         
         <li>
@@ -288,10 +299,6 @@ var _hmt = _hmt || [];
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOM</a>
         		</li>
       		
 		</ul>
@@ -347,7 +354,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://kylinnnnn.github.io/2020/03/17/DOM%E8%AE%BF%E9%97%AE%E5%B1%9E%E6%80%A7%E8%8A%82%E7%82%B9%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95%E5%AF%B9%E6%AF%94/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://kylinnnnn.github.io/2020/03/17/Javascript-%E4%BA%8B%E4%BB%B6%E6%B5%81/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -362,18 +369,9 @@ var _hmt = _hmt || [];
 
 <nav id="article-nav">
   
-    <a href="/2020/03/17/Javascript-%E4%BA%8B%E4%BB%B6%E6%B5%81/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Javascript 事件流
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/03/14/Javascript-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Javascript 数据类型</div>
+    <a href="/2020/03/17/DOM%E8%AE%BF%E9%97%AE%E5%B1%9E%E6%80%A7%E8%8A%82%E7%82%B9%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95%E5%AF%B9%E6%AF%94/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">DOM访问属性节点的两种方法对比</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -400,7 +398,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#捕获阶段"><span class="toc-number">1.</span> <span class="toc-text">捕获阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#冒泡阶段"><span class="toc-number">2.</span> <span class="toc-text">冒泡阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目标阶段"><span class="toc-number">3.</span> <span class="toc-text">目标阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件委托"><span class="toc-number">4.</span> <span class="toc-text">事件委托</span></a></li></ol>
                     </div>
                 </span>
             </div>
