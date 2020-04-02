@@ -6,36 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://kylinnnnn.github.io">
-  <title>计算机网络（一） | Kylin&#39;s Collection Box</title>
+  <title>计算机网络（三） | Kylin&#39;s Collection Box</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="一、前言本学期开了计算机网络的必修课，此课程基本是考研专业课中的必考科目，其本身内容在计算机体系中也十分重要。因此打算做些笔记记录下。笔记中会包括我在课上学到的知识点与我课余自己看到的一些知识，并且我会尽量做到自己理解后以自己的语言来讲述，而不是单纯的复制粘贴。至于内容顺序，就按着课本–谢希仁老师的《计算机网络第七版》的内容顺序来。">
+  <meta name="description" content="数据链路层所要考虑的是如何在不同的传输媒体间传输比特流。并且数据链路层在向上层提供服务时要尽可能屏蔽由于底层传输设备、实现手段的差异而带来的影响。本章的主要内容：  数据链路层的点对点信道和广播信道的特点，以及这两种信道所使用的协议（PPP协议以及CSMA&#x2F;CD协议）的特点。 数据链路层的三个基本功能：封装成帧、透明传输和差错检测。 以太网MAC层的硬件地址。 适配器、转发器、集线器、网桥、以太网">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机网络（一）">
-<meta property="og:url" content="http://kylinnnnn.github.io/2020/02/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
+<meta property="og:title" content="计算机网络（三）">
+<meta property="og:url" content="http://kylinnnnn.github.io/2020/04/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%89%EF%BC%89/index.html">
 <meta property="og:site_name" content="Kylin&#39;s Collection Box">
-<meta property="og:description" content="一、前言本学期开了计算机网络的必修课，此课程基本是考研专业课中的必考科目，其本身内容在计算机体系中也十分重要。因此打算做些笔记记录下。笔记中会包括我在课上学到的知识点与我课余自己看到的一些知识，并且我会尽量做到自己理解后以自己的语言来讲述，而不是单纯的复制粘贴。至于内容顺序，就按着课本–谢希仁老师的《计算机网络第七版》的内容顺序来。">
-<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork01.png">
-<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork02.png">
-<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork03.png">
-<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork04.png">
-<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork05.jfif">
-<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork06.jfif">
-<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork07.png">
-<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork08.png">
-<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork09.png">
-<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork10.png">
-<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork11.png">
-<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork12.png">
-<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork13.png">
-<meta property="article:published_time" content="2020-02-26T14:39:05.000Z">
-<meta property="article:modified_time" content="2020-03-06T10:35:43.848Z">
+<meta property="og:description" content="数据链路层所要考虑的是如何在不同的传输媒体间传输比特流。并且数据链路层在向上层提供服务时要尽可能屏蔽由于底层传输设备、实现手段的差异而带来的影响。本章的主要内容：  数据链路层的点对点信道和广播信道的特点，以及这两种信道所使用的协议（PPP协议以及CSMA&#x2F;CD协议）的特点。 数据链路层的三个基本功能：封装成帧、透明传输和差错检测。 以太网MAC层的硬件地址。 适配器、转发器、集线器、网桥、以太网">
+<meta property="article:published_time" content="2020-04-01T00:20:14.000Z">
+<meta property="article:modified_time" content="2020-04-01T03:58:46.278Z">
 <meta property="article:author" content="Kylin">
 <meta property="article:tag" content="计算机网络">
-<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="数据链路层">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://kylinnnnn.github.io/img/ComputerNetwork01.png">
   
   
     <link rel="icon" href="/img/favicon.jfif">
@@ -207,14 +193,14 @@ var _hmt = _hmt || [];
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-计算机网络（一）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-计算机网络（三）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      计算机网络（一）
+      计算机网络（三）
     </h1>
   
 
@@ -226,8 +212,8 @@ var _hmt = _hmt || [];
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/02/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
-        <time datetime="2020-02-26T14:39:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-26</time>
+<a href="/2020/04/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%89%EF%BC%89/" class="archive-article-date">
+        <time datetime="2020-04-01T00:20:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-01</time>
 </a>
 
   
@@ -240,7 +226,7 @@ var _hmt = _hmt || [];
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">3.1k字</span>
+      <span class="post-count">530字</span>
     </span>
   </span>
 
@@ -249,7 +235,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">10分</span>
+      <span class="post-count">1分</span>
     </span>
   </span>
 </div>
@@ -260,117 +246,29 @@ var _hmt = _hmt || [];
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>本学期开了计算机网络的必修课，此课程基本是考研专业课中的必考科目，其本身内容在计算机体系中也十分重要。因此打算做些笔记记录下。笔记中会包括我在课上学到的知识点与我课余自己看到的一些知识，并且我会尽量做到自己理解后以自己的语言来讲述，而不是单纯的复制粘贴。至于内容顺序，就按着课本–谢希仁老师的《计算机网络第七版》的内容顺序来。</p>
-<a id="more"></a>
-<h1 id="二、第一章-概述"><a href="#二、第一章-概述" class="headerlink" title="二、第一章 概述"></a>二、第一章 概述</h1><h2 id="（一）简介"><a href="#（一）简介" class="headerlink" title="（一）简介"></a>（一）简介</h2><p>本章的内容主要是简要介绍计算机网络。其中包括何为互联网、计算机网络在世界以及在我国的发展历史，并且简要介绍了互联网的组成、计算机网络的分类以及计算机网络性能的几个指标。最重要的是引入了协议以及计算机网络的体系结构的概念，同时对这些内容进行一定程度的展开，为后续章节详细分析计算机网络体系结构作了铺垫。<br><strong>重点</strong>：</p>
+    <p>数据链路层所要考虑的是如何在不同的传输媒体间传输比特流。并且数据链路层在向上层提供服务时要尽可能屏蔽由于底层传输设备、实现手段的差异而带来的影响。<br>本章的主要内容：</p>
 <ul>
-<li>互联网边缘部分与核心部分的作用，其中包括分组交换的概念。</li>
-<li>计算机网络的性能指标</li>
-<li>计算机网络的分层体系结构，包含协议与服务的概念。<h3 id="1-计算机网络与互联网"><a href="#1-计算机网络与互联网" class="headerlink" title="1.计算机网络与互联网"></a>1.计算机网络与互联网</h3>如今，社会已经迈入信息时代。在这个时代，各式各样的信息通过各类网络即可进入每家每户，到达你的个人设备中。在这各类网络中，有<strong>三大类网络</strong>最为普及——电信网络、有线电视网络、计算机网络。<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork01.png" alt=""><br>其中的计算机网络便是我们的主角。</li>
+<li>数据链路层的点对点信道和广播信道的特点，以及这两种信道所使用的协议（<code>PPP</code>协议以及<code>CSMA/CD</code>协议）的特点。</li>
+<li>数据链路层的三个基本功能：封装成帧、透明传输和差错检测。</li>
+<li>以太网<code>MAC</code>层的硬件地址。</li>
+<li>适配器、转发器、集线器、网桥、以太网交换机的作用和使用场合。<a id="more"></a>
+<h3 id="使用点对点信道的数据链路层"><a href="#使用点对点信道的数据链路层" class="headerlink" title="使用点对点信道的数据链路层"></a>使用点对点信道的数据链路层</h3><h4 id="数据链路和帧"><a href="#数据链路和帧" class="headerlink" title="数据链路和帧"></a>数据链路和帧</h4></li>
+<li><em>链路(link)*</em>是指一条无源的点到点的物理线路段，中间没有任何其他的交换结点。</li>
+<li><em>数据链路(data link)*</em>除了物理线路外，还必须有通信协议来控制这些数据的传输。若把实现这些协议的硬件和软件加到链路上，就构成了数据链路。</li>
+<li>现在最常用的方法是使用适配器来实现这些协议的硬件和软件。</li>
+<li>一般的适配器都包括了数据链路层和物理层这两层的功能。</li>
 </ul>
-<p>计算机网络拥有共享信息、协同计算、方便通信以及共享硬件四大特点。<br>计算机网络由若干结点与连接结点的链路组成，然后这些计算机网络通过路由器组成了互连的网络，称为<strong>互连网</strong>。<br>互连网中的结点可以简要分为两类：一类是以主机、电脑、手机等设备为代表的结点；另一类则是路由器结点，<strong>这一类结点主要起到连接的作用</strong>。<br>由上可知，我们可以简单地把互连网定义为：<br>$$互连网 = 一类结点 + 链路 + 另一类结点$$</p>
-<p>另外，此互连网与彼互联网不同。</p>
-<blockquote>
-<p>互连网（internet）：泛指由多个计算机网络互连而成的计算机网络。<br>互联网（Internet）：专指当前全球最大最开放、由众多网络相互连接而成的特定的互连网，它采用TCP/IP协议族作为通信的规则，其前身是美国的ARPANET。</p>
-</blockquote>
-<p>互联网有两个基本特点：<strong>连通性</strong>和<strong>共享</strong>。</p>
-<h3 id="2-互联网的发展历史"><a href="#2-互联网的发展历史" class="headerlink" title="2.互联网的发展历史"></a>2.互联网的发展历史</h3><p>互联网的发展历史主要分为三个阶段。<br>（1）第一阶段(1969年-1985年)<br>这一阶段主要是从ARPANET发展到了互联网的阶段。</p>
+<p>网络适配器的别名：</p>
 <ul>
-<li>1969年：美国国防部建立了第一个分组网络ARPANET</li>
-<li>1983年：TCP/IP协议称为ARPNET上的标准。</li>
-<li>1990年：ARPANET正式关闭<br>人们把1983年作为互联网的诞生时间。</li>
+<li>通信适配器<code>adapter</code></li>
+<li>网络接口卡<code>NIC（Network Interface Card）</code></li>
+<li>网络接口板</li>
+<li>网卡</li>
 </ul>
-<p>（2）第二阶段(1985年-1993年)<br>在这一阶段中，逐渐建成了互联网的三级结构。</p>
-<ul>
-<li>1985年：开始建设NSFNET</li>
-<li>1991年：企业接入互联网</li>
-</ul>
-<p>（3）第三阶段(1993年-至今)<br>在本阶段中，NSFNET最终被取代，ISP开始出现，并逐渐形成了多层ISP结构的互联网。</p>
-<h2 id="（二）互联网的组成"><a href="#（二）互联网的组成" class="headerlink" title="（二）互联网的组成"></a>（二）互联网的组成</h2><p>互联网由<strong>边缘部分</strong>与<strong>核心部分</strong>组成。<br>边缘部分由连接在网络上的所有主机组成，又称为<strong>端系统</strong>。<br>核心部分由大量网络与路由器组成。核心部分的主要作用是为边缘部分提供服务。<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork02.png" alt=""><br>另外，David D.Clark提出了“边缘智能，核心简单”的模式。这正是目前计算机网络的发展趋势，尤其是现在进入5G时代，这种趋势愈发显著，从5G手机到车联网，边缘网络中的设备功能越来越强大和全面。</p>
-<h3 id="1-边缘部分"><a href="#1-边缘部分" class="headerlink" title="1.边缘部分"></a>1.边缘部分</h3><p>边缘部分的通信被称为<strong>端到端的通信</strong>，其<strong>实质是两台主机上进程间的通信</strong>。<br>边缘部分的通信有两种方式。</p>
-<ul>
-<li>一种是“客户端-服务端方式”，简称“C/S方式”。在此种架构中，通信的双方被分为客户端与服务端。客户端是服务的请求方，服务端是服务的提供方。</li>
-<li>另一种是“对等方式”，简称“P2P方式”。在此架构中，双方地位对等，不刻意区分服务端与客户端，或者说，P2P通信的双方即是客户端又是服务端。<h3 id="2-核心部分"><a href="#2-核心部分" class="headerlink" title="2.核心部分"></a>2.核心部分</h3>在核心部分中，起到核心作用的是<strong>路由器</strong>。而核心部分的<strong>核心功能</strong>是<strong>分组系统</strong>。</li>
-</ul>
-<p>这里就要谈到在通信过程中使用到的数据交换技术了。</p>
-<h2 id="（三）数据交换技术"><a href="#（三）数据交换技术" class="headerlink" title="（三）数据交换技术"></a>（三）数据交换技术</h2><p>数据交换技术主要有三种：</p>
-<ul>
-<li>电路交换</li>
-<li>报文交换</li>
-<li>分组交换</li>
-</ul>
-<p>其中分组交换正是互联网核心部分所采用的技术。</p>
-<h3 id="1-电路交换"><a href="#1-电路交换" class="headerlink" title="1.电路交换"></a>1.电路交换</h3><p>电路交换是面向连接的数据交换技术。早期的电话便是通过这种数据交换方式连接。<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork03.png" alt=""><br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork04.png" alt=""><br>当电话数量继续增多时，就需要通过程控交换机进行连接。</p>
-<p>电路交换的过程分为三个阶段：<br>①.建立连接<br>②.进行通信<br>③.释放连接<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork05.jfif" alt=""><br>电路交换的优点有：</p>
-<ul>
-<li>独占信道，通信有保证</li>
-<li>传输延时小，无拥塞</li>
-</ul>
-<p>缺点有：</p>
-<ul>
-<li>建立连接的时间较长</li>
-<li>又由于独占信道，工作效率较低<h3 id="2-报文交换"><a href="#2-报文交换" class="headerlink" title="2.报文交换"></a>2.报文交换</h3>报文交换是指报文在分段的连接上进行<strong>存储转发</strong>。<br>报文交换主要有三个过程：<br>①.在结点交换机暂存<br>②.查找转发表<br>③.找到转发的端口，发送报文<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork06.jfif" alt=""><br>由于报文交换是通过存储转发进行数据交换，因此不需要建立专用的连接通道。因此，报文交换最大的特征就是<strong>无连接</strong>。</li>
-</ul>
-<p>报文交换的优点：</p>
-<ul>
-<li>不需要建立专用信道</li>
-<li>可以多条报文共用一条信道，提高了并发性</li>
-</ul>
-<p>缺点：</p>
-<ul>
-<li>由于没有对报文的长度加以限制，因此需要中间结点有较大存储空间，由此增加了开销。</li>
-<li>由于报文需要在中间结点排队转发，因此时延比较大。<h3 id="3-分组交换"><a href="#3-分组交换" class="headerlink" title="3.分组交换"></a>3.分组交换</h3>分组交换方式与报文交换方式类似，也是在分段的连接上采用存储转发。但是，分组交换会将长报文划分成带有首部的短报文再进行转发。其中，首部带有目标地址信息以及报文顺序等信息。<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork07.png" alt=""></li>
-</ul>
-<p>接下来说是分组交换发送出去的数据是如何被接收的。首先，虽然采用分组交换的结点在<strong>发出数据包时是按顺序发出的</strong>，但是由于不同数据包选择的网络通路不一定相同，以及网络拥塞等情况，这些数据包通常<strong>不会按顺序到达接收端</strong>。为此，在接收端有一个滑动窗口，在接收端接收到数据包后，根据数据包内的信息，将剥除首部的数据部分放进其对应的位置，等所有的数据包都接受后，原本的数据信息就被还原了出来。</p>
-<p>另外，分组交换中，并不是将长报文分得越短越好。因为每一个分组都需要添加首部，分组越多，需要添加的首部越多。所以过度的分组会造成不必要的开销。</p>
-<p>分组交换方式的问题：</p>
-<ul>
-<li>各分组在传递过程中的各个中间结点都会排队，因此会造成时延。</li>
-<li>由于每一个分组都需要加上首部，因此会增加开销。<h3 id="4-总结"><a href="#4-总结" class="headerlink" title="4.总结"></a>4.总结</h3></li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>数据交换方式</th>
-<th>优点</th>
-<th>缺点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>电路交换</td>
-<td>独占信道，传输稳定；延迟低，无拥塞。</td>
-<td>建立连接时间长；效率低。</td>
-</tr>
-<tr>
-<td>报文交换</td>
-<td>不需要建立专用信道；并发度高。</td>
-<td>排队时延高；对中间结点的储存空间要求较高，因此开销较高。</td>
-</tr>
-<tr>
-<td>分组交换</td>
-<td>相比电路交换并发度高；相比报文交换更加灵活，对中间结点的储存能力要求较低。</td>
-<td>排队时延；首部的添加增加了空间开销</td>
-</tr>
-</tbody></table>
-<h2 id="（四）网络的分类"><a href="#（四）网络的分类" class="headerlink" title="（四）网络的分类"></a>（四）网络的分类</h2><p><img src="https://Kylinnnnn.github.io/img/ComputerNetwork08.png" alt=""></p>
-<h2 id="（五）计算机网络的性能指标"><a href="#（五）计算机网络的性能指标" class="headerlink" title="（五）计算机网络的性能指标"></a>（五）计算机网络的性能指标</h2><p>计算机网络的性能指标有7个：速率（rate）、带宽（bandwidth）、吞吐量（throughput）、时延（delay）、时延带宽积（bandwidth-delay product）、往返时间（RTT）、利用率。</p>
-<h3 id="1-速率（rate）"><a href="#1-速率（rate）" class="headerlink" title="1.速率（rate）"></a>1.速率（rate）</h3><p>速率是指数据的传送速率，也称数据率或比特率。单位为<code>bit/s</code>、<code>kbit/s</code>等。<br>进制如下<br>$$1 Gbit/s = 10^3 Mbit/s = 10^6 kbit/s = 10^9 bit/s$$<br>PS:$$1 bit/s = 1bps$$</p>
-<h3 id="2-带宽（bandwidth）"><a href="#2-带宽（bandwidth）" class="headerlink" title="2.带宽（bandwidth）"></a>2.带宽（bandwidth）</h3><p>带宽有两个含义。一个含义是指信号的频带宽度，单位为Hz。<br>但在计算机网络中为另一个含义：单位时间内某信道通过的“最高数据率”，单位为<code>bit/s</code>。因此，更宽的链路意味着每秒有更多比特从计算机注入到链路。<br>在时间轴上，信号的宽度随着带宽的增大而变窄。<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork09.png" alt=""></p>
-<h3 id="3-吞吐量"><a href="#3-吞吐量" class="headerlink" title="3.吞吐量"></a>3.吞吐量</h3><p>吞吐量表示的是单位时间内通过某个网络（接口或者信道）的数据量。</p>
-<h3 id="4-时延"><a href="#4-时延" class="headerlink" title="4.时延"></a>4.时延</h3><p>时延是指数据从网络的一段传输到另一端所需要的时间。<br>时延共分为四类：<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork10.png" alt=""><br>其中，排队时延与处理时延通常来说时间最长。<br>另外，四种时延产生的地方也不同<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork11.png" alt=""><br>计算：<br>$$发送时延 = \frac{数据长度（bit）}{发送速率（bit/s），即带宽}$$<br>$$传播时延 = \frac{信道长度（m）}{在信道中的传播速率（m/s）}$$</p>
-<h3 id="5-时延带宽积"><a href="#5-时延带宽积" class="headerlink" title="5.时延带宽积"></a>5.时延带宽积</h3><p>时延带宽积又称为以比特为单位的链路长度。<br>$$时延带宽积 = 传播时延 \times 带宽$$</p>
-<h3 id="6-往返时间"><a href="#6-往返时间" class="headerlink" title="6.往返时间"></a>6.往返时间</h3><p>往返时间表示从发送方发送数据开始，到发送方收到来自接受饭的确认信息为止的用时。</p>
-<h3 id="7-利用率"><a href="#7-利用率" class="headerlink" title="7.利用率"></a>7.利用率</h3><p>利用率分为<strong>信道利用率</strong>和<strong>网络利用率</strong>。<br>信道利用率指出某条信道有百分之几的时间是被利用的。完全空闲的信道利用率是零。<br>网络利用率是全网络的信道利用率的加权平均值。<br>PS：信道的利用率并非越高越好。信道的利用率越高，其中的时延就越大，因此某些专用信道并不需要太高的利用率。<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork12.png" alt=""></p>
-<h2 id="（六）计算机网络的体系结构"><a href="#（六）计算机网络的体系结构" class="headerlink" title="（六）计算机网络的体系结构"></a>（六）计算机网络的体系结构</h2><p>本小节只概括性的谈谈一点基础概念以及网络分层的意义与实质。详细部分可以看我另一篇笔记向博文“TCP/IP：OSI参考模型与TCP/IP参考模型”。<br>网络协议的三要素：语法、语义、时序。<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork13.png" alt=""><br>网络分层的优点：</p>
-<ul>
-<li>各层独立</li>
-<li>灵活性好</li>
-<li>易于维护</li>
-<li>结构上可分割</li>
-<li>促进标准化<br>缺点：</li>
-<li>部分功能在各层有不必要的重复</li>
-</ul>
-<p>通信虚电路：通信是在双方的对等层之间进行，第N层只能与对方的第N层通信。<br>通信实电路：网络体系结构的每一层将数据和控制信息传递给下层直至最底层，通过物理介质进行传输。<br>因此，<strong>多层通信的实质</strong>是：<br>①.对等层之间进行虚拟通信<br>②.上层向下层传递数据和控制信息，或者说上层调用下层所提供的服务。<br>③.实际通信在双方的最底层之间进行。<br>④.协议是通信双方横向的关系<br>⑤.服务是纵向的</p>
+<p><strong>链路</strong>也可以分为<strong>物理链路</strong>和<strong>逻辑链路</strong>。<br>物理链路即指链路。<br>逻辑链路即指数据链路。<br>早期的数据通信协议曾叫做通信规程<strong>procedure</strong>。</p>
+<p>数据链路层的传输单位是帧<code>frame</code></p>
+<h3 id="数据链路层的基本功能"><a href="#数据链路层的基本功能" class="headerlink" title="数据链路层的基本功能"></a>数据链路层的基本功能</h3><p>数据链路层的协议有许多种，但有一些基本问题是大家都需要考虑到的。</p>
+<h4 id="1-封装成帧"><a href="#1-封装成帧" class="headerlink" title="1.封装成帧"></a>1.封装成帧</h4><p>封装成帧即在一段数据的前后分别添加首部和尾部，然后就构成了一个帧。<br>首部和尾部的一个重要作用就是进行<strong>帧定界</strong>。</p>
 
     
 
@@ -385,7 +283,7 @@ var _hmt = _hmt || [];
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://kylinnnnn.github.io/2020/02/26/计算机网络（一）/" title="计算机网络（一）" target="_blank">http://kylinnnnn.github.io/2020/02/26/计算机网络（一）/</a>
+          <a href="http://kylinnnnn.github.io/2020/04/01/计算机网络（三）/" title="计算机网络（三）" target="_blank">http://kylinnnnn.github.io/2020/04/01/计算机网络（三）/</a>
         </li>
         
         <li>
@@ -411,7 +309,7 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">数据链路层</a>
         		</li>
       		
 		</ul>
@@ -467,7 +365,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://kylinnnnn.github.io/2020/02/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://kylinnnnn.github.io/2020/04/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%89%EF%BC%89/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -482,18 +380,9 @@ var _hmt = _hmt || [];
 
 <nav id="article-nav">
   
-    <a href="/2020/03/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%8C%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          计算机网络（二）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/02/25/%E3%80%8A%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%B3%95%E3%80%8B%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">《网络与人工智能法》笔记（一）</div>
+    <a href="/2020/03/31/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-HTML%E7%AF%87/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端代码实现_HTML篇</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -520,7 +409,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、前言"><span class="toc-number">1.</span> <span class="toc-text">一、前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、第一章-概述"><span class="toc-number">2.</span> <span class="toc-text">二、第一章 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）简介"><span class="toc-number">2.1.</span> <span class="toc-text">（一）简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-计算机网络与互联网"><span class="toc-number">2.1.1.</span> <span class="toc-text">1.计算机网络与互联网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-互联网的发展历史"><span class="toc-number">2.1.2.</span> <span class="toc-text">2.互联网的发展历史</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）互联网的组成"><span class="toc-number">2.2.</span> <span class="toc-text">（二）互联网的组成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-边缘部分"><span class="toc-number">2.2.1.</span> <span class="toc-text">1.边缘部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-核心部分"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.核心部分</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（三）数据交换技术"><span class="toc-number">2.3.</span> <span class="toc-text">（三）数据交换技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-电路交换"><span class="toc-number">2.3.1.</span> <span class="toc-text">1.电路交换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-报文交换"><span class="toc-number">2.3.2.</span> <span class="toc-text">2.报文交换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-分组交换"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.分组交换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-总结"><span class="toc-number">2.3.4.</span> <span class="toc-text">4.总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（四）网络的分类"><span class="toc-number">2.4.</span> <span class="toc-text">（四）网络的分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（五）计算机网络的性能指标"><span class="toc-number">2.5.</span> <span class="toc-text">（五）计算机网络的性能指标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-速率（rate）"><span class="toc-number">2.5.1.</span> <span class="toc-text">1.速率（rate）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-带宽（bandwidth）"><span class="toc-number">2.5.2.</span> <span class="toc-text">2.带宽（bandwidth）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-吞吐量"><span class="toc-number">2.5.3.</span> <span class="toc-text">3.吞吐量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-时延"><span class="toc-number">2.5.4.</span> <span class="toc-text">4.时延</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-时延带宽积"><span class="toc-number">2.5.5.</span> <span class="toc-text">5.时延带宽积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-往返时间"><span class="toc-number">2.5.6.</span> <span class="toc-text">6.往返时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-利用率"><span class="toc-number">2.5.7.</span> <span class="toc-text">7.利用率</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（六）计算机网络的体系结构"><span class="toc-number">2.6.</span> <span class="toc-text">（六）计算机网络的体系结构</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用点对点信道的数据链路层"><span class="toc-number">1.</span> <span class="toc-text">使用点对点信道的数据链路层</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据链路和帧"><span class="toc-number">1.1.</span> <span class="toc-text">数据链路和帧</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据链路层的基本功能"><span class="toc-number">2.</span> <span class="toc-text">数据链路层的基本功能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-封装成帧"><span class="toc-number">2.1.</span> <span class="toc-text">1.封装成帧</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
