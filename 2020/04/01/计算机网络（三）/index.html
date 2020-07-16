@@ -16,12 +16,24 @@
 <meta property="og:url" content="http://kylinnnnn.github.io/2020/04/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%89%EF%BC%89/index.html">
 <meta property="og:site_name" content="Kylin&#39;s Collection Box">
 <meta property="og:description" content="数据链路层所要考虑的是如何在不同的传输媒体间传输比特流。并且数据链路层在向上层提供服务时要尽可能屏蔽由于底层传输设备、实现手段的差异而带来的影响。本章的主要内容：  数据链路层的点对点信道和广播信道的特点，以及这两种信道所使用的协议（PPP协议以及CSMA&#x2F;CD协议）的特点。 数据链路层的三个基本功能：封装成帧、透明传输和差错检测。 以太网MAC层的硬件地址。 适配器、转发器、集线器、网桥、以太网">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork27.png">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork28.png">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork29.png">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork30.png">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork31.png">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork32.png">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork33.png">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork34.png">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork35.png">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork36.png">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/ComputerNetwork37.png">
 <meta property="article:published_time" content="2020-04-01T00:20:14.000Z">
-<meta property="article:modified_time" content="2020-04-01T03:58:46.278Z">
+<meta property="article:modified_time" content="2020-04-29T14:16:44.078Z">
 <meta property="article:author" content="Kylin">
 <meta property="article:tag" content="计算机网络">
 <meta property="article:tag" content="数据链路层">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kylinnnnn.github.io/img/ComputerNetwork27.png">
   
   
     <link rel="icon" href="/img/favicon.jfif">
@@ -118,7 +130,7 @@ var _hmt = _hmt || [];
 			
 			
 			<div>
-				<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="86" src="//music.163.com/outchain/player?type=2&id=1309394512&auto=1&height=66"></iframe>
+				<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="86" src="//music.163.com/outchain/player?type=2&id=4405878&auto=1&height=66"></iframe>
 			</div>
 			
 				
@@ -226,7 +238,7 @@ var _hmt = _hmt || [];
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">530字</span>
+      <span class="post-count">2.3k字</span>
     </span>
   </span>
 
@@ -235,7 +247,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">7分</span>
     </span>
   </span>
 </div>
@@ -253,8 +265,8 @@ var _hmt = _hmt || [];
 <li>以太网<code>MAC</code>层的硬件地址。</li>
 <li>适配器、转发器、集线器、网桥、以太网交换机的作用和使用场合。<a id="more"></a>
 <h3 id="使用点对点信道的数据链路层"><a href="#使用点对点信道的数据链路层" class="headerlink" title="使用点对点信道的数据链路层"></a>使用点对点信道的数据链路层</h3><h4 id="数据链路和帧"><a href="#数据链路和帧" class="headerlink" title="数据链路和帧"></a>数据链路和帧</h4></li>
-<li><em>链路(link)*</em>是指一条无源的点到点的物理线路段，中间没有任何其他的交换结点。</li>
-<li><em>数据链路(data link)*</em>除了物理线路外，还必须有通信协议来控制这些数据的传输。若把实现这些协议的硬件和软件加到链路上，就构成了数据链路。</li>
+<li><em>链路(link)*</em> 是指一条无源的点到点的物理线路段，中间没有任何其他的交换结点。</li>
+<li><em>数据链路(data link)*</em> 除了物理线路外，还必须有通信协议来控制这些数据的传输。若把实现这些协议的硬件和软件加到链路上，就构成了数据链路。</li>
 <li>现在最常用的方法是使用适配器来实现这些协议的硬件和软件。</li>
 <li>一般的适配器都包括了数据链路层和物理层这两层的功能。</li>
 </ul>
@@ -267,8 +279,88 @@ var _hmt = _hmt || [];
 </ul>
 <p><strong>链路</strong>也可以分为<strong>物理链路</strong>和<strong>逻辑链路</strong>。<br>物理链路即指链路。<br>逻辑链路即指数据链路。<br>早期的数据通信协议曾叫做通信规程<strong>procedure</strong>。</p>
 <p>数据链路层的传输单位是帧<code>frame</code></p>
-<h3 id="数据链路层的基本功能"><a href="#数据链路层的基本功能" class="headerlink" title="数据链路层的基本功能"></a>数据链路层的基本功能</h3><p>数据链路层的协议有许多种，但有一些基本问题是大家都需要考虑到的。</p>
-<h4 id="1-封装成帧"><a href="#1-封装成帧" class="headerlink" title="1.封装成帧"></a>1.封装成帧</h4><p>封装成帧即在一段数据的前后分别添加首部和尾部，然后就构成了一个帧。<br>首部和尾部的一个重要作用就是进行<strong>帧定界</strong>。</p>
+<h4 id="数据链路层的基本功能"><a href="#数据链路层的基本功能" class="headerlink" title="数据链路层的基本功能"></a>数据链路层的基本功能</h4><p>数据链路层的协议有许多种，但有一些基本问题是大家都需要考虑到的。</p>
+<h4 id="1-封装成帧"><a href="#1-封装成帧" class="headerlink" title="1.封装成帧"></a>1.封装成帧</h4><p>封装成帧即在一段数据的前后分别添加首部和尾部，然后就构成了一个帧。<br>首部和尾部的一个重要作用就是进行<strong>帧定界</strong>。<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork27.png" alt=""><br>帧定界可以定位数据部分的位置，从而方便接收端分辨哪些是数据哪些是控制信息。</p>
+<p>通常<strong>使用控制字符来实现帧定界</strong>。<br>当数据是由可以打印的ASCII码组成的文本文件时，帧定界可以使用特殊的<strong>帧定界符</strong>。<br>在一个帧结构最前面的控制字符<code>SOH(Start Of Header)</code>表示帧的首部的开始。在帧结构最后面的控制字符<code>EOT(End Of Transmission)</code>表示帧的尾部的结束。<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork28.png" alt=""></p>
+<h4 id="2-透明传输"><a href="#2-透明传输" class="headerlink" title="2.透明传输"></a>2.透明传输</h4><p>所谓“透明”，<strong>表示某个实际存在的事物看起来像不存在一样</strong>。而“在数据链路层透明传输数据”表示无论是怎样的数据，都能够没有差错地穿过数据链路层，也就是说数据链路层不能对传输的数据产生影响，数据链路层对于传输的数据应该是透明的。</p>
+<p>在上述通过特殊字符能在通常情况下进行帧定界。但是，当帧的数据信息的二进制代码中出现恰好和<code>SOH</code>或<code>EOT</code>一样的内容时，数据链路层对于帧边界的判断就会出错。<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork29.png" alt=""><br>那么此时数据链路层就没有实现透明传输功能。为了解决这个问题，采用了字节填充<code>(byte stuffing)</code>或称为字符填充<code>(character stuffing)</code>。</p>
+<p>过程：<br>发送端的数据链路层在数据中出现的<code>SOH</code>和<code>EOT</code>之前都插入一个转义字符<code>ESC(十六进制编码为1B)</code>。<br>如果转义字符也在数据中，那在转义字符之前仍插入一个转义字符。<br>接收端的数据链路层在将数据送往网络层之前时删除<code>SOH</code>和<code>EOT</code>之前的转义字符，如果连续碰到两个转义字符，那就删除前一个。<br>由此在满足透明传输的条件下实现了帧定界。<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork30.png" alt=""></p>
+<p><strong>使用特殊比特进行帧定界</strong><br>比特填充过程：<br>发送方：报文中每出现连续的五个1就在后面插入一个0。<br>接收方：如果连续收到五个1，根据第六位进行判断，若为0，则将其删除；若为1并且第七为0，则表示帧结束，否则表示异常终止。<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork31.png" alt=""></p>
+<blockquote>
+<p>带下划线的0为填充位。</p>
+</blockquote>
+<h4 id="3-差错检测"><a href="#3-差错检测" class="headerlink" title="3.差错检测"></a>3.差错检测</h4><p>数据在传输的过程中可能出现比特差错：即1可能变成0，0可能变成1。<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork32.png" alt=""></p>
+<p>误码率<code>BER(Bit Error Rate)</code>：一段时间内，传输错误的比特占传输比特总数的比率。<br>误码率与信噪比有很大的关系。<br>为了保证数据传输的可靠性，在计算机网络传输数据时，必须要采取一些差错检测的措施。</p>
+<p>常用的检错技术：</p>
+<ul>
+<li>奇偶校验</li>
+<li>循环冗余校验<code>CRC</code></li>
+</ul>
+<h5 id="奇偶校验"><a href="#奇偶校验" class="headerlink" title="奇偶校验"></a>奇偶校验</h5><p>奇偶校验实际上是分成奇校验和偶校验两种，但大同小异。</p>
+<p>奇偶校验就是在每一字节（8位）之外又增加了一位作为错误检测位。在某字节中存储数据之后，在其8个位上存储的数据是固定的，因为位只能有两种状态1或0，假设存储的数据用位标示为1、1、1、0、0、1、0、1，那么把每个位相加（1+1+1+0+0+1+0+1=5），结果是奇数。对于偶校验，校验位就定义为1；对于奇校验，则相反。如果传输数据的结果与标示位所代表的不一致，说明传输过程中出现了错误。</p>
+<p>奇偶校验只能检测错误而并不能纠正错误。并且奇偶校验只能检测单位错误，不能检查出双位错误。</p>
+<p><img src="https://Kylinnnnn.github.io/img/ComputerNetwork33.png" alt=""><br>另外还有二维奇偶校验<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork34.png" alt=""><br>二维奇偶校验相比于一维奇偶校验拥有了纠正单位错误的能力。</p>
+<h5 id="循环冗余校验CRC"><a href="#循环冗余校验CRC" class="headerlink" title="循环冗余校验CRC"></a>循环冗余校验<code>CRC</code></h5><p>在发送端把数据划分为组，假定每组k个比特，在每组后面再添加供差错检测用的n位冗余码，然后一起发送出去。</p>
+<p>冗余码的计算过程:在原数据M后面添加n个0得到的k + n位的数除以事先选定好的长度为n + 1位的除数P，余数是R，将n位的余数R作为冗余码。</p>
+<p>在接收端对收到的每一帧进行CRC检验，即将k + n位的数除以P，余数为0则判定这个帧没有差错，否则表示存在差错。</p>
+<p>缺点：只能检错不能纠错。仅用循环冗余检验CRC差错检测技术只能做到无差错接受和无比特差错，单纯使用CRC差错检测技术不能实现无差错传输或可靠传输。<br><img src="https://Kylinnnnn.github.io/img/ComputerNetwork35.png" alt=""></p>
+<h3 id="点对点协议PPP"><a href="#点对点协议PPP" class="headerlink" title="点对点协议PPP"></a>点对点协议PPP</h3><p>对于点对点的链路，目前使用最广泛的的数据链路层协议是点对点协议<code>PPP</code>(Point To Point Protocol)。</p>
+<h4 id="PPP协议的特点"><a href="#PPP协议的特点" class="headerlink" title="PPP协议的特点"></a>PPP协议的特点</h4><p>PPP协议应满足的需求：</p>
+<ul>
+<li>简单</li>
+<li>封装成帧</li>
+<li>透明传输</li>
+<li>多种类型的链路</li>
+<li>差错检测</li>
+<li>多种网络层协议</li>
+<li>检测连接状态</li>
+<li>最大传送单元</li>
+<li>网络层地址协商</li>
+<li>数据压缩协商</li>
+</ul>
+<p>PPP协议不需要的功能：</p>
+<ul>
+<li>纠错</li>
+<li>流量控制</li>
+<li>序号</li>
+<li>多点线路</li>
+<li>半双工或单工链路</li>
+</ul>
+<p>PPP协议的组成：</p>
+<ul>
+<li><p>一个将IP数据报封装到串行链路的方法</p>
+</li>
+<li><p>链路控制协议<code>LCP(Link Control Protocol)</code></p>
+</li>
+<li><p>网络控制协议<code>NCP(Network Control Protocol)</code></p>
+<h4 id="PPP协议的帧格式"><a href="#PPP协议的帧格式" class="headerlink" title="PPP协议的帧格式"></a>PPP协议的帧格式</h4><p><img src="https://Kylinnnnn.github.io/img/ComputerNetwork36.png" alt=""></p>
+</li>
+<li><p>PPP帧的首部和尾部分别为4个字段和2个字段</p>
+</li>
+<li><p>标志字段F = 0x7E(十六进制的7E的二进制表示是0111 1110)</p>
+</li>
+<li><p>地址字段A只置为0xFF。地址字段实际上并不起作用。</p>
+</li>
+<li><p>控制字段C通常置为0x03</p>
+</li>
+<li><p>PPP面向字节的，所有的PPP帧的长度都是整数字节</p>
+</li>
+</ul>
+<p><strong>PPP的透明传输问题</strong></p>
+<ul>
+<li>当PPP用在异步传输时，就使用一种特殊的字符填充法。</li>
+<li>当PPP用在同步传输链路时，协议规定采用硬件来完成比特填充(和HDLC的做法一样)。<blockquote>
+<p>HDLC：High-level Data Link Control。高级数据链路控制，也是数据链路层协议的一种，具体没了解。</p>
+</blockquote>
+</li>
+</ul>
+<p>在使用字符填充时，为了透明传输，需要对数据部分出现与协议标志位相同的字节部分进行处理。</p>
+<p><img src="https://Kylinnnnn.github.io/img/ComputerNetwork37.png" alt=""></p>
+<ul>
+<li>将信息字段中出现的每一个0x7E字节转变称为2字节序列(0x7D,0x5E)。</li>
+<li>若信息字段中出现一个0x7D字节，则将其转变成为2字节序列(0x7D,0x5D)。</li>
+<li>若信息字段中出现ASCII码控制的字符(即数值小于0x20的字符)，则在该字符前面要加入一个0x7D字节，同时将该字符的编码加以改变(指加上0x20)。</li>
+</ul>
 
     
 
@@ -380,6 +472,15 @@ var _hmt = _hmt || [];
 
 <nav id="article-nav">
   
+    <a href="/2020/04/07/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-Javascript%E7%AF%87/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          前端代码实现-Javascript篇
+        
+      </div>
+    </a>
+  
   
     <a href="/2020/03/31/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-HTML%E7%AF%87/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">前端代码实现_HTML篇</div>
@@ -409,7 +510,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用点对点信道的数据链路层"><span class="toc-number">1.</span> <span class="toc-text">使用点对点信道的数据链路层</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据链路和帧"><span class="toc-number">1.1.</span> <span class="toc-text">数据链路和帧</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据链路层的基本功能"><span class="toc-number">2.</span> <span class="toc-text">数据链路层的基本功能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-封装成帧"><span class="toc-number">2.1.</span> <span class="toc-text">1.封装成帧</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用点对点信道的数据链路层"><span class="toc-number">1.</span> <span class="toc-text">使用点对点信道的数据链路层</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据链路和帧"><span class="toc-number">1.1.</span> <span class="toc-text">数据链路和帧</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据链路层的基本功能"><span class="toc-number">1.2.</span> <span class="toc-text">数据链路层的基本功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-封装成帧"><span class="toc-number">1.3.</span> <span class="toc-text">1.封装成帧</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-透明传输"><span class="toc-number">1.4.</span> <span class="toc-text">2.透明传输</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-差错检测"><span class="toc-number">1.5.</span> <span class="toc-text">3.差错检测</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#奇偶校验"><span class="toc-number">1.5.1.</span> <span class="toc-text">奇偶校验</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#循环冗余校验CRC"><span class="toc-number">1.5.2.</span> <span class="toc-text">循环冗余校验CRC</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#点对点协议PPP"><span class="toc-number">2.</span> <span class="toc-text">点对点协议PPP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#PPP协议的特点"><span class="toc-number">2.1.</span> <span class="toc-text">PPP协议的特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PPP协议的帧格式"><span class="toc-number">2.2.</span> <span class="toc-text">PPP协议的帧格式</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -660,6 +761,18 @@ var _hmt = _hmt || [];
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">数据链路层</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">摘录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">页面渲染</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -742,6 +855,15 @@ var _hmt = _hmt || [];
                   <i class="icon-link icon"></i>
                 
                 douNine
+              </a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://kylinnnnn.gitee.io/kylinnnnn/" target="_blank" class="search-title" >
+                
+                  <i class="icon-link icon"></i>
+                
+                Minecraft
               </a>
             </li>
           
