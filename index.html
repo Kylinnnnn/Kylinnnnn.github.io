@@ -247,9 +247,10 @@ var _hmt = _hmt || [];
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>这次主要是vue项目里面需要用到百度地图，而百度地图api里只提供了用cdn引入的方法（其实最后也找到了vue组件）。然后是找了不少博客，总体来说是同过webpack设置打包。<br>首先说下大致思路，在index.html这个入口文件里插入script标签引入。<br>接着是配置webpack，解决问题的核心部分就在这。首先在vue-cli2生成的项目中，是在config文件夹下的几个配置文件中进行配置。而在vue-cli3生成的项目结构中，删除了config文件夹，配置是在vue.config.js中进行的。到了vue-cli4中，本意似乎是为了用户自行为各组件进行独立配置，连vue.config.js都删除了，需要自己在根目录新建。<br>然后我这是vue-cli2项目。<br>第一步，在入口文件引入链接<br><img src="https://Kylinnnnn.github.io/img/vue01.png" alt=""><br>第二步，在config文件夹下的index.js中进行配置<br><img src="https://Kylinnnnn.github.io/img/vue02.png" alt=""><br>然后就可以直接在组件中正常使用了。<br>第三步，使用<br><img src="https://Kylinnnnn.github.io/img/vue03.png" alt=""></p>
-<p>使用过程当中要注意一点，就是需要在mounted()钩子函数中去使用，也就是等待所有文件都加载完毕再进行使用，具体原因涉及到vue的页面生命周期。如果在index.html中最后引入，好像不放在mounted()中也可。</p>
-
+    <p>这次主要是vue项目里面需要用到百度地图，而百度地图api里只提供了用cdn引入的方法（其实最后也找到了vue组件）。然后是找了不少博客，总体来说是同过webpack设置打包。</p>
+    
+    <a class="article-more-a" href="/2020/07/17/vue%E9%80%9A%E8%BF%87cdn%E5%BC%95%E5%85%A5/#more">more >></a>
+    
     
 
     
@@ -266,6 +267,10 @@ var _hmt = _hmt || [];
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
         		</li>
       		
 		</ul>
@@ -1349,6 +1354,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
             
             <div class="clearfix"></div>
