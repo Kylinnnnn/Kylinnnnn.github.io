@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://kylinnnnn.github.io">
-  <title>Kylin&#39;s Collection Box</title>
+  <title>JS中的for循环 | Kylin&#39;s Collection Box</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    
-    <!-- <meta name="keywords" content="Kylin Kylinnnnn 方雨麒">
-    <meta name="description" content="菜鸡的杂七杂八及码农路上的些许总结"> -->
-  
-  <meta name="description" content="菜鸡的杂七杂八及码农路上的些许总结">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Kylin&#39;s Collection Box">
-<meta property="og:url" content="http://kylinnnnn.github.io/page/4/index.html">
+  <meta name="description" content="Javascript中的for循环是个很简单的知识点。主要是这几天常用，然后又有段时间没更，稍作记录。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS中的for循环">
+<meta property="og:url" content="http://kylinnnnn.github.io/2020/07/23/JS%E4%B8%AD%E7%9A%84for%E5%BE%AA%E7%8E%AF/index.html">
 <meta property="og:site_name" content="Kylin&#39;s Collection Box">
-<meta property="og:description" content="菜鸡的杂七杂八及码农路上的些许总结">
+<meta property="og:description" content="Javascript中的for循环是个很简单的知识点。主要是这几天常用，然后又有段时间没更，稍作记录。">
+<meta property="article:published_time" content="2020-07-23T06:49:06.000Z">
+<meta property="article:modified_time" content="2020-07-23T07:48:32.027Z">
 <meta property="article:author" content="Kylin">
-<meta property="article:tag" content="Kylin Kylinnnnn 方雨麒">
+<meta property="article:tag" content="Javascript">
 <meta name="twitter:card" content="summary">
   
   
@@ -194,27 +192,27 @@ var _hmt = _hmt || [];
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-
-  
-    <article id="post-Javascipt原型链理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-JS中的for循环" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/02/24/Javascipt%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%90%86%E8%A7%A3/" target="_blank">JavaScipt原型链理解</a>
-  
+    <h1 class="article-title" itemprop="name">
+      JS中的for循环
     </h1>
   
 
 
   
   
-<a href="/2020/02/24/Javascipt%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%90%86%E8%A7%A3/" class="archive-article-date">
-        <time datetime="2020-02-24T03:06:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-24</time>
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2020/07/23/JS%E4%B8%AD%E7%9A%84for%E5%BE%AA%E7%8E%AF/" class="archive-article-date">
+        <time datetime="2020-07-23T06:49:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-23</time>
 </a>
 
   
@@ -227,7 +225,7 @@ var _hmt = _hmt || [];
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1k字</span>
+      <span class="post-count">363字</span>
     </span>
   </span>
 
@@ -236,7 +234,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">4分</span>
+      <span class="post-count">1分</span>
     </span>
   </span>
 </div>
@@ -247,14 +245,41 @@ var _hmt = _hmt || [];
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>昨天妄图把给博客做做个性化，结果玩崩了。不知道是哪里误操作，导致页面所有的渲染效果都没了，只得重装。</p>
-    
-    <a class="article-more-a" href="/2020/02/24/Javascipt%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%90%86%E8%A7%A3/#more">more >></a>
-    
-    
+    <p>Javascript中的for循环是个很简单的知识点。主要是这几天常用，然后又有段时间没更，稍作记录。</p>
+<a id="more"></a>
+<p>Javascript中的for循环遍历共有三种用法。</p>
+<ul>
+<li>用法一：for<br>第一种用法是最通用也是最基础的用法。以计算数组A中前五项相加1+2+3+4+5为例。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> count = <span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> A[<span class="number">5</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line">    <span class="keyword">let</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; A.length; i++)&#123;</span><br><span class="line">        res += A[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>用法二：for in<br>先上代码。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> count = <span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> A[<span class="number">5</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line">    <span class="keyword">let</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i <span class="keyword">in</span> A)&#123;</span><br><span class="line">        res += A[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+这种方法与用法一直接用数组长度作为边界是功能上是一样的，主要是能够自动遍历。另外，当用法一无法获取数组长度时，用法二仍能自动遍历所有元素。</li>
+<li>用法三：for of<br>用法三是ES6中新加入的。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> count = <span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> A[<span class="number">5</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line">    <span class="keyword">let</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i <span class="keyword">of</span> A)&#123;</span><br><span class="line">        res += i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+可以看出来最大的区别就是用来遍历的i不再是下标了。for of的实现用到了ES6新增的iterator迭代器。使用了迭代器也就意味着这里的i是数组A内的实例而不是数组下标。所以A中的具体数据类型是什么，i的数据类型便是什么，用起来很是方便。</li>
+</ul>
 
     
 
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Kylin
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://kylinnnnn.github.io/2020/07/23/JS中的for循环/" title="JS中的for循环" target="_blank">http://kylinnnnn.github.io/2020/07/23/JS中的for循环/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
     
 
   </div>
@@ -275,238 +300,76 @@ var _hmt = _hmt || [];
     
 
     
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/02/24/Javascipt%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%90%86%E8%A7%A3/">展开全文 >></a>
-    </p>
-    
 
     
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Windows上MySQL安装及Navicat连接数据库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/02/21/Windows%E4%B8%8AMySQL%E5%AE%89%E8%A3%85%E5%8F%8ANavicat%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93/" target="_blank">Windows上MySQL安装及Navicat连接数据库</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/02/21/Windows%E4%B8%8AMySQL%E5%AE%89%E8%A3%85%E5%8F%8ANavicat%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93/" class="archive-article-date">
-        <time datetime="2020-02-21T07:01:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
-</a>
-
-  
-  
-    
-<div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <!-- fonts.scss -->
-      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
-      <i class="icon-statistics"></i>
-      <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">923字</span>
+      </div>
     </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="icon-book icon"></i>
-      <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">3分</span>
-    </span>
-  </span>
+  </div>
 </div>
 
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>此次需要在自己电脑上安装MySQL服务，虽说网上有许多教程，但实际操作起来还是一步一坑，需要自己另寻解决问题的方法。所以在安装完成之后就打算写篇博客记录一下过程，并将期间遇到的问题和解决办法汇总一下。</p>
-    
-    <a class="article-more-a" href="/2020/02/21/Windows%E4%B8%8AMySQL%E5%AE%89%E8%A3%85%E5%8F%8ANavicat%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/02/21/Windows%E4%B8%8AMySQL%E5%AE%89%E8%A3%85%E5%8F%8ANavicat%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://kylinnnnn.github.io/2020/07/23/JS%E4%B8%AD%E7%9A%84for%E5%BE%AA%E7%8E%AF/" alt="微信分享二维码"> -->
     </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Qt学习（三）Qt-Creator快捷键" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/02/09/Qt%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89Qt-Creator%E5%BF%AB%E6%8D%B7%E9%94%AE/" target="_blank">Qt学习（三）Qt Creator快捷键</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/02/09/Qt%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89Qt-Creator%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="archive-article-date">
-        <time datetime="2020-02-09T13:15:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-09</time>
-</a>
-
-  
-  
-    
-<div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <!-- fonts.scss -->
-      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
-      <i class="icon-statistics"></i>
-      <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.2k字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="icon-book icon"></i>
-      <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">4分</span>
-    </span>
-  </span>
 </div>
 
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>Qt Creator作为一个开发平台，如果能了解其部分快捷键，可以显著提高我们的编程效率。</p>
-    
-    <a class="article-more-a" href="/2020/02/09/Qt%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89Qt-Creator%E5%BF%AB%E6%8D%B7%E9%94%AE/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Qt</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/02/09/Qt%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89Qt-Creator%E5%BF%AB%E6%8D%B7%E9%94%AE/">展开全文 >></a>
-    </p>
-    
+<div class="mask js-mask"></div>
 
     
     <div class="clearfix"></div>
   </div>
   </div>
 </article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/17/vue%E9%80%9A%E8%BF%87cdn%E5%BC%95%E5%85%A5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue通过cdn引入</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -521,583 +384,33 @@ var _hmt = _hmt || [];
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Qt学习（二）获取界面区域参数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/01/17/Qt%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%E8%8E%B7%E5%8F%96%E7%95%8C%E9%9D%A2%E5%8C%BA%E5%9F%9F%E5%8F%82%E6%95%B0/" target="_blank">Qt学习（二）获取界面区域参数</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/01/17/Qt%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%E8%8E%B7%E5%8F%96%E7%95%8C%E9%9D%A2%E5%8C%BA%E5%9F%9F%E5%8F%82%E6%95%B0/" class="archive-article-date">
-        <time datetime="2020-01-17T10:15:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-17</time>
-</a>
-
-  
-  
-    
-<div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <!-- fonts.scss -->
-      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
-      <i class="icon-statistics"></i>
-      <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">514字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="icon-book icon"></i>
-      <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
-    </span>
-  </span>
-</div>
-
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>在完成项目的时候要获取屏幕区域大小的参数，发现搜索到的方法在官方文档中并不推荐，琢磨一会后总结对比了下这两种方法。</p>
-    
-    <a class="article-more-a" href="/2020/01/17/Qt%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%E8%8E%B7%E5%8F%96%E7%95%8C%E9%9D%A2%E5%8C%BA%E5%9F%9F%E5%8F%82%E6%95%B0/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Qt</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/01/17/Qt%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%E8%8E%B7%E5%8F%96%E7%95%8C%E9%9D%A2%E5%8C%BA%E5%9F%9F%E5%8F%82%E6%95%B0/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
 
-  
-    <article id="post-TCP-IP：OSI参考模型与TCP-IP参考模型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/11/26/TCP-IP%EF%BC%9AOSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B%E4%B8%8ETCP-IP%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/" target="_blank">TCP/IP：OSI参考模型与TCP/IP参考模型</a>
-  
-    </h1>
-  
 
 
-  
-  
-<a href="/2019/11/26/TCP-IP%EF%BC%9AOSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B%E4%B8%8ETCP-IP%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
-        <time datetime="2019-11-26T08:46:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
-</a>
 
-  
-  
-    
-<div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <!-- fonts.scss -->
-      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
-      <i class="icon-statistics"></i>
-      <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">2.6k字</span>
-    </span>
-  </span>
 
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="icon-book icon"></i>
-      <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">9分</span>
-    </span>
-  </span>
-</div>
 
 
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>为了计算机通信的标准化与规范化，1984年，国际标准化组织建立了一套抽象的分层结构作为通信标准，称为<code>ISO/OSI（International Organization for Standard/Open System Interconnection,国际标准化组织的开放网络架构)</code>。</p>
-    
-    <a class="article-more-a" href="/2019/11/26/TCP-IP%EF%BC%9AOSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B%E4%B8%8ETCP-IP%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/#more">more >></a>
-    
-    
 
-    
 
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">TCP/IP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/11/26/TCP-IP%EF%BC%9AOSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B%E4%B8%8ETCP-IP%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-《软件可靠性》-产品的有效性特征量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/10/09/%E3%80%8A%E8%BD%AF%E4%BB%B6%E5%8F%AF%E9%9D%A0%E6%80%A7%E3%80%8B-%E4%BA%A7%E5%93%81%E7%9A%84%E6%9C%89%E6%95%88%E6%80%A7%E7%89%B9%E5%BE%81%E9%87%8F/" target="_blank">《软件可靠性》-产品的有效性特征量</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/10/09/%E3%80%8A%E8%BD%AF%E4%BB%B6%E5%8F%AF%E9%9D%A0%E6%80%A7%E3%80%8B-%E4%BA%A7%E5%93%81%E7%9A%84%E6%9C%89%E6%95%88%E6%80%A7%E7%89%B9%E5%BE%81%E9%87%8F/" class="archive-article-date">
-        <time datetime="2019-10-09T09:13:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-09</time>
-</a>
-
-  
-  
-    
-<div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <!-- fonts.scss -->
-      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
-      <i class="icon-statistics"></i>
-      <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">525字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="icon-book icon"></i>
-      <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
-    </span>
-  </span>
-</div>
-
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="有效性特征量"><a href="#有效性特征量" class="headerlink" title="有效性特征量"></a>有效性特征量</h1>
-    
-    <a class="article-more-a" href="/2019/10/09/%E3%80%8A%E8%BD%AF%E4%BB%B6%E5%8F%AF%E9%9D%A0%E6%80%A7%E3%80%8B-%E4%BA%A7%E5%93%81%E7%9A%84%E6%9C%89%E6%95%88%E6%80%A7%E7%89%B9%E5%BE%81%E9%87%8F/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Misc</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">软件可靠性</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/10/09/%E3%80%8A%E8%BD%AF%E4%BB%B6%E5%8F%AF%E9%9D%A0%E6%80%A7%E3%80%8B-%E4%BA%A7%E5%93%81%E7%9A%84%E6%9C%89%E6%95%88%E6%80%A7%E7%89%B9%E5%BE%81%E9%87%8F/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-《软件可靠性》-产品的维修性特征量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/10/09/%E3%80%8A%E8%BD%AF%E4%BB%B6%E5%8F%AF%E9%9D%A0%E6%80%A7%E3%80%8B-%E4%BA%A7%E5%93%81%E7%9A%84%E7%BB%B4%E4%BF%AE%E6%80%A7%E7%89%B9%E5%BE%81%E9%87%8F/" target="_blank">《软件可靠性》-产品的维修性特征量</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/10/09/%E3%80%8A%E8%BD%AF%E4%BB%B6%E5%8F%AF%E9%9D%A0%E6%80%A7%E3%80%8B-%E4%BA%A7%E5%93%81%E7%9A%84%E7%BB%B4%E4%BF%AE%E6%80%A7%E7%89%B9%E5%BE%81%E9%87%8F/" class="archive-article-date">
-        <time datetime="2019-10-09T08:27:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-09</time>
-</a>
-
-  
-  
-    
-<div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <!-- fonts.scss -->
-      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
-      <i class="icon-statistics"></i>
-      <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">474字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="icon-book icon"></i>
-      <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
-    </span>
-  </span>
-</div>
-
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="产品的维修特征量"><a href="#产品的维修特征量" class="headerlink" title="产品的维修特征量"></a>产品的维修特征量</h1>
-    
-    <a class="article-more-a" href="/2019/10/09/%E3%80%8A%E8%BD%AF%E4%BB%B6%E5%8F%AF%E9%9D%A0%E6%80%A7%E3%80%8B-%E4%BA%A7%E5%93%81%E7%9A%84%E7%BB%B4%E4%BF%AE%E6%80%A7%E7%89%B9%E5%BE%81%E9%87%8F/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Misc</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">软件可靠性</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/10/09/%E3%80%8A%E8%BD%AF%E4%BB%B6%E5%8F%AF%E9%9D%A0%E6%80%A7%E3%80%8B-%E4%BA%A7%E5%93%81%E7%9A%84%E7%BB%B4%E4%BF%AE%E6%80%A7%E7%89%B9%E5%BE%81%E9%87%8F/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-《软件可靠性》-产品的可靠性特征量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/09/24/%E3%80%8A%E8%BD%AF%E4%BB%B6%E5%8F%AF%E9%9D%A0%E6%80%A7%E3%80%8B-%E4%BA%A7%E5%93%81%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7%E7%89%B9%E5%BE%81%E9%87%8F/" target="_blank">《软件可靠性》---产品的可靠性特征量</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/09/24/%E3%80%8A%E8%BD%AF%E4%BB%B6%E5%8F%AF%E9%9D%A0%E6%80%A7%E3%80%8B-%E4%BA%A7%E5%93%81%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7%E7%89%B9%E5%BE%81%E9%87%8F/" class="archive-article-date">
-        <time datetime="2019-09-24T03:49:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-24</time>
-</a>
-
-  
-  
-    
-<div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <!-- fonts.scss -->
-      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
-      <i class="icon-statistics"></i>
-      <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">763字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="icon-book icon"></i>
-      <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">3分</span>
-    </span>
-  </span>
-</div>
-
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="产品的可靠性特征量"><a href="#产品的可靠性特征量" class="headerlink" title="产品的可靠性特征量"></a>产品的可靠性特征量</h1>
-    
-    <a class="article-more-a" href="/2019/09/24/%E3%80%8A%E8%BD%AF%E4%BB%B6%E5%8F%AF%E9%9D%A0%E6%80%A7%E3%80%8B-%E4%BA%A7%E5%93%81%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7%E7%89%B9%E5%BE%81%E9%87%8F/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Misc</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">软件可靠性</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/09/24/%E3%80%8A%E8%BD%AF%E4%BB%B6%E5%8F%AF%E9%9D%A0%E6%80%A7%E3%80%8B-%E4%BA%A7%E5%93%81%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7%E7%89%B9%E5%BE%81%E9%87%8F/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -1137,8 +450,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
