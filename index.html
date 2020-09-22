@@ -197,6 +197,296 @@ var _hmt = _hmt || [];
             
 
   
+    <article id="post-编译原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/08/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" target="_blank">编译原理</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/08/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" class="archive-article-date">
+        <time datetime="2020-08-15T02:55:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-15</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">2.8k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">9分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <a id="more"></a>
+<h3 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h3><h4 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h4><p><strong>翻译程序</strong>：接受某种语言的源语言程序后，将其改造成另一种<strong>逻辑上等价</strong>的目标语言程序。<br><strong>汇编程序</strong>：源语言为汇编语言，目标语言为机器语言的翻译程序。<br><strong>编译程序</strong>：源语言为高级语言，目标语言为低级语言的翻译程序。<br><strong>解释程序</strong>：以源程序为输入，边解释边执行而不是生成目标程序。</p>
+<p>源语言：一般指高级语言，易于理解和掌握。<br>目标语言：汇编语言或是机器语言等。<br>宿主机：运行翻译程序的机器。<br>目标机：运行编译程序生成的目标代码的机器。<br>编译程序实现语言：用于生成编译程序的语言。</p>
+<p>编译程序与解释程序：<br>高级语言有的是通过过编译程序来执行，如C、C++等；也有通过解释程序来执行的，如Java。Java的跨平台原理与C、C++不同也与此有关。解释程序的运行效率不高、空间开销大，但胜在跨平台性能上，只要机器上拥有Java环境，就能直接运行Java程序。</p>
+<h4 id="二、编译程序的逻辑结构及过程"><a href="#二、编译程序的逻辑结构及过程" class="headerlink" title="二、编译程序的逻辑结构及过程"></a>二、编译程序的逻辑结构及过程</h4><p><img src="https://Kylinnnnn.github.io/img/Compile01.png" alt=""></p>
+<h5 id="1、词法分析"><a href="#1、词法分析" class="headerlink" title="1、词法分析"></a>1、词法分析</h5><p>词法分析的任务是根据词法规则对输入的源程序进行分解、识别出一个个的单词，并对其进行分类。</p>
+<h5 id="2、语法分析"><a href="#2、语法分析" class="headerlink" title="2、语法分析"></a>2、语法分析</h5><p>语法分析的任务是在词法分析的基础上根据语法规则将单词及符号串分类成语法单位。</p>
+<h5 id="3、语义分析及中间代码生成"><a href="#3、语义分析及中间代码生成" class="headerlink" title="3、语义分析及中间代码生成"></a>3、语义分析及中间代码生成</h5><p>对语法分析所识别出的各类语法范畴分析其含义，并进行初步翻译，产生中间代码。<br><strong>中间代码</strong>：是一种含义明确、便于处理的记号系统，它通常独立于具体硬件。常见的记号系统有：四元式、三元式、间接三元式、逆波兰式、树形表示等<br><strong>四元式</strong>：<br>|算符|左操作数|右操作数|结果|<br>| —- | —- | —- | —- |</p>
+<h5 id="4、优化"><a href="#4、优化" class="headerlink" title="4、优化"></a>4、优化</h5><p>主要方法：公共子表达式的提取、强度削弱、删除无用代码等</p>
+<h5 id="5、目标代码生成"><a href="#5、目标代码生成" class="headerlink" title="5、目标代码生成"></a>5、目标代码生成</h5><p>生成目标代码的形式：</p>
+<ul>
+<li>绝对指令代码</li>
+<li>可重定位的指令代码</li>
+<li>汇编代码<h5 id="6、表格管理"><a href="#6、表格管理" class="headerlink" title="6、表格管理"></a>6、表格管理</h5>符号表：用来登记源程序中出现的每个名字以及名字的各种属性。一般符号表包括：名字（标识符）栏和信息栏。<h5 id="7、出错处理"><a href="#7、出错处理" class="headerlink" title="7、出错处理"></a>7、出错处理</h5>编译程序在各个阶段应诊断和报告源程序中的错误，包括词法错误，语法错误，语义错误等。编译程序应报告出错地点，并给出简明准确的提示信息。</li>
+</ul>
+<p>比如，<br>词法分析阶段能够检测出“非法字符”之类的错误；<br>语法分析阶段能够检测出诸如“括号不匹配”、“缺少；”之类的错误。<br>语义错误包括：说明错误、作用域错误、类型不一致等。</p>
+<h4 id="三、编译程序的前端与后端"><a href="#三、编译程序的前端与后端" class="headerlink" title="三、编译程序的前端与后端"></a>三、编译程序的前端与后端</h4><p>前端：主要与源语言有关但与目标机无关的那些部分，一般包括：词法分析、语法分析、语义分析与中间代码产生等。<br>后端：包括编译程序中与目标机有关的那些部分，如与目标机有关的代码优化和目标代码生成等。后端不依赖于源程序而仅仅依赖于中间语言。<br><img src="https://Kylinnnnn.github.io/img/Compile02.png" alt=""></p>
+<h4 id="四、编译程序的自展与移植"><a href="#四、编译程序的自展与移植" class="headerlink" title="四、编译程序的自展与移植"></a>四、编译程序的自展与移植</h4><p>自展：<br>STEP1：先用目标机的机器语言或汇编语言实现源语言子集语言的编译程序。<br>STEP2：用子集语言去实现源语言的编译程序。<br>移植：<br>利用A机器上已有的高级语言L编写一个在B机器上运行的高级语言L的编译程序。<br>STEP1：用L语言编写能够讲L语言编译为B机器代码的源程序R。<br>STEP2：在机器A上编译R得到的目标程序I为，能够在A上运行，且能将L语言编译为B机器代码的编译程序。<br>STEP3：用编译程序I去编译R，所产生得到的程序P即为所需程序。</p>
+<p>例题：<br>已知一种语言M的编译器，构造另一种语言N的编译器。<br>答：用M语言去实现N语言编译程序的源代码，将改源代码编译得到的程序即为目标程序。</p>
+<h3 id="高级语言及其语法描述"><a href="#高级语言及其语法描述" class="headerlink" title="高级语言及其语法描述"></a>高级语言及其语法描述</h3><h4 id="一、高级语言的一般特性"><a href="#一、高级语言的一般特性" class="headerlink" title="一、高级语言的一般特性"></a>一、高级语言的一般特性</h4><h5 id="1、程序语言的定义"><a href="#1、程序语言的定义" class="headerlink" title="1、程序语言的定义"></a>1、程序语言的定义</h5><p>程序语言主要是由语法和语义两方面定义</p>
+<p>语言的语法是用来形成一个合法程序的一组规则，这些规则一部分称为词法规则，另一部分称为语法规则。<br>词法规则定义了单词符号的形成规则，而语法规则定义了语法单位的形成规则。<br>程序语言的语法规则是用文法来描述的。<br>语法单位：表达式、语句、函数、过程和程序等。</p>
+<p>语义规则定义了语言的意义，语义规则定义语言的单词符号和语法单位的意义。</p>
+<h5 id="2、程序语言的分类"><a href="#2、程序语言的分类" class="headerlink" title="2、程序语言的分类"></a>2、程序语言的分类</h5><ul>
+<li>强制式语言（过程式语言）：命令驱动，如FORTRAN、C、PASCAL等</li>
+<li>应用式语言（函数式语言）：注重程序的表示功能，如LISP</li>
+<li>基于规则的语言（逻辑设计语言）：Prolog</li>
+<li>面向对象的语言：拥有封装性、继承性、多态性，如C++、Java等。<h5 id="3、数据类型"><a href="#3、数据类型" class="headerlink" title="3、数据类型"></a>3、数据类型</h5>数据类型的三要素：</li>
+<li>有用于区别这种类型数据对象的属性</li>
+<li>有这种类型的数据对象可以具有的值</li>
+<li>有可以用于这种类型的数据对象的操作<h5 id="4、高级语言常见语句"><a href="#4、高级语言常见语句" class="headerlink" title="4、高级语言常见语句"></a>4、高级语言常见语句</h5></li>
+<li>说明语句</li>
+<li>赋值语句</li>
+<li>控制语句（无条件转移语句、条件语句、循环语句、过程调用语句、返回语句）<h4 id="二、字符串"><a href="#二、字符串" class="headerlink" title="二、字符串"></a>二、字符串</h4><h5 id="1、符号串的运算"><a href="#1、符号串的运算" class="headerlink" title="1、符号串的运算"></a>1、符号串的运算</h5></li>
+<li>连接<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x &#x3D; ba,y &#x3D; nana</span><br><span class="line">xy &#x3D; banana</span><br></pre></td></tr></table></figure></li>
+<li>方幂<br>$$X^0 = \varepsilon,X^1 = X,X^n = XX^{n-1}$$<h5 id="2、符号串集合的运算"><a href="#2、符号串集合的运算" class="headerlink" title="2、符号串集合的运算"></a>2、符号串集合的运算</h5></li>
+<li>并<br>$$U \cup V或U+V$$</li>
+<li>连接（交运算）<br>$$UV$$</li>
+<li>方幂<br>与字符串运算类似</li>
+<li>闭包<br>$$V^* = \cup V^i = V^0 \cup V^1 \cup V^2 \cup …$$</li>
+<li>正则闭包<br>$$V^+ = \cup V^i = V^1 \cup V^2 \cup V^3 \cup …$$<h4 id="三、文法"><a href="#三、文法" class="headerlink" title="三、文法"></a>三、文法</h4><h5 id="1、上下文无关文法的表示"><a href="#1、上下文无关文法的表示" class="headerlink" title="1、上下文无关文法的表示"></a>1、上下文无关文法的表示</h5>一个上下文无关的文法G可以表示成一个四元式<br>(VT，VN，S，P)，其中：</li>
+<li>VT是一个非空有限集，它的每个元素称为终结符；</li>
+<li>VN是一个非空有限集，它的每个元素称为非终结符，且有VT∩VN=Φ ；</li>
+<li>S是一个非终结符，称为开始符号； </li>
+<li>P是一个产生式集合（有限），每个产生式的形式是A→α，其中A∈VN，α∈（VT∪VN）*。S至少必须在某个产生式的左部出现一次。<br>可以将左部相同的产生式缩写成：A→α1|α2|α3．．．|αn <h5 id="2、巴科斯范式（BNF）"><a href="#2、巴科斯范式（BNF）" class="headerlink" title="2、巴科斯范式（BNF）"></a>2、巴科斯范式（BNF）</h5>用“→”表示“定义为”，用“|”表示“或”。<br>或者，<br>将非终结符用“&lt;&gt;”括起来表示，用“：：=”表示“定义为”，用“|”表示或。<br>例：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;E&gt; ::&#x3D; i∣&lt;E&gt;&lt;A&gt;&lt;E&gt;</span><br><span class="line">&lt;A&gt; ::&#x3D; +∣*</span><br></pre></td></tr></table></figure>
+<h5 id="3、推导"><a href="#3、推导" class="headerlink" title="3、推导"></a>3、推导</h5>（一）推导与直接推导<br>若$$\alpha→\beta$$，称$\alpha$直接推导到$\beta$，或$\beta$直接规约到$\alpha$。</li>
+</ul>
+<p>若存在一个直接推导序列$$\alpha_1 \Rightarrow \alpha_2 \Rightarrow \alpha_3 \Rightarrow … \Rightarrow \alpha_n$$，称这个序列为$\alpha_1$到$\alpha_n$的一个推导。<br>（二）最左推导与最右推导<br>对于推导$\alpha \Rightarrow \beta$，<br>如果每一步都是对$\alpha$中的最左非终结符进行替换的，则我们称这种推导为最左推导;<br>如果每一步都是对$\alpha$中的最右非终结符进行替换的，则我们称这种推导为最右推导。 </p>
+<p>例：<br><img src="https://Kylinnnnn.github.io/img/Compile03.png" alt=""></p>
+<p><img src="https://Kylinnnnn.github.io/img/Compile04.png" alt=""></p>
+<h4 id="四、语法分析树"><a href="#四、语法分析树" class="headerlink" title="四、语法分析树"></a>四、语法分析树</h4><h5 id="1、画语法树的两种方法"><a href="#1、画语法树的两种方法" class="headerlink" title="1、画语法树的两种方法"></a>1、画语法树的两种方法</h5><ul>
+<li>自顶向下：根据推导序列，对每步推导画相应分枝。</li>
+<li>自底向上：根据归约序列，对每步归约画相应分枝。 </li>
+</ul>
+<p><strong>语法分析树是推导的图形表示</strong>。</p>
+<h5 id="2、文法的二义性"><a href="#2、文法的二义性" class="headerlink" title="2、文法的二义性"></a>2、文法的二义性</h5><p>描述一个句子的文法不是唯一的；对于一个句子的分析应该是唯一的（即只能画出一棵语法分析树）。<br>如果一个文法的句子可以画出两颗不同的分析树，那么称该句子是二义性的。如果一个文法包括二义性的句子，则称该文法为二义性文法；否则为非二义性的文法。<br>一般来说，程序语言要求是无二义性的文法。<br>对于任意一个上下文无关文法，不存在一个算法，能够在有限步骤内判定它是无二义性的；但能给出一组充分条件，使得满足这组充分条件的文法一定是无二义性的。</p>
+<h4 id="五、语法的分类"><a href="#五、语法的分类" class="headerlink" title="五、语法的分类"></a>五、语法的分类</h4><p>Chomsky文法：Chomsky将文法分为0型、1型、2型、3型四类文法。</p>
+<ul>
+<li>0型文法：<br>对于一个文法$G(V_T, V_N, S, P)$,有$\alpha,\beta\subset (V_T \cup V_N)^*,\alpha \ne \varepsilon$且$\alpha \rightarrow \beta$</li>
+<li>1型文法（上下文有关文法）：<br>对于一个文法$G(V_T, V_N, S, P)$中的产生式$\alpha \rightarrow \beta$,$S \rightarrow \varepsilon$除外，均满足$\vert \alpha \vert \leq \vert \beta \vert$且$S$不出现在任何产生式的右侧。</li>
+<li>2型文法（上下文无关文法）：<br>对于一个文法$G$，其任何一个产生式满足$A \rightarrow B A \in V_N, B \in (V_N \cup V_T)^*$</li>
+<li>3型文法（正规文法）<ul>
+<li>右线型文法：对于文法$G$，产生式均为$A \rightarrow \alpha B$或$A \rightarrow \alpha$,$\alpha \in V_T^*,A、B \in V_N$</li>
+<li>左线型文法：对于文法$G$，产生式均为$A \rightarrow B \alpha$或$A \rightarrow \alpha$,$\alpha \in V_T^*,A、B \in V_N$</li>
+</ul>
+</li>
+</ul>
+<p>四种文法的关系层层递进：<br>$$3型语法 \subset 2型语法 \subset 1型语法 \subset 0型语法$$</p>
+<h3 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h3><h4 id="一、词法分析输入输出预处理"><a href="#一、词法分析输入输出预处理" class="headerlink" title="一、词法分析输入输出预处理"></a>一、词法分析输入输出预处理</h4><ul>
+<li>去除掉空白符、跳个符、回车符和换行符等编辑性字符；</li>
+<li>去除程序中的注释符；</li>
+<li>扫描缓冲区。<h4 id="二、状态转换图"><a href="#二、状态转换图" class="headerlink" title="二、状态转换图"></a>二、状态转换图</h4>状态转换图是一张有限方向图。<br>结点代表状态用圆圈表示，终态结点用双圈表示。<br>状态之间用箭头连接，表示状态的转换，其上的字符表示在此状态转换中接收的字符。<h4 id="三、确定有限自动机（DFA）"><a href="#三、确定有限自动机（DFA）" class="headerlink" title="三、确定有限自动机（DFA）"></a>三、确定有限自动机（DFA）</h4><img src="https://Kylinnnnn.github.io/img/Compile05.png" alt=""><br>确定有限自动机（DFA）的三种表示形式：<br>1）状态转换函数<br>2）状态转换矩阵<br>3）状态转换图<h4 id="四、非确定有限自动机（NFA）"><a href="#四、非确定有限自动机（NFA）" class="headerlink" title="四、非确定有限自动机（NFA）"></a>四、非确定有限自动机（NFA）</h4><img src="https://Kylinnnnn.github.io/img/Compile06.png" alt=""><h3 id="语法分析——自上而下的分析"><a href="#语法分析——自上而下的分析" class="headerlink" title="语法分析——自上而下的分析"></a>语法分析——自上而下的分析</h3><h3 id="语法分析——自下而上的分析"><a href="#语法分析——自下而上的分析" class="headerlink" title="语法分析——自下而上的分析"></a>语法分析——自下而上的分析</h3><h3 id="属性文法与语法制导翻译"><a href="#属性文法与语法制导翻译" class="headerlink" title="属性文法与语法制导翻译"></a>属性文法与语法制导翻译</h3><h3 id="语义分析和中间代码产生"><a href="#语义分析和中间代码产生" class="headerlink" title="语义分析和中间代码产生"></a>语义分析和中间代码产生</h3><h3 id="符号表"><a href="#符号表" class="headerlink" title="符号表"></a>符号表</h3><h3 id="运行时的空间组织"><a href="#运行时的空间组织" class="headerlink" title="运行时的空间组织"></a>运行时的空间组织</h3><h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3></li>
+</ul>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">编译原理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/08/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-跨域" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/07/31/%E8%B7%A8%E5%9F%9F/" target="_blank">跨域</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/07/31/%E8%B7%A8%E5%9F%9F/" class="archive-article-date">
+        <time datetime="2020-07-31T14:12:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-31</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">214字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">1分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="一、跨域是什么？为什么会有跨域问题？"><a href="#一、跨域是什么？为什么会有跨域问题？" class="headerlink" title="一、跨域是什么？为什么会有跨域问题？"></a>一、跨域是什么？为什么会有跨域问题？</h3><p>当请求非同源的资源时即为跨域。由于同源策略的限制，在未获得对应权限时无法请求到非同源的资源，这就是跨域问题出现的原因。</p>
+<h3 id="二、什么是同源资源？什么是同源策略？"><a href="#二、什么是同源资源？什么是同源策略？" class="headerlink" title="二、什么是同源资源？什么是同源策略？"></a>二、什么是同源资源？什么是同源策略？</h3><p>我们把请求资源的url分为三个部分：协议、域名、端口。当被请求资源与请求发出者的三源都相同时，这两者为互为同源资源，反之为非同源资源。同源策略是浏览器的一个安全功能，不同源的客户端脚本在没有明确授权的情况下，不能读写对方资源。</p>
+<h3 id="三、如何解决跨域问题？"><a href="#三、如何解决跨域问题？" class="headerlink" title="三、如何解决跨域问题？"></a>三、如何解决跨域问题？</h3><p>对于跨域请求问题，有如下解决方法。</p>
+<ul>
+<li>降域document.domain</li>
+</ul>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/07/31/%E8%B7%A8%E5%9F%9F/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-JS中的for循环" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -864,226 +1154,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Javascript-this的指向" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/03/24/Javascript-this%E7%9A%84%E6%8C%87%E5%90%91/" target="_blank">Javascript this的指向</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/03/24/Javascript-this%E7%9A%84%E6%8C%87%E5%90%91/" class="archive-article-date">
-        <time datetime="2020-03-24T09:07:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
-</a>
-
-  
-  
-    
-<div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <!-- fonts.scss -->
-      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
-      <i class="icon-statistics"></i>
-      <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">54字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="icon-book icon"></i>
-      <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
-    </span>
-  </span>
-</div>
-
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>在网上看到一篇有关<code>this</code>指向的博客，内容十分详尽，讲述的也很清楚，解决了很多在之前的我看来非常玄学的问题。在此<code>mark</code>一下。<br><a href="https://www.cnblogs.com/dongcanliang/p/7054176.html" target="_blank" rel="noopener">链接</a></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/03/24/Javascript-this%E7%9A%84%E6%8C%87%E5%90%91/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Javascript解构赋值" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/03/23/Javascript%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/" target="_blank">Javascript解构赋值</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/03/23/Javascript%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/" class="archive-article-date">
-        <time datetime="2020-03-23T10:54:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-23</time>
-</a>
-
-  
-  
-    
-<div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <!-- fonts.scss -->
-      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
-      <i class="icon-statistics"></i>
-      <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">578字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="icon-book icon"></i>
-      <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">2分</span>
-    </span>
-  </span>
-</div>
-
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>解构赋值是ES6标准中增加的新特性。个人理解是方便了从一些结构中取值进行赋值的操作。</p>
-    
-    <a class="article-more-a" href="/2020/03/23/Javascript%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/03/23/Javascript%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1303,6 +1373,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">TCP/IP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
               </li>
             
             <div class="clearfix"></div>
