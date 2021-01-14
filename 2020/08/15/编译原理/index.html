@@ -10,12 +10,12 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="绪论一、基本概念翻译程序：接受某种语言的源语言程序后，将其改造成另一种逻辑上等价的目标语言程序。汇编程序：源语言为汇编语言，目标语言为机器语言的翻译程序。编译程序：源语言为高级语言，目标语言为低级语言的翻译程序。解释程序：以源程序为输入，边解释边执行而不是生成目标程序。 源语言：一般指高级语言，易于理解和掌握。目标语言：汇编语言或是机器语言等。宿主机：运行翻译程序的机器。目标机：运行编译程序生成">
+  <meta name="description" content="绪论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编译原理">
 <meta property="og:url" content="http://kylinnnnn.github.io/2020/08/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="Kylin&#39;s Collection Box">
-<meta property="og:description" content="绪论一、基本概念翻译程序：接受某种语言的源语言程序后，将其改造成另一种逻辑上等价的目标语言程序。汇编程序：源语言为汇编语言，目标语言为机器语言的翻译程序。编译程序：源语言为高级语言，目标语言为低级语言的翻译程序。解释程序：以源程序为输入，边解释边执行而不是生成目标程序。 源语言：一般指高级语言，易于理解和掌握。目标语言：汇编语言或是机器语言等。宿主机：运行翻译程序的机器。目标机：运行编译程序生成">
+<meta property="og:description" content="绪论">
 <meta property="og:image" content="https://kylinnnnn.github.io/img/Compile01.png">
 <meta property="og:image" content="https://kylinnnnn.github.io/img/Compile02.png">
 <meta property="og:image" content="https://kylinnnnn.github.io/img/Compile03.png">
@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://kylinnnnn.github.io/img/Compile05.png">
 <meta property="og:image" content="https://kylinnnnn.github.io/img/Compile06.png">
 <meta property="article:published_time" content="2020-08-15T02:55:21.000Z">
-<meta property="article:modified_time" content="2020-09-03T04:42:10.544Z">
+<meta property="article:modified_time" content="2021-01-14T22:09:01.534Z">
 <meta property="article:author" content="Kylin">
 <meta property="article:tag" content="编译原理">
 <meta name="twitter:card" content="summary">
@@ -252,8 +252,8 @@ var _hmt = _hmt || [];
   
   <div class="article-entry" itemprop="articleBody">
     
-    <a id="more"></a>
-<h3 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h3><h4 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h4><p><strong>翻译程序</strong>：接受某种语言的源语言程序后，将其改造成另一种<strong>逻辑上等价</strong>的目标语言程序。<br><strong>汇编程序</strong>：源语言为汇编语言，目标语言为机器语言的翻译程序。<br><strong>编译程序</strong>：源语言为高级语言，目标语言为低级语言的翻译程序。<br><strong>解释程序</strong>：以源程序为输入，边解释边执行而不是生成目标程序。</p>
+    <h3 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h3><a id="more"></a>
+<h4 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h4><p><strong>翻译程序</strong>：接受某种语言的源语言程序后，将其改造成另一种<strong>逻辑上等价</strong>的目标语言程序。<br><strong>汇编程序</strong>：源语言为汇编语言，目标语言为机器语言的翻译程序。<br><strong>编译程序</strong>：源语言为高级语言，目标语言为低级语言的翻译程序。<br><strong>解释程序</strong>：以源程序为输入，边解释边执行而不是生成目标程序。</p>
 <p>源语言：一般指高级语言，易于理解和掌握。<br>目标语言：汇编语言或是机器语言等。<br>宿主机：运行翻译程序的机器。<br>目标机：运行编译程序生成的目标代码的机器。<br>编译程序实现语言：用于生成编译程序的语言。</p>
 <p>编译程序与解释程序：<br>高级语言有的是通过过编译程序来执行，如C、C++等；也有通过解释程序来执行的，如Java。Java的跨平台原理与C、C++不同也与此有关。解释程序的运行效率不高、空间开销大，但胜在跨平台性能上，只要机器上拥有Java环境，就能直接运行Java程序。</p>
 <h4 id="二、编译程序的逻辑结构及过程"><a href="#二、编译程序的逻辑结构及过程" class="headerlink" title="二、编译程序的逻辑结构及过程"></a>二、编译程序的逻辑结构及过程</h4><p><img src="https://Kylinnnnn.github.io/img/Compile01.png" alt=""></p>

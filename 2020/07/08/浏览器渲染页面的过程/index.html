@@ -18,7 +18,7 @@
 <meta property="og:description" content="浏览器渲染页面的过程大致分为五步：1.DNS解析2.TCP连接3.HTTP请求及响应4.服务器响应5.客户端渲染页面 这里主要学习下第五部分的内容。也就是客户端拿去到数据后将数据呈现在页面上的过程。 首先浏览器引擎大致分为两个部分，一部分是渲染引擎，另一部分是Javascript引擎。渲染引擎包括HTML解析器，CSS解析器等，负责将数据样式输出到显示器。而Javascript引擎的任务就是解析J">
 <meta property="og:image" content="https://kylinnnnn.github.io/img/Web01.png">
 <meta property="article:published_time" content="2020-07-08T05:34:51.000Z">
-<meta property="article:modified_time" content="2020-07-16T09:17:26.993Z">
+<meta property="article:modified_time" content="2021-01-14T22:20:04.698Z">
 <meta property="article:author" content="Kylin">
 <meta property="article:tag" content="HTML">
 <meta property="article:tag" content="页面渲染">
@@ -255,7 +255,7 @@ var _hmt = _hmt || [];
 <a id="more"></a>
 <h3 id="一、渲染引擎"><a href="#一、渲染引擎" class="headerlink" title="一、渲染引擎"></a>一、渲染引擎</h3><p>首先是渲染引擎开始解析HTML文件并生成DOM树。<br>但是在解析HTML文件的过程中，遇到了外部引入的CSS文件，就会暂停对HTML文件的解析，转而开始进行对CSS文件的解析并生成对应的CSSOM树。在解析完CSS文件之后才会继续进行对HTML文件的解析。<br>在解析完HTML文件和CSS文件之后，渲染引擎会从DOM树的根节点开始遍历所有的可视结点并应用对应CSSOM规则，生成渲染树。之后，渲染引擎就会根据这棵渲染树的信息对整个页面进行渲染。这是渲染引擎的工作部分。</p>
 <h3 id="二、JS引擎"><a href="#二、JS引擎" class="headerlink" title="二、JS引擎"></a>二、JS引擎</h3><p>说完了渲染引擎再来看看负责页面逻辑实现的js引擎。首先，渲染引擎和js引擎是浏览器进程下<strong>互斥</strong>的两个线程，当其中一个线程处于工作状态时另一个线程处于挂起状态。也就是说js引擎和渲染引擎在同一时刻只有一个在工作。<br>在对HTML文件进行解析时，如果碰到了script标签，渲染引擎会暂时先挂起，转由js引擎先对js代码进行解析。</p>
-<p>但是我们都知道，在js文件中可能会有对于DOM树的操作。由于js文件解析的优先度高于html文件和css文件，那么当js文件中存在对于DOM树的操作时，便会因为DOM生成不完全取不到对应的DOM节点及其属性。所以我们需要想办法让js文件在html文件和css文件解析完之后再进行解析和运行。</p>
+<p>但是我们都知道，在js文件中可能会有对于DOM树的操作。由于js文件解析的优先度高于html文件且低于css文件，那么当js文件中存在对于DOM树的操作时，便会因为DOM生成不完全取不到对应的DOM节点及其属性。所以我们需要想办法让js文件在html文件和css文件解析完之后再进行解析和运行。</p>
 <p>为了解决这个问题，最简单的方法就是把script标签放在body的最下方去加载，这样就保证了在加载js文件的时候HTML文件和CSS文件一定已经解析完了。但这样做也存在缺陷，由于我们把js文件放在了body的最下方，那么在页面已经加载渲染出来的时候，还需要一段时间去加载运行js文件。而在这段时间中，页面的的逻辑功能都是无法实现的，这对于用户的体验不太好。所以就有了下面两种方法。</p>
 <h3 id="三、defer与async"><a href="#三、defer与async" class="headerlink" title="三、defer与async"></a>三、defer与async</h3><p>script标签拥有defer和async两个属性可以更改js脚本在页面渲染过程中的顺序。<br><img src="https://Kylinnnnn.github.io/img/Web01.png" alt=""></p>
 <ul>
