@@ -18,7 +18,7 @@
 <meta property="og:description" content="前言词袋库+线性回归分类器是一种传统的基于统计学原理进行机器学习实现文本分类任务的方案，本文会对这种通过机器学习实现文本分类任务的思路以及词袋库和岭回归分类器本身进行讲解。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-10-26T18:44:45.000Z">
-<meta property="article:modified_time" content="2026-02-01T18:21:15.583Z">
+<meta property="article:modified_time" content="2026-02-01T18:23:02.689Z">
 <meta property="article:author" content="Kylin">
 <meta property="article:tag" content="NLP">
 <meta property="article:tag" content="机器学习">
@@ -243,7 +243,7 @@
 <p>而我们这种实现文本分类任务的方法也是相似的思路，这种方法认为，语句的生成是从一个词库中随机地选择单词进行组合而成。</p>
 <p>举个例子，我们现在有一个词语库，里面有三个单词[“I”,”eat”,”meat”]。<br>然后现在要生成一个长度为三个单词的语句，这个长度为三的语句中，三个位置每一个位置都是从这词语库的三个单词中随机且<strong>独立</strong>的选择出来。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">所谓独立是统计学中的一个概念，指的是三次选择每次都是从这三个单词中选择，互相不影响，也即每一次每个单词被选中的概率都是三分之一。</span><br><span class="line">而不独立是指，第一次选择的单词不再会作为后续两次选择的备选项，第二次选择的单词不会在第三次选择的范围内。在这种情况下，每个单词被选中的概率就会发生变化，类似这种每次选择之间会互相影响的情况即是不独立。</span><br></pre></td></tr></table></figure>
-<h2 id="多项分布"><a href="#多项分布" class="headerlink" title="多项分布"></a>多项分布</h2><p>在这种随机且独立的情况下，每个位置都有出现”I”、”eat”、”meat”三种情况，而组成的语句就有$3<em>3</em>3 = 27$种情况。于是每种情况的概率我们都是能够通过统计数量计算出来的。可如果语句的长度很长，每个位置备选的词库很大，那进行统计就会很困难。在通过对经验进行总结后，统计学认为语句生成这样的独立随机事件各情况的概率分布符合<strong>多项式分布</strong>：$P(d|c)=\frac{(\sum_ix_i)!}{\prod_ix_i}\prod{P(w_i|c)^{x_i}}$</p>
+<h2 id="多项分布"><a href="#多项分布" class="headerlink" title="多项分布"></a>多项分布</h2><p>在这种随机且独立的情况下，每个位置都有出现”I”、”eat”、”meat”三种情况，而组成的语句就有$3*3*3 = 27$种情况。于是每种情况的概率我们都是能够通过统计数量计算出来的。可如果语句的长度很长，每个位置备选的词库很大，那进行统计就会很困难。在通过对经验进行总结后，统计学认为语句生成这样的独立随机事件各情况的概率分布符合<strong>多项式分布</strong>：$P(d|c)=\frac{(\sum_ix_i)!}{\prod_ix_i}\prod{P(w_i|c)^{x_i}}$</p>
 <p>其中$d$是具体的一个语句，$c$是语句的类别，$x_i$是单词$w_i$的出现次数。</p>
 <h2 id="模型训练和评价"><a href="#模型训练和评价" class="headerlink" title="模型训练和评价"></a>模型训练和评价</h2><p>在通过训练集进行训练的过程中，公式中的$P(d|c)$是可以通过统计得出的概率，是已知的结果，$\frac{(\sum_ix_i)!}{\prod_ix_i}$也可以通过对训练集的数据计算得出，最后会是一个常数项，而最后的$P(w_i|c)$项是未知。也就是说，训练的过程实际上就是从公式的左边推出右边，尝试找到若干个满足公式的参数$P(w_i|c)$，最后得到的已知参数的公式即是我们的模型。</p>
 <p>然后在将公式应用到测试集时，则是从公式的右边推出左边的过程，$P(w_i|c)$就是我们上面计算得到的数值，而$P(d|c)$成了我们要计算的结果，最后将结果作为我们预测的结果。</p>
