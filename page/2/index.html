@@ -213,7 +213,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">836字</span>
+      <span class="post-count">835字</span>
     </span>
   </span>
 
@@ -233,7 +233,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>在平时代码编写过程中，时常需要将值为空作为特殊情况考虑，因而有了如何判空的问题。在此对空值及其判空方法做个总结。</p>
+    <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>在平时代码编写过程中，时常需要将值为空作为特殊情况考虑，因而有了如何判空的问题。在此对空值及其判空方法做个总结。<br>
     
     <a class="article-more-a" href="/2022/02/19/Javascript%E4%B8%AD%E7%9A%84%E7%A9%BA%E5%80%BC%E4%B8%8E%E5%88%A4%E7%A9%BA/#more">more >></a>
     
@@ -346,7 +346,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h4 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h4><p>选择排序的原理是，在每一轮中，从未排序的部分挑选出最小（最大）的数放到正确的位置。例如在一个长度为 N 的数组中，第一趟选择出最小的数放在数组的最前面，然后第二趟从未排序的部分中选择从最小的数放在已排序的部分的末端，然后以此循环下去直到将每个数都放到了对应的位置就完成了排序。示意图如下：<br><img src="https://kylinnnnn.github.io/img/20220128-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95-%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F01.png"></p>
+    <h4 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h4><p>选择排序的原理是，在每一轮中，从未排序的部分挑选出最小（最大）的数放到正确的位置。例如在一个长度为 N 的数组中，第一趟选择出最小的数放在数组的最前面，然后第二趟从未排序的部分中选择从最小的数放在已排序的部分的末端，然后以此循环下去直到将每个数都放到了对应的位置就完成了排序。示意图如下：<br><img src="https://kylinnnnn.github.io/img/20220128-排序算法-选择排序01.png" alt=""><br>
     
     <a class="article-more-a" href="/2022/01/28/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%EF%BC%88%E4%BA%8C%EF%BC%89%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/#more">more >></a>
     
@@ -455,7 +455,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h4 id="说在前面的话"><a href="#说在前面的话" class="headerlink" title="说在前面的话"></a>说在前面的话</h4><p>本系列的前三篇是以前老博客的补档，当初的所有博客内容因为系统缘故丢失了<code>md</code>文件。但是排序算法系列还是比较重要的，因此根据残留的网页文件手动补档。</p>
+    <h4 id="说在前面的话"><a href="#说在前面的话" class="headerlink" title="说在前面的话"></a>说在前面的话</h4><p>本系列的前三篇是以前老博客的补档，当初的所有博客内容因为系统缘故丢失了<code>md</code>文件。但是排序算法系列还是比较重要的，因此根据残留的网页文件手动补档。<br>
     
     <a class="article-more-a" href="/2022/01/27/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95/#more">more >></a>
     
@@ -565,16 +565,14 @@
   <div class="article-entry" itemprop="articleBody">
     
     <span id="more"></span>
-
 <h5 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h5><p>盒模型由内到外分为内容<code>content</code>、内边距<code>padding</code>、边框<code>border</code>、外边距<code>margin</code>共四层。</p>
 <p>根据制定标准的不同，盒模型分为 W3C 标准的标准盒模型和 IE 浏览器使用的怪异盒模型。</p>
 <!--more-->
-
 <h5 id="标准盒模型与怪异盒模型"><a href="#标准盒模型与怪异盒模型" class="headerlink" title="标准盒模型与怪异盒模型"></a>标准盒模型与怪异盒模型</h5><p>标准盒模型与怪异盒模型的不同点在于实际显示大小在计算上的不同。</p>
 <p>在标准盒模型下，css 中的<code>height</code>与<code>width</code>属性设置的是内容<code>content</code>的宽高，因此实际盒子显示的宽高=<code>height\width</code>+内边距<code>padding</code>+边框<code>border</code>。<br>而在怪异盒模型下，css 中的<code>height</code>与<code>width</code>属性设置即是盒子可视区域的宽高，所以内容<code>content</code>的宽高=<code>height\width</code>-内边距<code>padding</code>-边框<code>border</code>。</p>
 <p>浏览器默认采用的是标准盒模型（IE 除外），但是可以通过<code>box-sizing</code>属性去设置采用哪种盒模型，<code>content-box</code>对应标准盒模型、<code>border-box</code>对应怪异盒模型。</p>
 <h5 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h5><p>以前碰到过一个面试题，问一个盒模型最多能实现几层的同心圆，即盒模型的四层中有几层能够设置颜色。</p>
-<p>盒模型的四层中只有<code>content</code>和<code>border</code>能设置颜色。<br><img src="https://kylinnnnn.github.io/img/20220122-%E7%9B%92%E6%A8%A1%E5%9E%8B01.png"></p>
+<p>盒模型的四层中只有<code>content</code>和<code>border</code>能设置颜色。<br><img src="https://kylinnnnn.github.io/img/20220122-盒模型01.png" alt=""></p>
 <h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/The_box_model">MDN 手册-盒模型</a></p>
 
     
@@ -682,7 +680,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>Vue 对于复杂逻辑的实现提供了计算属性<code>computed</code>、侦听属性<code>watch</code>、函数方法<code>methods</code>。本文主要是记录一下使用过程中需要注意的点以及在选择实现途径时的一点考量。</p>
+    <p>Vue 对于复杂逻辑的实现提供了计算属性<code>computed</code>、侦听属性<code>watch</code>、函数方法<code>methods</code>。本文主要是记录一下使用过程中需要注意的点以及在选择实现途径时的一点考量。<br>
     
     <a class="article-more-a" href="/2022/01/13/Vue%E7%9A%84%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E3%80%81%E4%BE%A6%E5%90%AC%E5%B1%9E%E6%80%A7%E5%8F%8A%E5%87%BD%E6%95%B0%E6%96%B9%E6%B3%95%E7%9A%84%E5%AF%B9%E6%AF%94/#more">more >></a>
     
@@ -799,7 +797,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>学习vue时思考了下v-if是怎样隐藏元素的，由此想到了经典面试题之display:none与visibility:hidden的区别，随即将CSS隐藏元素的方法整理一下。</p>
+    <p>学习vue时思考了下v-if是怎样隐藏元素的，由此想到了经典面试题之display:none与visibility:hidden的区别，随即将CSS隐藏元素的方法整理一下。<br>
     
     <a class="article-more-a" href="/2022/01/02/CSS%E9%9A%90%E8%97%8F%E5%85%83%E7%B4%A0%E7%9A%84%E6%96%B9%E6%B3%95/#more">more >></a>
     
@@ -1131,11 +1129,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
+                <a href="javascript:void(0)" class="js-tag color2">Canvas</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1159,7 +1157,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Canvas</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1167,15 +1165,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-概率论</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">概率论</a>
               </li>
              
               <li class="article-tag-list-item">

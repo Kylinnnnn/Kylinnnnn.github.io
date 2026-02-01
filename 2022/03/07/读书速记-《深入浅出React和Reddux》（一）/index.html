@@ -18,7 +18,7 @@
 <meta property="og:description" content="前言近年来读书欲望偏低，记忆力也不如从前，究其原因，可能是在面对大量文字时不甚愿意花费心思和时间从中提取吸收知识。今逢有 React 学习需求，手边有恰有《深入浅出 React 和 Redux》这本书，因此在拜读学习同时略作笔记，以锻炼自己从文本中提取信息并加以分析的能力，同时以期能够再次爱上读书。 简介本篇读书速记是在观读本书第一章内容后的笔记。在第一章中，作者旨在简要介绍 React，并对 R">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-07T12:50:17.000Z">
-<meta property="article:modified_time" content="2024-02-21T03:48:09.876Z">
+<meta property="article:modified_time" content="2026-02-01T18:18:51.554Z">
 <meta property="article:author" content="Kylin">
 <meta property="article:tag" content="React">
 <meta property="article:tag" content="读书笔记">
@@ -234,9 +234,7 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>近年来读书欲望偏低，记忆力也不如从前，究其原因，可能是在面对大量文字时不甚愿意花费心思和时间从中提取吸收知识。今逢有 React 学习需求，手边有恰有<strong>《深入浅出 React 和 Redux》</strong>这本书，因此在拜读学习同时略作笔记，以锻炼自己从文本中提取信息并加以分析的能力，同时以期能够再次爱上读书。</p>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>本篇读书速记是在观读本书第一章内容后的笔记。在第一章中，作者旨在简要介绍 React，并对 React 一些突出的特点进行分析以及与其他框架进行对比，以便读者能够相对直观的简单认识 React。在本章中，首先是介绍了一个 React 应用的创建方式以及为何要使用这种方式。接着介绍了 React 的首要思想——组件化开发（这也是如今代码开发过程中的重要思想，当然各自框架对于组件化的理解会有所出入，但都大同小异）。紧接着就着组件化开发介绍了 React 的另一特色——JSX 语法。然后对脚手架搭建的项目结构进行简要解读。最后，对 React 的工作方式进行概况并与 JQuery 进行对比，在这一段中，React 的工作方式不仅仅是使用 React 的方式，也是以 React，Vue 这类框架为代表的初衷。</p>
-<span id="more"></span>
-
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>本篇读书速记是在观读本书第一章内容后的笔记。在第一章中，作者旨在简要介绍 React，并对 React 一些突出的特点进行分析以及与其他框架进行对比，以便读者能够相对直观的简单认识 React。在本章中，首先是介绍了一个 React 应用的创建方式以及为何要使用这种方式。接着介绍了 React 的首要思想——组件化开发（这也是如今代码开发过程中的重要思想，当然各自框架对于组件化的理解会有所出入，但都大同小异）。紧接着就着组件化开发介绍了 React 的另一特色——JSX 语法。然后对脚手架搭建的项目结构进行简要解读。最后，对 React 的工作方式进行概况并与 JQuery 进行对比，在这一段中，React 的工作方式不仅仅是使用 React 的方式，也是以 React，Vue 这类框架为代表的初衷。<br><span id="more"></span></p>
 <h3 id="creat-react-app-脚手架"><a href="#creat-react-app-脚手架" class="headerlink" title="creat-react-app 脚手架"></a>creat-react-app 脚手架</h3><p>一个 React 应用的运作依赖于一个庞大的技术栈，其中需要进行一系列的配置，例如：转译 Js 代码需要 Babel，模块打包工具需要 Webpack，定制 build 过程需要 grunt 或者 gulp。</p>
 <p>为了简化如此繁琐的配置过程，Facebook 提供了 creat-react-app 这个通过 npm 发布的安装包，由此脚手架的帮助，在命令行运行一行语句即可自动搭建项目。</p>
 <h3 id="组件化开发"><a href="#组件化开发" class="headerlink" title="组件化开发"></a>组件化开发</h3><p>组件是指一段功能高度集中以期能够重复使用的代码。React 中的组件是通过创建一个继承自 Component 的类来实现的（现在使用函数式组件偏多），其中使用 constructor 来实现对组件在数据层面上的从初始化构建，在 render 函数中书写 JSX 语法来实现组件 UI。此处列出一段书中的创建组件的代码。</p>
@@ -256,9 +254,7 @@
 <p>由上可以看出，虽然形式回归了初始，但JSX的内容显然是更加先进高效的。正如辩证法的思想，事物的发展总是呈螺旋式上升、波浪式前进。很多事情都是这样，比如，学到后面的渲染方式时，会发现经历过服务端渲染、客户端渲染至今的同构渲染在形式上也很接近于最初的服务端渲染。</p>
 <h3 id="分解React应用"><a href="#分解React应用" class="headerlink" title="分解React应用"></a>分解React应用</h3><p>在前面提到，React应用的运作依赖于一个庞大的技术栈，这些技术栈为开发提供了更为便捷的方法。例如我们在使用<code>npm start</code>运行应用时，实际上运行的命令并不是这个，在package.json文件中我们可以看到对于脚本的定义。</p>
 <p>作者在此处还提到了脚本中一个eject命令，eject能够将一系列的技术栈配置从node_modules包中弹出到项目顶层，即使用之后项目目录下会新增scripts和config两个目录，方便为满足项目需求进行定制化配置。</p>
-<h3 id="React与jQuery"><a href="#React与jQuery" class="headerlink" title="React与jQuery"></a>React与jQuery</h3><p>还是以上文中的ClickCount组件为例，如果用jQuery来是实现这个功能：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(function()&#123;</span><br><span class="line">    $(&#x27;#clickMe&#x27;).click(function()&#123;</span><br><span class="line">        var clickCounter = $(&#x27;#clickCount&#x27;);</span><br><span class="line">        var count = parseInt(clickCounter.text(),10);</span><br><span class="line">        clickCounter.text(count+1);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>在jQuery实现的方法中，首先根据CSS规则找到了对应id的按钮，挂上一个匿名事件处理函数，然后在事件处理函数中获取需要被修改的DOM元素的文本值，修改后加以显示。很显然，在这个过程中会对DOM树进行直接操作，如果存在多个事件处理函数，就会频繁的操作DOM树，最为直观的危害就是会显著降低网页的性能，因为每次对DOM树的操作都需要网页重新渲染（详情见重绘与回流）。另外这样的模式会造成代码结构复杂，难以维护。</p>
+<h3 id="React与jQuery"><a href="#React与jQuery" class="headerlink" title="React与jQuery"></a>React与jQuery</h3><p>还是以上文中的ClickCount组件为例，如果用jQuery来是实现这个功能：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(function()&#123;</span><br><span class="line">    $(&#x27;#clickMe&#x27;).click(function()&#123;</span><br><span class="line">        var clickCounter = $(&#x27;#clickCount&#x27;);</span><br><span class="line">        var count = parseInt(clickCounter.text(),10);</span><br><span class="line">        clickCounter.text(count+1);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><br>在jQuery实现的方法中，首先根据CSS规则找到了对应id的按钮，挂上一个匿名事件处理函数，然后在事件处理函数中获取需要被修改的DOM元素的文本值，修改后加以显示。很显然，在这个过程中会对DOM树进行直接操作，如果存在多个事件处理函数，就会频繁的操作DOM树，最为直观的危害就是会显著降低网页的性能，因为每次对DOM树的操作都需要网页重新渲染（详情见重绘与回流）。另外这样的模式会造成代码结构复杂，难以维护。</p>
 <p>而React在处理这件事上，应用了Virtual DOM的理念。</p>
 <p>我们先讲DOM（文档对象模型，Document Object Model），DOM树是对于HTML文档的抽象，将其层层递进的父子标签关系抽象成一棵树状结构。而Virtual DOM是对DOM的抽象，相当于将DOM拷贝了一份，每次在改动之后，React会先将所有改动应用在这棵Virtual DOM树上，最后根据Virtual DOM树一次性渲染出来。这样就能够显著减少对DOM树的操作。</p>
 <p>另注，正如前面所说，前端技术的发展是非常迅猛的，我没有系统的接触过jQuery，不知道最新的jQuery是怎么样，有可能也以某种方式解决了这样的问题，这个对比重点在于介绍Virtual DOM树这个概念。</p>
@@ -592,11 +588,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
+                <a href="javascript:void(0)" class="js-tag color2">Canvas</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -620,7 +616,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Canvas</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -628,15 +624,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-概率论</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">概率论</a>
               </li>
              
               <li class="article-tag-list-item">

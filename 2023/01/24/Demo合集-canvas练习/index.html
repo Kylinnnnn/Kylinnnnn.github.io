@@ -18,7 +18,7 @@
 <meta property="og:description" content="前言想实践练习一下 canvas，简单复现一下原神一个网页活动的加载页面的一些部分。本文主要是记录一下实现过程中的一些收获。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-01-24T13:48:20.000Z">
-<meta property="article:modified_time" content="2024-02-21T03:48:09.872Z">
+<meta property="article:modified_time" content="2026-02-01T18:17:37.257Z">
 <meta property="article:author" content="Kylin">
 <meta property="article:tag" content="React">
 <meta property="article:tag" content="前端">
@@ -234,36 +234,29 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>想实践练习一下 canvas，简单复现一下原神一个网页活动的加载页面的一些部分。本文主要是记录一下实现过程中的一些收获。</p>
-<span id="more"></span>
+    <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>想实践练习一下 canvas，简单复现一下原神一个网页活动的加载页面的一些部分。本文主要是记录一下实现过程中的一些收获。<br><span id="more"></span></p>
 <h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><h4 id="一-、在-React-中使用-ref-获取-DOM-元素"><a href="#一-、在-React-中使用-ref-获取-DOM-元素" class="headerlink" title="(一)、在 React 中使用 ref 获取 DOM 元素"></a>(一)、在 React 中使用 ref 获取 DOM 元素</h4><p>在原生 js 中，要想对 canvas 进行操作，需要先使用<code>document.getElementById</code>等方法获取 canvas 的 DOM 元素从而进一步获取 canvas 的上下文。虽然这些原生的获取 DOM 元素的方法在 React 中也可行，但在 React 中也有 React 自己的做法。</p>
 <p>在 React 的函数式组件中（在类组件中使用<code>createRef</code>，两者用法相似但不互通），可以通过<code>useRef</code>钩子创建一个变量。然后将这个变量赋予 canvas 标签的 ref 属性。这样，在组件挂载之后，就可以通过变量的<code>current</code>属性去获取 DOM 元素。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useEffect, useRef &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> Index = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> canvasRef = useRef();</span><br><span class="line">    useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//获取上下文</span></span><br><span class="line">        <span class="keyword">const</span> ctx = canvasRef.current.getContext(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//对canvas进行操作...</span></span><br><span class="line">    &#125;, []);</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">ref</span>=<span class="string">&#123;canvasRef&#125;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Index;</span><br></pre></td></tr></table></figure>
-
 <h4 id="二-、使用-canvas-从一张-png-截取不同部分的素材"><a href="#二-、使用-canvas-从一张-png-截取不同部分的素材" class="headerlink" title="(二)、使用 canvas 从一张 png 截取不同部分的素材"></a>(二)、使用 canvas 从一张 png 截取不同部分的素材</h4><p>在使用大量图片的网页中，为了减少 Http 的请求量，会将许多素材放在一张 png 图片中。而当 canvas 使用这些素材时就需要进行截取。canvas 使用<code>drawImage</code>函数将图片绘制到画布上。</p>
 <p><code>drawImage</code>有三种传参方式：</p>
 <p>1.<code>drawImage(image,dx,dy)</code></p>
 <ul>
-<li><p>  <code>image</code>: 图片资源。</p>
-</li>
-<li><p>  <code>dx</code>: 图片绘制在画布上的起始横轴位置(以左上角为源点，以右侧为正方向)。</p>
-</li>
+<li><code>image</code>: 图片资源。</li>
+<li><code>dx</code>: 图片绘制在画布上的起始横轴位置(以左上角为源点，以右侧为正方向)。</li>
 <li><p><code>dy</code>: 图片绘制在画布上的起始纵轴位置(以下侧为正方向)。</p>
-<p>  2.<code>drawImage(image,dx,dy,dWidth,dHeight)</code></p>
+<p>2.<code>drawImage(image,dx,dy,dWidth,dHeight)</code></p>
 </li>
-<li><p>  <code>dWidth</code>: 图片绘制在画布上的宽度。</p>
+<li><p><code>dWidth</code>: 图片绘制在画布上的宽度。</p>
 </li>
 <li><p><code>dHeight</code>: 图片绘制在画布上的高度.</p>
-<p>  3.<code>drawImage(image,sx,sy,sWidth,sHeight,dx,dy,dWidth,dHeight)</code></p>
+<p>3.<code>drawImage(image,sx,sy,sWidth,sHeight,dx,dy,dWidth,dHeight)</code></p>
 </li>
-<li><p>  <code>sx</code>: 在图片上截取区域的起始横轴位置(以左上角为源点，以右侧为正方向)。</p>
+<li><p><code>sx</code>: 在图片上截取区域的起始横轴位置(以左上角为源点，以右侧为正方向)。</p>
 </li>
-<li><p>  <code>sy</code>: 在图片上截取区域的起始纵轴位置(以下侧为正方向)。</p>
-</li>
-<li><p>  <code>sWidth</code>: 在图片上截取区域的宽度。</p>
-</li>
-<li><p>  <code>sHeight</code>: 在图片上截取区域的高度。</p>
-</li>
+<li><code>sy</code>: 在图片上截取区域的起始纵轴位置(以下侧为正方向)。</li>
+<li><code>sWidth</code>: 在图片上截取区域的宽度。</li>
+<li><code>sHeight</code>: 在图片上截取区域的高度。</li>
 </ul>
 <p>通过第三种传参方式，就可以实现在 png 图片上截取素材。</p>
 <h4 id="三-、canvas-动画的启动、暂停与继续"><a href="#三-、canvas-动画的启动、暂停与继续" class="headerlink" title="(三)、canvas 动画的启动、暂停与继续"></a>(三)、canvas 动画的启动、暂停与继续</h4><p>我想用 web 动画的形式去代替进度条的读取过程(因为不知道怎么去实现进度条随文件读取状况试试变动，原页面好像是使用了一个专门的引擎)。</p>
@@ -271,9 +264,10 @@
 <p>至于动画的暂停，在调用<code>requestAnimationFrame</code>函数后，会返回一个 id 作为该回调函数在动画帧回调函数列表中位置的唯一标志。那么借由这个唯一标志，将其传进<code>cancelAnimationFrame</code>作为参数，即可暂停动画。</p>
 <p>而动画的继续功能，只需再次调用<code>requestAnimationFrame</code>函数即可。因为动画的状态是由执行函数控制的,<code>requestAnimationFrame</code>只是负责每帧渲染，其变量状态也即保存了动画的状态，所以再次调用即可，另外注意每次调用函数后对唯一标志 id 的状态维护。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useState, useEffect, useRef &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> Index = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> [handlerId, setHandlerId] = useState();</span><br><span class="line">    <span class="keyword">const</span> canvasRef = useRef();</span><br><span class="line">    useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//开始动画</span></span><br><span class="line">        requestAnimationFrame(animate);</span><br><span class="line">        <span class="comment">//3秒后停止动画</span></span><br><span class="line">        setTimeOut(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            cancelAnimationFrame(handlerId);</span><br><span class="line">        &#125;, <span class="number">3000</span>);</span><br><span class="line">    &#125;, []);</span><br><span class="line">    <span class="keyword">const</span> animate = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//动画执行逻辑</span></span><br><span class="line">        <span class="comment">//... ...</span></span><br><span class="line">        <span class="comment">//在结束前调用自身进行下一帧的绘制</span></span><br><span class="line">        <span class="keyword">const</span> id = requestAnimationFrame(animate);</span><br><span class="line">        setHandlerId(id);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">ref</span>=<span class="string">&#123;canvasRef&#125;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Index;</span><br></pre></td></tr></table></figure>
-
 <h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>这次的练习很基础，但对我这种菜鸡仍有不少可以学习实践的地方。然后以本文三个点为基础，还有些方面的内容想更深入些。有机会再接着写笔记吧。</p>
-<p>另外附上 demo 的效果：<br><video src="https://kylinnnnn.github.io/video/canvas-demo.mpeg" position= "absolute" width="100%" height="100%" controls="controls"></video></p>
+<p>另外附上 demo 的效果：</p>
+<video src="https://kylinnnnn.github.io/video/canvas-demo.mpeg" position= "absolute" width="100%" height="100%" controls="controls"></video>
+
 <h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a target="_blank" rel="noopener" href="https://www.canvasapi.cn/CanvasRenderingContext2D/drawImage">Canvas API 中文网</a></p>
 
     
@@ -605,11 +599,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
+                <a href="javascript:void(0)" class="js-tag color2">Canvas</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -633,7 +627,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Canvas</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -641,15 +635,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-概率论</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">概率论</a>
               </li>
              
               <li class="article-tag-list-item">

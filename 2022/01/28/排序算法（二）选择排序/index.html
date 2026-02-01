@@ -17,13 +17,13 @@
 <meta property="og:site_name" content="Kylin的大胃袋">
 <meta property="og:description" content="算法原理选择排序的原理是，在每一轮中，从未排序的部分挑选出最小（最大）的数放到正确的位置。例如在一个长度为 N 的数组中，第一趟选择出最小的数放在数组的最前面，然后第二趟从未排序的部分中选择从最小的数放在已排序的部分的末端，然后以此循环下去直到将每个数都放到了对应的位置就完成了排序。示意图如下：">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://kylinnnnn.github.io/img/20220128-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95-%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F01.png">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/20220128-排序算法-选择排序01.png">
 <meta property="article:published_time" content="2022-01-28T03:33:30.000Z">
-<meta property="article:modified_time" content="2024-02-21T03:48:09.874Z">
+<meta property="article:modified_time" content="2026-02-01T18:18:35.786Z">
 <meta property="article:author" content="Kylin">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://kylinnnnn.github.io/img/20220128-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95-%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F01.png">
+<meta name="twitter:image" content="https://kylinnnnn.github.io/img/20220128-排序算法-选择排序01.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -234,13 +234,10 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h4 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h4><p>选择排序的原理是，在每一轮中，从未排序的部分挑选出最小（最大）的数放到正确的位置。例如在一个长度为 N 的数组中，第一趟选择出最小的数放在数组的最前面，然后第二趟从未排序的部分中选择从最小的数放在已排序的部分的末端，然后以此循环下去直到将每个数都放到了对应的位置就完成了排序。示意图如下：<br><img src="https://kylinnnnn.github.io/img/20220128-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95-%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F01.png"></p>
-<span id="more"></span>
-
+    <h4 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h4><p>选择排序的原理是，在每一轮中，从未排序的部分挑选出最小（最大）的数放到正确的位置。例如在一个长度为 N 的数组中，第一趟选择出最小的数放在数组的最前面，然后第二趟从未排序的部分中选择从最小的数放在已排序的部分的末端，然后以此循环下去直到将每个数都放到了对应的位置就完成了排序。示意图如下：<br><img src="https://kylinnnnn.github.io/img/20220128-排序算法-选择排序01.png" alt=""><br><span id="more"></span></p>
 <h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span>* <span class="title">SelectSort</span><span class="params">(<span class="keyword">int</span>* arr, <span class="keyword">int</span> length)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> min = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; length; i++)&#123;</span><br><span class="line">        min = i;</span><br><span class="line">        <span class="keyword">for</span>(j = i; j &lt; length; j++)&#123;</span><br><span class="line">            min = (arr[j] &gt; arr[min]) ? min : j;</span><br><span class="line">        &#125;   <span class="comment">//取得最小元素的下标</span></span><br><span class="line">        <span class="built_in">swap</span>(arr[min], arr[i]); <span class="comment">//将取得的最小元素放在正确位置</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;  <span class="comment">//此时的arr已经是一个升序数组了</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>首先，选择排序并不是一个稳定的算法。在碰到1、5、1这种大小数夹杂的情况，在遍历的过程中显然会选择后遍历到的1的下标，而两个1的顺序就会因此改变。<br>选择排序的效率也比较低，平均时间复杂度为$$O(n2)$$,空间复杂度为$$O(1)$$。</p>
-<h4 id="优化思路"><a href="#优化思路" class="headerlink" title="优化思路"></a>优化思路</h4><p>选择算法的优化思路是，在每一次循环中，在找出最小值的同时，也找出最大值。也就是说一次循环确定了两个数的位置。那么时间复杂度就成了之前的一半，但仍然是个$$O(n)$$的算法</p>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>首先，选择排序并不是一个稳定的算法。在碰到1、5、1这种大小数夹杂的情况，在遍历的过程中显然会选择后遍历到的1的下标，而两个1的顺序就会因此改变。<br>选择排序的效率也比较低，平均时间复杂度为<script type="math/tex">O(n2)</script>,空间复杂度为<script type="math/tex">O(1)</script>。</p>
+<h4 id="优化思路"><a href="#优化思路" class="headerlink" title="优化思路"></a>优化思路</h4><p>选择算法的优化思路是，在每一次循环中，在找出最小值的同时，也找出最大值。也就是说一次循环确定了两个数的位置。那么时间复杂度就成了之前的一半，但仍然是个<script type="math/tex">O(n)</script>的算法</p>
 
     
 
@@ -563,11 +560,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
+                <a href="javascript:void(0)" class="js-tag color2">Canvas</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,7 +588,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Canvas</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -599,15 +596,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-概率论</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">概率论</a>
               </li>
              
               <li class="article-tag-list-item">

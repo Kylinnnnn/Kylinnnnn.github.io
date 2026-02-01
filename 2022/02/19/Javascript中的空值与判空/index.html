@@ -17,20 +17,20 @@
 <meta property="og:site_name" content="Kylin的大胃袋">
 <meta property="og:description" content="前言在平时代码编写过程中，时常需要将值为空作为特殊情况考虑，因而有了如何判空的问题。在此对空值及其判空方法做个总结。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://kylinnnnn.github.io/img/20220219-Javascript%E4%B8%AD%E7%9A%84%E7%A9%BA%E5%80%BC%E4%B8%8E%E5%88%A4%E7%A9%BA01.png">
-<meta property="og:image" content="https://kylinnnnn.github.io/img/20220219-Javascript%E4%B8%AD%E7%9A%84%E7%A9%BA%E5%80%BC%E4%B8%8E%E5%88%A4%E7%A9%BA02.png">
-<meta property="og:image" content="https://kylinnnnn.github.io/img/20220219-Javascript%E4%B8%AD%E7%9A%84%E7%A9%BA%E5%80%BC%E4%B8%8E%E5%88%A4%E7%A9%BA03.png">
-<meta property="og:image" content="https://kylinnnnn.github.io/img/20220219-Javascript%E4%B8%AD%E7%9A%84%E7%A9%BA%E5%80%BC%E4%B8%8E%E5%88%A4%E7%A9%BA04.png">
-<meta property="og:image" content="https://kylinnnnn.github.io/img/20220219-Javascript%E4%B8%AD%E7%9A%84%E7%A9%BA%E5%80%BC%E4%B8%8E%E5%88%A4%E7%A9%BA05.png">
-<meta property="og:image" content="https://kylinnnnn.github.io/img/20220219-Javascript%E4%B8%AD%E7%9A%84%E7%A9%BA%E5%80%BC%E4%B8%8E%E5%88%A4%E7%A9%BA06.png">
-<meta property="og:image" content="https://kylinnnnn.github.io/img/20220219-Javascript%E4%B8%AD%E7%9A%84%E7%A9%BA%E5%80%BC%E4%B8%8E%E5%88%A4%E7%A9%BA05.png">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/20220219-Javascript中的空值与判空01.png">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/20220219-Javascript中的空值与判空02.png">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/20220219-Javascript中的空值与判空03.png">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/20220219-Javascript中的空值与判空04.png">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/20220219-Javascript中的空值与判空05.png">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/20220219-Javascript中的空值与判空06.png">
+<meta property="og:image" content="https://kylinnnnn.github.io/img/20220219-Javascript中的空值与判空05.png">
 <meta property="article:published_time" content="2022-02-19T07:49:05.000Z">
-<meta property="article:modified_time" content="2024-02-21T03:48:09.872Z">
+<meta property="article:modified_time" content="2026-02-01T18:17:44.687Z">
 <meta property="article:author" content="Kylin">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="Javascript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://kylinnnnn.github.io/img/20220219-Javascript%E4%B8%AD%E7%9A%84%E7%A9%BA%E5%80%BC%E4%B8%8E%E5%88%A4%E7%A9%BA01.png">
+<meta name="twitter:image" content="https://kylinnnnn.github.io/img/20220219-Javascript中的空值与判空01.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -221,7 +221,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">836字</span>
+      <span class="post-count">835字</span>
     </span>
   </span>
 
@@ -241,21 +241,16 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>在平时代码编写过程中，时常需要将值为空作为特殊情况考虑，因而有了如何判空的问题。在此对空值及其判空方法做个总结。</p>
-<span id="more"></span>
+    <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>在平时代码编写过程中，时常需要将值为空作为特殊情况考虑，因而有了如何判空的问题。在此对空值及其判空方法做个总结。<br><span id="more"></span></p>
 <h4 id="空值与判空"><a href="#空值与判空" class="headerlink" title="空值与判空"></a>空值与判空</h4><p>首先如何认定为空值是与变量的数据结构相关的，所以先列出JS中的所有数据结构类型。</p>
 <p>JS中的数据类型分为两类，一类是简单数据类型（又叫值类型），另一类是复杂数据类型（又叫引用类型）。<br>简单数据类型：字符串（String）、数字（Number）、布尔（Boolean）、NULL、undefined、Symbol。<br>复杂数据类型：数组（Array）、对象（Object）、函数（Functoin）</p>
-<p>对于变量来讲，null和undefined是最为常见的空值代表，但要注意到null并不完全等于undefined。<br><img src="https://kylinnnnn.github.io/img/20220219-Javascript%E4%B8%AD%E7%9A%84%E7%A9%BA%E5%80%BC%E4%B8%8E%E5%88%A4%E7%A9%BA01.png"></p>
+<p>对于变量来讲，null和undefined是最为常见的空值代表，但要注意到null并不完全等于undefined。<br><img src="https://kylinnnnn.github.io/img/20220219-Javascript中的空值与判空01.png" alt=""></p>
 <h5 id="判定空字符串"><a href="#判定空字符串" class="headerlink" title="判定空字符串"></a>判定空字符串</h5><p>1.判定字符串<code>&#39;&#39;</code><br>对字符串来讲，<code>&#39;&#39;</code>是最基本最常见的空字符串情况。对于此种情况可以想到两个最简单的方法：</p>
 <ul>
-<li><code>!</code>取反判定<br><img src="https://kylinnnnn.github.io/img/20220219-Javascript%E4%B8%AD%E7%9A%84%E7%A9%BA%E5%80%BC%E4%B8%8E%E5%88%A4%E7%A9%BA02.png"></li>
-<li>通过包装对象调用<code>length</code>属性进行判定<br><img src="https://kylinnnnn.github.io/img/20220219-Javascript%E4%B8%AD%E7%9A%84%E7%A9%BA%E5%80%BC%E4%B8%8E%E5%88%A4%E7%A9%BA03.png"></li>
-</ul>
-<p>2.判定带空格的字符串<code>&#39;         &#39;</code><br>在这种较为特殊的情况下，再尝试上面的方法可以看到不再适用。<br><img src="https://kylinnnnn.github.io/img/20220219-Javascript%E4%B8%AD%E7%9A%84%E7%A9%BA%E5%80%BC%E4%B8%8E%E5%88%A4%E7%A9%BA04.png"><br>在这个时候，可以使用包装对象调用<code>trim()</code>方法从字符串两侧删除空格，然后就能继续使用上述方法判空。<br>另外，<code>trim()</code>方法也能够删除<code>\n</code>、<code>\r</code>这类视为空的转义字符。<br><img src="https://kylinnnnn.github.io/img/20220219-Javascript%E4%B8%AD%E7%9A%84%E7%A9%BA%E5%80%BC%E4%B8%8E%E5%88%A4%E7%A9%BA05.png"></p>
-<h5 id="判定空数组"><a href="#判定空数组" class="headerlink" title="判定空数组"></a>判定空数组</h5><p>判定空数组的情况没有那么多，但是方法确实有好几种。<br>首先需要说明，通过<code>!</code>取反来判定是不可行的<br><img src="https://kylinnnnn.github.io/img/20220219-Javascript%E4%B8%AD%E7%9A%84%E7%A9%BA%E5%80%BC%E4%B8%8E%E5%88%A4%E7%A9%BA06.png"></p>
-<ul>
+<li><code>!</code>取反判定<br><img src="https://kylinnnnn.github.io/img/20220219-Javascript中的空值与判空02.png" alt=""></li>
+<li>通过包装对象调用<code>length</code>属性进行判定<br><img src="https://kylinnnnn.github.io/img/20220219-Javascript中的空值与判空03.png" alt=""><br>2.判定带空格的字符串<code>&#39;         &#39;</code><br>在这种较为特殊的情况下，再尝试上面的方法可以看到不再适用。<br><img src="https://kylinnnnn.github.io/img/20220219-Javascript中的空值与判空04.png" alt=""><br>在这个时候，可以使用包装对象调用<code>trim()</code>方法从字符串两侧删除空格，然后就能继续使用上述方法判空。<br>另外，<code>trim()</code>方法也能够删除<code>\n</code>、<code>\r</code>这类视为空的转义字符。<br><img src="https://kylinnnnn.github.io/img/20220219-Javascript中的空值与判空05.png" alt=""><h5 id="判定空数组"><a href="#判定空数组" class="headerlink" title="判定空数组"></a>判定空数组</h5>判定空数组的情况没有那么多，但是方法确实有好几种。<br>首先需要说明，通过<code>!</code>取反来判定是不可行的<br><img src="https://kylinnnnn.github.io/img/20220219-Javascript中的空值与判空06.png" alt=""></li>
 <li>通过查询<code>length</code>属性进行判定</li>
-<li><code>[]==false</code>进行判定<br>在此过程中，会自动进行类型转换。<br><img src="https://kylinnnnn.github.io/img/20220219-Javascript%E4%B8%AD%E7%9A%84%E7%A9%BA%E5%80%BC%E4%B8%8E%E5%88%A4%E7%A9%BA05.png"></li>
+<li><code>[]==false</code>进行判定<br>在此过程中，会自动进行类型转换。<br><img src="https://kylinnnnn.github.io/img/20220219-Javascript中的空值与判空05.png" alt=""></li>
 <li>使用<code>join()</code>方法将数组转为字符串处理<br>通过<code>join()</code>方法可将数组转化为字符串，然后就能按照字符串流程进行处理了，但是这种方法对于<code>[&#39;&#39;,&#39;&#39;,&#39;&#39;]</code>和<code>[[],[],[]]</code>这样的数组，若不认为这些是空数组的话，是判定不了的。这种方法主要是作为一种解决问题的思路提出，即可以将数组转为字符串以便某些操作的处理。<h5 id="判定空对象"><a href="#判定空对象" class="headerlink" title="判定空对象"></a>判定空对象</h5>需要判定空对象的情况我只偶尔碰到过，且大多时候都有避开判定是否为空对象的更优解，所以此处的方法均为从网上搜集来的。</li>
 <li><code>for ... in</code><br>通过<code>for ... in</code>对目标对象进行枚举，如果有能枚举的属性就说明该对象不为空。</li>
 <li><code>JSON.stringfy()</code><br>通过该方法将对象转为JSON字符串，然后将字符串直接与<code>&#123;&#125;</code>进行比对就行。</li>
@@ -587,11 +582,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
+                <a href="javascript:void(0)" class="js-tag color2">Canvas</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,7 +610,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Canvas</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -623,15 +618,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-概率论</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">概率论</a>
               </li>
              
               <li class="article-tag-list-item">

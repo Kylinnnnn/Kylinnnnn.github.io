@@ -18,7 +18,7 @@
 <meta property="og:description" content="前言词袋库+线性回归分类器是一种传统的基于统计学原理进行机器学习实现文本分类任务的方案，本文会对这种通过机器学习实现文本分类任务的思路以及词袋库和岭回归分类器本身进行讲解。 通过机器学习进行分类的思路其实很多方法都属于传统的文本分类任务的实现方法，但在本文我们只讨论词袋库+岭回归模型这一种。 这种实现方案属于朴素贝叶斯理论的一种应用，认为语句是若干单词生成的一种搭配，通过对已作出结果标注的训练集的">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-10-26T18:44:45.000Z">
-<meta property="article:modified_time" content="2025-10-26T18:44:45.071Z">
+<meta property="article:modified_time" content="2026-02-01T18:17:49.601Z">
 <meta property="article:author" content="Kylin">
 <meta property="article:tag" content="NLP">
 <meta property="article:tag" content="机器学习">
@@ -255,9 +255,7 @@
 <h3 id="模型的评价"><a href="#模型的评价" class="headerlink" title="模型的评价"></a>模型的评价</h3><p>找到了参数之后，我们就要检验和评价我们模型的好坏，也即是评价我们参数选取的好坏。我们上面提到，整体的思路是找到一条参数合适的分界线，如何定义合适即是如何评价模型好坏。</p>
 <p>这里提出了一个叫损失函数的概念，通常来讲会选择方差（或者标准差）作为评价的结果，选择方差进行评价的损失函数也叫作L2损失函数。这里可以结合方差的几何意义去理解。</p>
 <h2 id="词袋库和岭模型"><a href="#词袋库和岭模型" class="headerlink" title="词袋库和岭模型"></a>词袋库和岭模型</h2><p>上面我们讲解了这种传统机器学习进行分类的整体过程思路。使用词袋库和岭模型实现文本分类任务就是这一过程思路的实践。</p>
-<h3 id="词袋库"><a href="#词袋库" class="headerlink" title="词袋库"></a>词袋库</h3><p>词袋库就是为计算模型中的各种概率提供支持。他需要对文本进行向量化，文本向量化的步骤分两步。第一是需要统计一个包含所有单词的集合，还是举一个简单的例子。我们有一个词库，里面有三个单词[“eat”,”I”,”meat”]。第二是根据词库将样本的语句转化为向量，例如我们有”I eat meat”和”eat meat”两个语句，将其进行向量化表示即如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">词库：[&quot;eat&quot;,&quot;I&quot;,&quot;meat&quot;]</span><br><span class="line">语句1：&quot;I eat meat&quot;</span><br><span class="line">文本向量化结果：[1, 1, 1]</span><br><span class="line">语句2：&quot;eat meat&quot;</span><br><span class="line">文本向量化结果：[1, 0, 1]</span><br></pre></td></tr></table></figure>
-
+<h3 id="词袋库"><a href="#词袋库" class="headerlink" title="词袋库"></a>词袋库</h3><p>词袋库就是为计算模型中的各种概率提供支持。他需要对文本进行向量化，文本向量化的步骤分两步。第一是需要统计一个包含所有单词的集合，还是举一个简单的例子。我们有一个词库，里面有三个单词[“eat”,”I”,”meat”]。第二是根据词库将样本的语句转化为向量，例如我们有”I eat meat”和”eat meat”两个语句，将其进行向量化表示即如下：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">词库：[&quot;eat&quot;,&quot;I&quot;,&quot;meat&quot;]</span><br><span class="line">语句1：&quot;I eat meat&quot;</span><br><span class="line">文本向量化结果：[1, 1, 1]</span><br><span class="line">语句2：&quot;eat meat&quot;</span><br><span class="line">文本向量化结果：[1, 0, 1]</span><br></pre></td></tr></table></figure></p>
 <p>然后我们就可以基于这些向量去进行概率的计算。</p>
 <h4 id="词袋库的优缺点"><a href="#词袋库的优缺点" class="headerlink" title="词袋库的优缺点"></a>词袋库的优缺点</h4><h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><ul>
 <li>很明显的优点就是简单</li>
@@ -267,9 +265,12 @@
 <li>同样由第二个缺点我们可以看出，词库维度可能非常多，也即词库中由很多单词，即使有些单词是一个意思</li>
 </ul>
 <h3 id="岭模型"><a href="#岭模型" class="headerlink" title="岭模型"></a>岭模型</h3><p>针对模型的训练这一部分的实现实际上就是实现线性回归模型分类器，采用普通最小二乘法的线性回归模型在面对存在多重共线问题的任务时会出现一些问题，岭回归模型即是针对这一问题进行优化的一种线性回归模型。</p>
-<h4 id="普通最小二乘法"><a href="#普通最小二乘法" class="headerlink" title="普通最小二乘法"></a>普通最小二乘法</h4><p>通常线性模型采用的是普通最小二乘法进行参数估计，其中会涉及一些逆矩阵的运算。<br>普通最小二乘法的损失函数：<br>$$L(\beta) = |y - X\beta|<em>2^2 = (y - X\beta)^T(y - X\beta)$$<br>最后得到的参数估计公式：<br>$$\hat{\beta}</em>{\text{OLS}} = (X^TX)^{-1}X^Ty$$<br>而在文本分类问题中，结合上面的样例我们能够发现，文本向量化后的向量有的维度可能值为零，或者说向量间共线的情况，而这些情况在词库较大时会显著增加。也就是说通常情况下我们得到的向量化后的样本矩阵是一个<strong>稀疏矩阵</strong>，很有可能会是行列式为0的奇异矩阵，因而影响矩阵的求逆操作，进而使得参数估计的过程不稳定，方差会很大。</p>
-<h4 id="岭模型的参数估计公式"><a href="#岭模型的参数估计公式" class="headerlink" title="岭模型的参数估计公式"></a>岭模型的参数估计公式</h4><p>岭回归的损失函数：<br>$$L(\beta) = |y - X\beta|_2^2 + \lambda |\beta|<em>2^2 = (y - X\beta)^T(y - X\beta) + \lambda \beta^T\beta$$<br>最终推导出的参数估计公式：<br>$$\hat{\beta}</em>{\text{Ridge}} = (X^TX + \lambda I)^{-1}X^Ty$$</p>
-<p>可以看到，岭回归的参数估计公式中加入了一个 $\lambda &gt; 0$去保证括号内的矩阵结果可逆。</p>
+<h4 id="普通最小二乘法"><a href="#普通最小二乘法" class="headerlink" title="普通最小二乘法"></a>普通最小二乘法</h4><p>通常线性模型采用的是普通最小二乘法进行参数估计，其中会涉及一些逆矩阵的运算。<br>普通最小二乘法的损失函数：</p>
+<script type="math/tex; mode=display">L(\beta) = \|y - X\beta\|_2^2 = (y - X\beta)^T(y - X\beta)</script><p>最后得到的参数估计公式：</p>
+<script type="math/tex; mode=display">\hat{\beta}_{\text{OLS}} = (X^TX)^{-1}X^Ty</script><p>而在文本分类问题中，结合上面的样例我们能够发现，文本向量化后的向量有的维度可能值为零，或者说向量间共线的情况，而这些情况在词库较大时会显著增加。也就是说通常情况下我们得到的向量化后的样本矩阵是一个<strong>稀疏矩阵</strong>，很有可能会是行列式为0的奇异矩阵，因而影响矩阵的求逆操作，进而使得参数估计的过程不稳定，方差会很大。</p>
+<h4 id="岭模型的参数估计公式"><a href="#岭模型的参数估计公式" class="headerlink" title="岭模型的参数估计公式"></a>岭模型的参数估计公式</h4><p>岭回归的损失函数：</p>
+<script type="math/tex; mode=display">L(\beta) = \|y - X\beta\|_2^2 + \lambda \|\beta\|_2^2 = (y - X\beta)^T(y - X\beta) + \lambda \beta^T\beta</script><p>最终推导出的参数估计公式：</p>
+<script type="math/tex; mode=display">\hat{\beta}_{\text{Ridge}} = (X^TX + \lambda I)^{-1}X^Ty</script><p>可以看到，岭回归的参数估计公式中加入了一个 $\lambda &gt; 0$去保证括号内的矩阵结果可逆。</p>
 <p>此外，岭回归还通过引入偏差来修正方差作为总误差使得参数的估计更稳定。</p>
 
     
@@ -600,11 +601,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
+                <a href="javascript:void(0)" class="js-tag color2">Canvas</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -628,7 +629,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Canvas</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -636,15 +637,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-概率论</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">概率论</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -252,9 +252,7 @@
 <h3 id="模型的评价"><a href="#模型的评价" class="headerlink" title="模型的评价"></a>模型的评价</h3><p>找到了参数之后，我们就要检验和评价我们模型的好坏，也即是评价我们参数选取的好坏。我们上面提到，整体的思路是找到一条参数合适的分界线，如何定义合适即是如何评价模型好坏。</p>
 <p>这里提出了一个叫损失函数的概念，通常来讲会选择方差（或者标准差）作为评价的结果，选择方差进行评价的损失函数也叫作L2损失函数。这里可以结合方差的几何意义去理解。</p>
 <h2 id="词袋库和岭模型"><a href="#词袋库和岭模型" class="headerlink" title="词袋库和岭模型"></a>词袋库和岭模型</h2><p>上面我们讲解了这种传统机器学习进行分类的整体过程思路。使用词袋库和岭模型实现文本分类任务就是这一过程思路的实践。</p>
-<h3 id="词袋库"><a href="#词袋库" class="headerlink" title="词袋库"></a>词袋库</h3><p>词袋库就是为计算模型中的各种概率提供支持。他需要对文本进行向量化，文本向量化的步骤分两步。第一是需要统计一个包含所有单词的集合，还是举一个简单的例子。我们有一个词库，里面有三个单词[“eat”,”I”,”meat”]。第二是根据词库将样本的语句转化为向量，例如我们有”I eat meat”和”eat meat”两个语句，将其进行向量化表示即如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">词库：[&quot;eat&quot;,&quot;I&quot;,&quot;meat&quot;]</span><br><span class="line">语句1：&quot;I eat meat&quot;</span><br><span class="line">文本向量化结果：[1, 1, 1]</span><br><span class="line">语句2：&quot;eat meat&quot;</span><br><span class="line">文本向量化结果：[1, 0, 1]</span><br></pre></td></tr></table></figure>
-
+<h3 id="词袋库"><a href="#词袋库" class="headerlink" title="词袋库"></a>词袋库</h3><p>词袋库就是为计算模型中的各种概率提供支持。他需要对文本进行向量化，文本向量化的步骤分两步。第一是需要统计一个包含所有单词的集合，还是举一个简单的例子。我们有一个词库，里面有三个单词[“eat”,”I”,”meat”]。第二是根据词库将样本的语句转化为向量，例如我们有”I eat meat”和”eat meat”两个语句，将其进行向量化表示即如下：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">词库：[&quot;eat&quot;,&quot;I&quot;,&quot;meat&quot;]</span><br><span class="line">语句1：&quot;I eat meat&quot;</span><br><span class="line">文本向量化结果：[1, 1, 1]</span><br><span class="line">语句2：&quot;eat meat&quot;</span><br><span class="line">文本向量化结果：[1, 0, 1]</span><br></pre></td></tr></table></figure></p>
 <p>然后我们就可以基于这些向量去进行概率的计算。</p>
 <h4 id="词袋库的优缺点"><a href="#词袋库的优缺点" class="headerlink" title="词袋库的优缺点"></a>词袋库的优缺点</h4><h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><ul>
 <li>很明显的优点就是简单</li>
@@ -264,9 +262,12 @@
 <li>同样由第二个缺点我们可以看出，词库维度可能非常多，也即词库中由很多单词，即使有些单词是一个意思</li>
 </ul>
 <h3 id="岭模型"><a href="#岭模型" class="headerlink" title="岭模型"></a>岭模型</h3><p>针对模型的训练这一部分的实现实际上就是实现线性回归模型分类器，采用普通最小二乘法的线性回归模型在面对存在多重共线问题的任务时会出现一些问题，岭回归模型即是针对这一问题进行优化的一种线性回归模型。</p>
-<h4 id="普通最小二乘法"><a href="#普通最小二乘法" class="headerlink" title="普通最小二乘法"></a>普通最小二乘法</h4><p>通常线性模型采用的是普通最小二乘法进行参数估计，其中会涉及一些逆矩阵的运算。<br>普通最小二乘法的损失函数：<br>$$L(\beta) = |y - X\beta|<em>2^2 = (y - X\beta)^T(y - X\beta)$$<br>最后得到的参数估计公式：<br>$$\hat{\beta}</em>{\text{OLS}} = (X^TX)^{-1}X^Ty$$<br>而在文本分类问题中，结合上面的样例我们能够发现，文本向量化后的向量有的维度可能值为零，或者说向量间共线的情况，而这些情况在词库较大时会显著增加。也就是说通常情况下我们得到的向量化后的样本矩阵是一个<strong>稀疏矩阵</strong>，很有可能会是行列式为0的奇异矩阵，因而影响矩阵的求逆操作，进而使得参数估计的过程不稳定，方差会很大。</p>
-<h4 id="岭模型的参数估计公式"><a href="#岭模型的参数估计公式" class="headerlink" title="岭模型的参数估计公式"></a>岭模型的参数估计公式</h4><p>岭回归的损失函数：<br>$$L(\beta) = |y - X\beta|_2^2 + \lambda |\beta|<em>2^2 = (y - X\beta)^T(y - X\beta) + \lambda \beta^T\beta$$<br>最终推导出的参数估计公式：<br>$$\hat{\beta}</em>{\text{Ridge}} = (X^TX + \lambda I)^{-1}X^Ty$$</p>
-<p>可以看到，岭回归的参数估计公式中加入了一个 $\lambda &gt; 0$去保证括号内的矩阵结果可逆。</p>
+<h4 id="普通最小二乘法"><a href="#普通最小二乘法" class="headerlink" title="普通最小二乘法"></a>普通最小二乘法</h4><p>通常线性模型采用的是普通最小二乘法进行参数估计，其中会涉及一些逆矩阵的运算。<br>普通最小二乘法的损失函数：</p>
+<script type="math/tex; mode=display">L(\beta) = \|y - X\beta\|_2^2 = (y - X\beta)^T(y - X\beta)</script><p>最后得到的参数估计公式：</p>
+<script type="math/tex; mode=display">\hat{\beta}_{\text{OLS}} = (X^TX)^{-1}X^Ty</script><p>而在文本分类问题中，结合上面的样例我们能够发现，文本向量化后的向量有的维度可能值为零，或者说向量间共线的情况，而这些情况在词库较大时会显著增加。也就是说通常情况下我们得到的向量化后的样本矩阵是一个<strong>稀疏矩阵</strong>，很有可能会是行列式为0的奇异矩阵，因而影响矩阵的求逆操作，进而使得参数估计的过程不稳定，方差会很大。</p>
+<h4 id="岭模型的参数估计公式"><a href="#岭模型的参数估计公式" class="headerlink" title="岭模型的参数估计公式"></a>岭模型的参数估计公式</h4><p>岭回归的损失函数：</p>
+<script type="math/tex; mode=display">L(\beta) = \|y - X\beta\|_2^2 + \lambda \|\beta\|_2^2 = (y - X\beta)^T(y - X\beta) + \lambda \beta^T\beta</script><p>最终推导出的参数估计公式：</p>
+<script type="math/tex; mode=display">\hat{\beta}_{\text{Ridge}} = (X^TX + \lambda I)^{-1}X^Ty</script><p>可以看到，岭回归的参数估计公式中加入了一个 $\lambda &gt; 0$去保证括号内的矩阵结果可逆。</p>
 <p>此外，岭回归还通过引入偏差来修正方差作为总误差使得参数的估计更稳定。</p>
 
     
@@ -405,9 +406,7 @@
 </ul>
 <h2 id="Flux的缺陷"><a href="#Flux的缺陷" class="headerlink" title="Flux的缺陷"></a>Flux的缺陷</h2><p>Flux通过Action-Dispatcher的实现了对数据进行限制的单向数据流机制，View只能从Store中读取数据，要想改变状态，只能通过向Dispatcher派发Action触发。这一限制机制避免了MVC框架下由于View和Model之间的通信导致的高耦合问题。但是Flux本身也存在着局限性，因而出现了对Flux进行改动的Redux。</p>
 <h3 id="Store之间存在依赖关系"><a href="#Store之间存在依赖关系" class="headerlink" title="Store之间存在依赖关系"></a>Store之间存在依赖关系</h3><p>Javascript的代码执行是异步的，因此并不能确定代码执行的顺序，而Flux的这个缺陷实际也是由此引出。</p>
-<p>举一个例子，当一个状态B依赖于状态A时，也即B的状态是根据A的状态去计算的。在这种情况下，由于Javascript的异步执行机制，并不能保证Dispatcher中状态B部分在状态A部分之后执行。对于此问题，Flux提供了waitFor函数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">B.dispatchToken = AppDispathcer.register(<span class="function">(<span class="params">action</span>)=&gt;</span>&#123;</span><br><span class="line">    AppDispathcer.waitFor([A.dispatchToken]);<span class="comment">//等待Dispatcher中状态A部分先执行</span></span><br><span class="line">    <span class="comment">//执行剩余逻辑</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>在状态B的Dipsatcher注册函数中，通过使用waitFor函数，以状态A注册函数的Token为标记，实现了等待状态A的Action先执行。</p>
+<p>举一个例子，当一个状态B依赖于状态A时，也即B的状态是根据A的状态去计算的。在这种情况下，由于Javascript的异步执行机制，并不能保证Dispatcher中状态B部分在状态A部分之后执行。对于此问题，Flux提供了waitFor函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">B.dispatchToken = AppDispathcer.register(<span class="function">(<span class="params">action</span>)=&gt;</span>&#123;</span><br><span class="line">    AppDispathcer.waitFor([A.dispatchToken]);<span class="comment">//等待Dispatcher中状态A部分先执行</span></span><br><span class="line">    <span class="comment">//执行剩余逻辑</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><br>在状态B的Dipsatcher注册函数中，通过使用waitFor函数，以状态A注册函数的Token为标记，实现了等待状态A的Action先执行。</p>
 <p>Flux如此解决状态依赖的问题所须的代价也很明显：</p>
 <ul>
 <li>被依赖的状态A部分的注册函数产生的Token需要被暴露出来；</li>
@@ -511,7 +510,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">749字</span>
+      <span class="post-count">747字</span>
     </span>
   </span>
 
@@ -541,20 +540,49 @@
 <h3 id="几何分布"><a href="#几何分布" class="headerlink" title="几何分布"></a>几何分布</h3><p>在n次伯努利试验中，试验k次才得到第一次成功的机率。称为随机变量X服从概率为p的几何分布，记作$X\sim GE(p)$。</p>
 <p><strong>分布律</strong>：$P(X=k)=(1-p)^{k-1}p,k=1,2,3,…$</p>
 <h3 id="超几何分布"><a href="#超几何分布" class="headerlink" title="超几何分布"></a>超几何分布</h3><p>从有限N个物件（其中包含M个指定种类的物件）中抽出n个物件，成功抽出该指定种类的物件的次数（不放回），称为随机变量X服从参数为N，n，M的超几何分布，记作$X\sim H(N,n,M)$。</p>
-<p><strong>分布律</strong>：$P(X=k)=\frac{C^k_MC^{n-k}_{N-M}}{C^n_N},k=t,t+1,…,s。其中s为M与n中的较小者，t在n\le N-M时取0，否则t=n-(N-M)$</p>
+<p><strong>分布律</strong>：$P(X=k)=\frac{C^k<em>MC^{n-k}</em>{N-M}}{C^n_N},k=t,t+1,…,s。其中s为M与n中的较小者，t在n\le N-M时取0，否则t=n-(N-M)$</p>
 <h3 id="泊松分布"><a href="#泊松分布" class="headerlink" title="泊松分布"></a>泊松分布</h3><p>随机变量X服从参数为$\lambda$的泊松分布，记作$X \sim \pi ( \lambda )$，$\lambda \gt 0为常数$。</p>
 <p><strong>分布律</strong>：$P{X=k}= \frac{ \lambda ^k \times e^{- \lambda}}{k!},k=0,1,2,…,$</p>
 <p>当$\lambda = n \times p$时，泊松分布逼近二项分布，此时通常n很大p很小，可以此对二项分布概率进行估算。</p>
 <h2 id="连续型随机变量"><a href="#连续型随机变量" class="headerlink" title="连续型随机变量"></a>连续型随机变量</h2><h3 id="均匀分布"><a href="#均匀分布" class="headerlink" title="均匀分布"></a>均匀分布</h3><p>随机变量X在区间(a,b)上服从均匀分布，记作$X \sim U(a,b)$</p>
-<p><strong>概率密度</strong>：<br>$$<br> f(x)=\left{<br>\begin{matrix}<br> \frac{1}{b-a},a\lt x\lt b,\<br> 0,其他,<br>\end{matrix}<br>\right.<br>$$</p>
-<p><strong>分布函数</strong>：<br>$$<br>F(x)=\left{<br>    \begin{matrix}<br>       0,x\lt a,\<br>       \frac{x-a}{b-a},a\le x\lt b,\<br>       1,x\ge b,<br>    \end{matrix}<br>\right.<br>$$</p>
-<h3 id="指数分布"><a href="#指数分布" class="headerlink" title="指数分布"></a>指数分布</h3><p>随机变量X服从参数为$\theta(\theta \gt 0，是常数)$的指数分布。</p>
-<p><strong>概率密度</strong>：<br>$$<br>f(x)=<br>\left{<br>    \begin{matrix}<br>        \frac{1}{\theta}e^{-\frac{x}{\theta}},x&gt;0,\<br>        0,其他<br>    \end{matrix}<br>\right.<br>$$</p>
-<p><strong>分布函数</strong>：<br>$$<br>F(x)=<br>\left{<br>    \begin{matrix}<br>        1-e^{-\frac{x}{\theta}},x\gt0,\<br>        0,其他,<br>    \end{matrix}<br>\right.<br>$$</p>
-<h3 id="正态分布"><a href="#正态分布" class="headerlink" title="正态分布"></a>正态分布</h3><p>随机变量X服从参数为$\mu,\sigma(\mu,\sigma为常数,\sigma \gt0)$的正态分布（高斯分布），记作$X\sim N(\mu,\sigma^2)$。</p>
-<p><strong>概率密度</strong>：<br>$$<br>f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}},-\infty\lt x\lt\infty,<br>$$</p>
-<p><strong>分布函数</strong>:<br>$$<br>F(x)=\frac{1}{\sqrt{2\pi}\sigma}\int_{-\infty}^xe^{-\frac{(t-\mu)^2}{2\sigma^2}dt,}<br>$$</p>
-<p>当$\mu=0,\sigma=1$时为标准正态分布。</p>
+<p><strong>概率密度</strong>：</p>
+<script type="math/tex; mode=display">
+ f(x)=\left\{
+\begin{matrix}
+ \frac{1}{b-a},a\lt x\lt b,\\
+ 0,其他,
+\end{matrix}
+\right.</script><p><strong>分布函数</strong>：</p>
+<script type="math/tex; mode=display">
+F(x)=\left\{
+    \begin{matrix}
+       0,x\lt a,\\
+       \frac{x-a}{b-a},a\le x\lt b,\\
+       1,x\ge b, 
+    \end{matrix}
+\right.</script><h3 id="指数分布"><a href="#指数分布" class="headerlink" title="指数分布"></a>指数分布</h3><p>随机变量X服从参数为$\theta(\theta \gt 0，是常数)$的指数分布。</p>
+<p><strong>概率密度</strong>：</p>
+<script type="math/tex; mode=display">
+f(x)=
+\left\{
+    \begin{matrix}
+        \frac{1}{\theta}e^{-\frac{x}{\theta}},x>0,\\
+        0,其他        
+    \end{matrix}
+\right.</script><p><strong>分布函数</strong>：</p>
+<script type="math/tex; mode=display">
+F(x)=
+\left\{
+    \begin{matrix}
+        1-e^{-\frac{x}{\theta}},x\gt0,\\
+        0,其他,
+    \end{matrix}
+\right.</script><h3 id="正态分布"><a href="#正态分布" class="headerlink" title="正态分布"></a>正态分布</h3><p>随机变量X服从参数为$\mu,\sigma(\mu,\sigma为常数,\sigma \gt0)$的正态分布（高斯分布），记作$X\sim N(\mu,\sigma^2)$。</p>
+<p><strong>概率密度</strong>：</p>
+<script type="math/tex; mode=display">
+f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}},-\infty\lt x\lt\infty,</script><p><strong>分布函数</strong>:</p>
+<script type="math/tex; mode=display">
+F(x)=\frac{1}{\sqrt{2\pi}\sigma}\int_{-\infty}^xe^{-\frac{(t-\mu)^2}{2\sigma^2}dt,}</script><p>当$\mu=0,\sigma=1$时为标准正态分布。</p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>《概率论与数理统计》浙江大学第四版——盛骤、谢式千</p>
 
     
@@ -572,7 +600,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">-概率论</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">概率论</a>
         		</li>
       		
 		</ul>
@@ -698,7 +726,7 @@
 <li><p>无进位：结果减3。</p>
 </li>
 </ul>
-<h2 id="4-3-2421码"><a href="#4-3-2421码" class="headerlink" title="4.3 2421码"></a>4.3 2421码</h2><p>2421码也是一种有权码，其权值从左至右为2、4、2、1。它通过约定高位区分0<del>4和5</del>9，从而在一定程度上解决了8421码加法进位的复杂性，但也引入了表示上的歧义。</p>
+<h2 id="4-3-2421码"><a href="#4-3-2421码" class="headerlink" title="4.3 2421码"></a>4.3 2421码</h2><p>2421码也是一种有权码，其权值从左至右为2、4、2、1。它通过约定高位区分0~4和5~9，从而在一定程度上解决了8421码加法进位的复杂性，但也引入了表示上的歧义。</p>
 <h1 id="五、数据运算与处理"><a href="#五、数据运算与处理" class="headerlink" title="五、数据运算与处理"></a>五、数据运算与处理</h1><h2 id="5-1-算术运算"><a href="#5-1-算术运算" class="headerlink" title="5.1 算术运算"></a>5.1 算术运算</h2><p>计算机中的算术运算主要基于加法器实现，乘法可通过加法与移位实现，除法则可通过减法与移位实现。浮点运算由专门的浮点运算单元（FPU）处理，遵循IEEE 754规定的运算规则。</p>
 <h2 id="5-2-逻辑运算"><a href="#5-2-逻辑运算" class="headerlink" title="5.2 逻辑运算"></a>5.2 逻辑运算</h2><p>包括与（AND）、或（OR）、非（NOT）、异或（XOR）等，是计算机实现控制、判断与数据处理的基础。</p>
 <h2 id="5-3-移位运算"><a href="#5-3-移位运算" class="headerlink" title="5.3 移位运算"></a>5.3 移位运算</h2><p>分为逻辑移位、算术移位和循环移位，用于实现乘除运算、数据提取与位操作等功能。</p>
@@ -818,7 +846,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>想实践练习一下 canvas，简单复现一下原神一个网页活动的加载页面的一些部分。本文主要是记录一下实现过程中的一些收获。</p>
+    <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>想实践练习一下 canvas，简单复现一下原神一个网页活动的加载页面的一些部分。本文主要是记录一下实现过程中的一些收获。<br>
     
     <a class="article-more-a" href="/2023/01/24/Demo%E5%90%88%E9%9B%86-canvas%E7%BB%83%E4%B9%A0/#more">more >></a>
     
@@ -1277,7 +1305,7 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>近年来读书欲望偏低，记忆力也不如从前，究其原因，可能是在面对大量文字时不甚愿意花费心思和时间从中提取吸收知识。今逢有 React 学习需求，手边有恰有<strong>《深入浅出 React 和 Redux》</strong>这本书，因此在拜读学习同时略作笔记，以锻炼自己从文本中提取信息并加以分析的能力，同时以期能够再次爱上读书。</p>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>本篇读书速记是在观读本书第一章内容后的笔记。在第一章中，作者旨在简要介绍 React，并对 React 一些突出的特点进行分析以及与其他框架进行对比，以便读者能够相对直观的简单认识 React。在本章中，首先是介绍了一个 React 应用的创建方式以及为何要使用这种方式。接着介绍了 React 的首要思想——组件化开发（这也是如今代码开发过程中的重要思想，当然各自框架对于组件化的理解会有所出入，但都大同小异）。紧接着就着组件化开发介绍了 React 的另一特色——JSX 语法。然后对脚手架搭建的项目结构进行简要解读。最后，对 React 的工作方式进行概况并与 JQuery 进行对比，在这一段中，React 的工作方式不仅仅是使用 React 的方式，也是以 React，Vue 这类框架为代表的初衷。</p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>本篇读书速记是在观读本书第一章内容后的笔记。在第一章中，作者旨在简要介绍 React，并对 React 一些突出的特点进行分析以及与其他框架进行对比，以便读者能够相对直观的简单认识 React。在本章中，首先是介绍了一个 React 应用的创建方式以及为何要使用这种方式。接着介绍了 React 的首要思想——组件化开发（这也是如今代码开发过程中的重要思想，当然各自框架对于组件化的理解会有所出入，但都大同小异）。紧接着就着组件化开发介绍了 React 的另一特色——JSX 语法。然后对脚手架搭建的项目结构进行简要解读。最后，对 React 的工作方式进行概况并与 JQuery 进行对比，在这一段中，React 的工作方式不仅仅是使用 React 的方式，也是以 React，Vue 这类框架为代表的初衷。<br>
     
     <a class="article-more-a" href="/2022/03/07/%E8%AF%BB%E4%B9%A6%E9%80%9F%E8%AE%B0-%E3%80%8A%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAReact%E5%92%8CReddux%E3%80%8B%EF%BC%88%E4%B8%80%EF%BC%89/#more">more >></a>
     
@@ -1390,7 +1418,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>近期在跟小伙伴合作开发，期间频繁使用到了一些git命令以及学习到一些分支管理流程，记录一下。</p>
+    <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>近期在跟小伙伴合作开发，期间频繁使用到了一些git命令以及学习到一些分支管理流程，记录一下。<br>
     
     <a class="article-more-a" href="/2022/02/24/git%E9%A3%9F%E7%94%A8%E6%89%8B%E5%86%8C/#more">more >></a>
     
@@ -1615,11 +1643,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
+                <a href="javascript:void(0)" class="js-tag color2">Canvas</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1643,7 +1671,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Canvas</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1651,15 +1679,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-概率论</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">概率论</a>
               </li>
              
               <li class="article-tag-list-item">

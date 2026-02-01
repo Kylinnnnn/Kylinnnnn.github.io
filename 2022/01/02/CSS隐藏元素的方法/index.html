@@ -18,7 +18,7 @@
 <meta property="og:description" content="学习vue时思考了下v-if是怎样隐藏元素的，由此想到了经典面试题之display:none与visibility:hidden的区别，随即将CSS隐藏元素的方法整理一下。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-01-02T09:17:58.000Z">
-<meta property="article:modified_time" content="2024-02-21T03:48:09.871Z">
+<meta property="article:modified_time" content="2026-02-01T18:17:33.692Z">
 <meta property="article:author" content="Kylin">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="CSS">
@@ -233,8 +233,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>学习vue时思考了下v-if是怎样隐藏元素的，由此想到了经典面试题之display:none与visibility:hidden的区别，随即将CSS隐藏元素的方法整理一下。</p>
-<span id="more"></span>
+    <p>学习vue时思考了下v-if是怎样隐藏元素的，由此想到了经典面试题之display:none与visibility:hidden的区别，随即将CSS隐藏元素的方法整理一下。<br><span id="more"></span></p>
 <h5 id="方法一：display属性"><a href="#方法一：display属性" class="headerlink" title="方法一：display属性"></a>方法一：display属性</h5><p>通过将display属性值设置为none可以实现将元素隐藏。</p>
 <p>在浏览器解析html与css文件生成渲染树时，diplay属性被设置为none的节点会被除去。<br>也就是说，display属性值为none的元素在页面上不会占有空间，因而将原本显示的元素设置display:none时，页面的布局会因为该元素的消失发生变化。</p>
 <h5 id="方法二：visibility属性"><a href="#方法二：visibility属性" class="headerlink" title="方法二：visibility属性"></a>方法二：visibility属性</h5><p>通过将visibility属性设置为hidden可以实现元素隐藏。</p>
@@ -243,8 +242,8 @@
 <h5 id="方法三：opacity属性"><a href="#方法三：opacity属性" class="headerlink" title="方法三：opacity属性"></a>方法三：opacity属性</h5><p>opacity属性原本控制的是元素的透明度，在将透明度设置为0时即变向实现了元素的隐藏。</p>
 <p>这种方法的特点也很明显。由于opacity控制的是透明度，所以虽然元素不可见，但是元素在布局上并无变化，并且元素的功能也不受影响，因而元素仍能正常与用户交互。</p>
 <h5 id="方法四：position属性"><a href="#方法四：position属性" class="headerlink" title="方法四：position属性"></a>方法四：position属性</h5><p>通过设置position属性将元素移出网页的可视区域即算是实现了元素的隐藏。</p>
-<p>例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.hide &#123;</span><br><span class="line">   position: absolute;</span><br><span class="line">   top: -9999px;</span><br><span class="line">   left: -9999px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例如：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.hide &#123;</span><br><span class="line">   position: absolute;</span><br><span class="line">   top: -9999px;</span><br><span class="line">   left: -9999px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
     
 
     
@@ -570,11 +569,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
+                <a href="javascript:void(0)" class="js-tag color2">Canvas</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -598,7 +597,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Canvas</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -606,15 +605,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-概率论</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">概率论</a>
               </li>
              
               <li class="article-tag-list-item">
